@@ -97,10 +97,10 @@ void HAL_ADC_MspInit(ADC_HandleTypeDef* hadc)
     /**ADC1 GPIO Configuration
     PA4     ------> ADC1_IN4
     */
-    GPIO_InitStruct.Pin = ADC_SENSOR_TEMP_Pin;
+    GPIO_InitStruct.Pin = GPIO_PIN_4;
     GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
-    HAL_GPIO_Init(ADC_SENSOR_TEMP_GPIO_Port, &GPIO_InitStruct);
+    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
     /* USER CODE BEGIN ADC1_MspInit 1 */
 
@@ -129,7 +129,7 @@ void HAL_ADC_MspDeInit(ADC_HandleTypeDef* hadc)
     /**ADC1 GPIO Configuration
     PA4     ------> ADC1_IN4
     */
-    HAL_GPIO_DeInit(ADC_SENSOR_TEMP_GPIO_Port, ADC_SENSOR_TEMP_Pin);
+    HAL_GPIO_DeInit(GPIOA, GPIO_PIN_4);
 
     /* USER CODE BEGIN ADC1_MspDeInit 1 */
 
@@ -217,7 +217,7 @@ void HAL_SPI_MspInit(SPI_HandleTypeDef* hspi)
     PA6     ------> SPI1_MISO
     PA7     ------> SPI1_MOSI
     */
-    GPIO_InitStruct.Pin = SPI_CLK_Pin|SPI_RECEIVER_Pin|SPI_SENDER_Pin;
+    GPIO_InitStruct.Pin = GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
@@ -253,7 +253,7 @@ void HAL_SPI_MspDeInit(SPI_HandleTypeDef* hspi)
     PA6     ------> SPI1_MISO
     PA7     ------> SPI1_MOSI
     */
-    HAL_GPIO_DeInit(GPIOA, SPI_CLK_Pin|SPI_RECEIVER_Pin|SPI_SENDER_Pin);
+    HAL_GPIO_DeInit(GPIOA, GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7);
 
     /* USER CODE BEGIN SPI1_MspDeInit 1 */
 
