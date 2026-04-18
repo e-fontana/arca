@@ -63,7 +63,7 @@ code --install-extension ms-vscode.cpptools-extension-pack
 ## Clonando e abrindo o projeto
 
 ```bash
-git clone <URL_DO_REPOSITORIO>
+git clone https://github.com/e-fontana/arca.git
 cd arca
 code .
 ```
