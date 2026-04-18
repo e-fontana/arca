@@ -1,7 +1,0 @@
-/home/fontana/dev/ufba/lab-2/arca/Core/Src/main.c:72:5:main	1
-/home/fontana/dev/ufba/lab-2/arca/Core/Src/main.c:122:6:SystemClock_Config	3
-/home/fontana/dev/ufba/lab-2/arca/Core/Src/main.c:170:13:MX_ADC1_Init	3
-/home/fontana/dev/ufba/lab-2/arca/Core/Src/main.c:222:13:MX_RTC_Init	4
-/home/fontana/dev/ufba/lab-2/arca/Core/Src/main.c:285:13:MX_SPI1_Init	2
-/home/fontana/dev/ufba/lab-2/arca/Core/Src/main.c:323:13:MX_GPIO_Init	1
-/home/fontana/dev/ufba/lab-2/arca/Core/Src/main.c:358:6:Error_Handler	1

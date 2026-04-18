@@ -1,3 +1,0 @@
-/home/fontana/dev/ufba/lab-2/arca/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c:100:19:HAL_DMAEx_MultiBufferStart	5
-/home/fontana/dev/ufba/lab-2/arca/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c:154:19:HAL_DMAEx_MultiBufferStart_IT	25
-/home/fontana/dev/ufba/lab-2/arca/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c:239:19:HAL_DMAEx_ChangeMemory	2
