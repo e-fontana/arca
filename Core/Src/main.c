@@ -42,7 +42,7 @@ RTC_HandleTypeDef hrtc;
 SPI_HandleTypeDef hspi1;
 
 /* USER CODE BEGIN PV */
-PN532_Card_t last_card;  /* último cartão lido — inspecionar no debugger */
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
