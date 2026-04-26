@@ -34,7 +34,11 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+
+/* Define a direção do módulo para controle de acesso
+Entrada = DIRECTION_ENTRY, Saída = DIRECTION_EXIT */
 #define MODULE_DIRECTION DIRECTION_ENTRY
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
