@@ -21,7 +21,11 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "pn532.h"
+#include "stm32f411xe.h"
+#include "stm32f4xx_hal_gpio.h"
+#include "system_types.h"
+#include "nfc.h"
+#include <string.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -30,6 +34,11 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+
+/* Define a direção do módulo para controle de acesso
+Entrada = DIRECTION_ENTRY, Saída = DIRECTION_EXIT */
+#define MODULE_DIRECTION DIRECTION_ENTRY
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -42,7 +51,7 @@ RTC_HandleTypeDef hrtc;
 SPI_HandleTypeDef hspi1;
 
 /* USER CODE BEGIN PV */
-PN532_Card_t last_card;  /* último cartão lido — inspecionar no debugger */
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -84,9 +93,8 @@ int main(void)
   MX_SPI1_Init();
 
   /* USER CODE BEGIN 2 */
-  PN532_Init(&hspi1);
-  uint8_t fw[4] = {0};
-  uint8_t fw_ok = PN532_GetFirmwareVersion(fw);
+  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);
+  NFC_Begin(&hspi1);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -96,19 +104,9 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    if (pn532_card_ready) {
-        pn532_card_ready = 0;
-        PN532_ReadPassiveTarget(&last_card);
-        /* Breakpoint aqui para inspecionar last_card no debugger:
-         *   last_card.uid[0..6]  — bytes do UID
-         *   last_card.uid_len    — 4 (MIFARE) ou 7 (DESFire)
-         *   last_card.valid      — 1 se leitura OK
-         *   last_card.sak        — tipo do cartão
-         */
-    }
-    HAL_Delay(10);
-    /* USER CODE END 3 */
+    NFC_Process();  
   }
+  /* USER CODE END 3 */
 }
 
 /**
@@ -317,8 +315,19 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-    if (GPIO_Pin == INT_NFC_Pin)    PN532_IRQ_Handler();
-    if (GPIO_Pin == INT_CC1101_Pin) { /* cc1101 futuramente */ }
+  if (GPIO_Pin == INT_NFC_Pin) NFC_IRQ_Handler();
+}
+
+void NFC_CardDetected(PN532_Card_t *card)
+{
+  NFC_Package_t pkg;
+  memset(&pkg, 0u, sizeof(pkg));
+
+  memcpy(pkg.uid, card->uid, card->uid_len);
+  pkg.uid_len = card->uid_len;
+  pkg.direction = MODULE_DIRECTION;
+
+  /* TODO: CC1101_Send(&pkg, sizeof(pkg)); */
 }
 /* USER CODE END 4 */
 
