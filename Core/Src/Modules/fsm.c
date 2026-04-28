@@ -136,6 +136,9 @@ void Controller_Run(Controller_Context *ctx)
             {
                 _set_state(ctx, STATE_EXPORTAR_LOGS);
             }
+            else {
+                _uart_send(ctx, "CMD:INVALIDO\n");
+            }
 
             ctx->uart_line_ready = 0;
             ctx->uart_line_len = 0;
@@ -205,9 +208,16 @@ void Controller_Run(Controller_Context *ctx)
             _set_state(ctx, STATE_CADASTRO_CONFIRMA_PC);
             break;
         case STATE_CADASTRO_CONFIRMA_PC:
-            _uart_send(ctx, "ACK:OK\n");
+        {
+            char card_id_str[7 * 2 + 1] = {0};
+            for (uint8_t i = 0; i < ctx->cadastro_uid_len; i++)
+                snprintf(card_id_str + i * 2, 3, "%02X", ctx->cadastro_uid[i]);
+            _uart_send(ctx, card_id_str);
+            _uart_send(ctx, "\nACK:OK\n");
             _set_state(ctx, STATE_MENU_PC);
+            ctx->uart_line_ready = 1u;
             break;
+        }
 
         case STATE_DELETAR:
             /* TODO */
