@@ -46,6 +46,8 @@ target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user sources here
     Core/Src/Modules/com.c
+    Core/Src/Modules/fsm.c
+    Core/Src/Modules/nfc.c
     Core/Src/Modules/ihm.c
 )
 
