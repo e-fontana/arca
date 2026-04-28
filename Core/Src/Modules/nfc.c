@@ -222,8 +222,6 @@ void NFC_Init(SPI_HandleTypeDef *hspi)
     _read_response(resp, sizeof(resp), &resp_len);
 }
 
-/* TODO: Implementar LED de status para o Módulo NFC. HIGH = Pronto p/ leitura, LOW = Algo deu errado. */
-
 void NFC_StartRead(void)
 {
     static const uint8_t ilpt_data[] = { 0x01u, 0x00u }; // 0x01u = Procura no máx. 1 cartão por vez, 0x00u = Protocolo MIFARE
@@ -242,6 +240,23 @@ void NFC_Begin(SPI_HandleTypeDef *hspi)
 {
     NFC_Init(hspi);
     NFC_StartRead();
+}
+
+void NFC_StopRead(void)
+{
+    /* Cancela leitura pendente reenviando SAMConfiguration */
+    static const uint8_t sam_data[] = { 0x01u, 0x00u };
+    _send_frame(PN532_CMD_SAMCONFIGURATION, sam_data, sizeof(sam_data));
+    _read_ack();
+
+    uint8_t resp[PN532_RESP_BUF_SIZE];
+    uint8_t resp_len = 0u;
+    _read_response(resp, sizeof(resp), &resp_len);
+
+    _set_led(0u);
+
+    /* Reseta flag de interrupção caso tenha disparado */
+    pn532_card_ready = 0u;
 }
 
 uint8_t NFC_GetCard(PN532_Card_t *card)
