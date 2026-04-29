@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    name: Build (${{ github.ref == 'refs/heads/main' && 'Release' || 'Debug' }})
+    name: Build (${{ (github.ref == 'refs/heads/main' || github.base_ref == 'main') && 'Release' || 'Debug' }})
     runs-on: ubuntu-latest
 
     steps:
@@ -20,7 +20,8 @@ jobs:
       - name: Set build type
         id: preset
         run: |
-          if [ "${{ github.ref }}" = "refs/heads/main" ]; then
+          if [ "${{ github.ref }}" = "refs/heads/main" ] || \
+            [ "${{ github.base_ref }}" = "main" ]; then
             echo "build_type=Release" >> $GITHUB_OUTPUT
           else
             echo "build_type=Debug" >> $GITHUB_OUTPUT
