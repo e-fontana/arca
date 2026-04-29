@@ -21,11 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "stm32f411xe.h"
-#include "stm32f4xx_hal_gpio.h"
 #include "system_types.h"
-#include "nfc.h"
-#include <string.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
