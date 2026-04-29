@@ -1,0 +1,50 @@
+name: STM32 CMake Build
+
+on:
+  push:
+    branches: [ "**" ]
+  pull_request:
+    branches: [ "**" ]
+
+jobs:
+  build:
+    name: Build (${{ matrix.build_type }})
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        build_type: [Debug, Release]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Install ARM GCC toolchain
+        uses: carlosperate/arm-none-eabi-gcc-action@v1
+        with:
+          release: '13.3.Rel1'
+
+      - name: Install Ninja
+        uses: seanmiddleditch/gha-setup-ninja@v5
+
+      - name: Configure CMake
+        run: |
+          cmake --preset ${{ matrix.build_type }}
+
+      - name: Build
+        run: |
+          cmake --build --preset ${{ matrix.build_type }} -- -j$(nproc)
+
+      - name: Upload build artifacts
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: firmware-${{ matrix.build_type }}
+          path: |
+            build/${{ matrix.build_type }}/*.elf
+            build/${{ matrix.build_type }}/*.bin
+            build/${{ matrix.build_type }}/*.hex
+          retention-days: 7
