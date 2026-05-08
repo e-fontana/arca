@@ -1,0 +1,2390 @@
+
+---
+events:
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineSystem.cmake:12 (find_program)"
+      - "CMakeLists.txt:28 (project)"
+    mode: "program"
+    variable: "CMAKE_UNAME"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "uname"
+    candidate_directories:
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64/"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64/"
+      - "/home/fontana/.local/bin/"
+      - "/home/fontana/go/bin/"
+      - "/home/fontana/.local/share/nvm/v24.15.0/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin/"
+      - "/bin/"
+    searched_directories:
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/uname"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/uname"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64/uname"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64/uname"
+      - "/home/fontana/.local/bin/uname"
+      - "/home/fontana/go/bin/uname"
+      - "/home/fontana/.local/share/nvm/v24.15.0/bin/uname"
+      - "/usr/local/sbin/uname"
+      - "/usr/local/bin/uname"
+    found: "/usr/bin/uname"
+    search_context:
+      ENV{PATH}:
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/go/bin"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/.local/share/nvm/v24.15.0/bin"
+        - "/home/fontana/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineSystem.cmake:212 (message)"
+      - "CMakeLists.txt:28 (project)"
+    message: |
+      The system is: Linux - 7.0.3-1-cachyos - x86_64
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeUnixFindMake.cmake:5 (find_program)"
+      - "CMakeLists.txt:28 (project)"
+    mode: "program"
+    variable: "CMAKE_MAKE_PROGRAM"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "gmake"
+      - "make"
+      - "smake"
+    candidate_directories:
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64/"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64/"
+      - "/home/fontana/.local/bin/"
+      - "/home/fontana/go/bin/"
+      - "/home/fontana/.local/share/nvm/v24.15.0/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin/"
+    searched_directories:
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/gmake"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/gmake"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64/gmake"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64/gmake"
+      - "/home/fontana/.local/bin/gmake"
+      - "/home/fontana/go/bin/gmake"
+      - "/home/fontana/.local/share/nvm/v24.15.0/bin/gmake"
+      - "/usr/local/sbin/gmake"
+      - "/usr/local/bin/gmake"
+      - "/usr/bin/gmake"
+      - "/usr/lib/jvm/default/bin/gmake"
+      - "/usr/bin/site_perl/gmake"
+      - "/usr/bin/vendor_perl/gmake"
+      - "/usr/bin/core_perl/gmake"
+      - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin/gmake"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/make"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/make"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64/make"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64/make"
+      - "/home/fontana/.local/bin/make"
+      - "/home/fontana/go/bin/make"
+      - "/home/fontana/.local/share/nvm/v24.15.0/bin/make"
+      - "/usr/local/sbin/make"
+      - "/usr/local/bin/make"
+    found: "/usr/bin/make"
+    search_context:
+      ENV{PATH}:
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/go/bin"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/.local/share/nvm/v24.15.0/bin"
+        - "/home/fontana/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompiler.cmake:73 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:64 (_cmake_find_compiler)"
+      - "CMakeLists.txt:28 (project)"
+    mode: "program"
+    variable: "CMAKE_C_COMPILER"
+    description: "C compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "cc"
+      - "gcc"
+      - "cl"
+      - "bcc"
+      - "xlc"
+      - "icx"
+      - "clang"
+    candidate_directories:
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64/"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64/"
+      - "/home/fontana/.local/bin/"
+      - "/home/fontana/go/bin/"
+      - "/home/fontana/.local/share/nvm/v24.15.0/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin/"
+    searched_directories:
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/cc"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/cc"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64/cc"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64/cc"
+      - "/home/fontana/.local/bin/cc"
+      - "/home/fontana/go/bin/cc"
+      - "/home/fontana/.local/share/nvm/v24.15.0/bin/cc"
+      - "/usr/local/sbin/cc"
+      - "/usr/local/bin/cc"
+    found: "/usr/bin/cc"
+    search_context:
+      ENV{PATH}:
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/go/bin"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/.local/share/nvm/v24.15.0/bin"
+        - "/home/fontana/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:468 (find_file)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:506 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:28 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCCompilerId.c.in"
+    candidate_directories:
+      - "/usr/share/cmake/Modules/"
+    found: "/usr/share/cmake/Modules/CMakeCCompilerId.c.in"
+    search_context:
+      ENV{PATH}:
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/go/bin"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/.local/share/nvm/v24.15.0/bin"
+        - "/home/fontana/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:28 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: /usr/bin/cc 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+      
+      The C compiler identification is GNU, found in:
+        /home/fontana/dev/ufba/lab-2/arca/Debug/CMakeFiles/4.3.2/CompilerIdC/a.out
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:28 (project)"
+    mode: "program"
+    variable: "CMAKE_AR"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "ar"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64/"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64/"
+      - "/home/fontana/.local/bin/"
+      - "/home/fontana/go/bin/"
+      - "/home/fontana/.local/share/nvm/v24.15.0/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin/"
+    found: "/usr/bin/ar"
+    search_context:
+      ENV{PATH}:
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/go/bin"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/.local/share/nvm/v24.15.0/bin"
+        - "/home/fontana/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:28 (project)"
+    mode: "program"
+    variable: "CMAKE_RANLIB"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "ranlib"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64/"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64/"
+      - "/home/fontana/.local/bin/"
+      - "/home/fontana/go/bin/"
+      - "/home/fontana/.local/share/nvm/v24.15.0/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin/"
+    found: "/usr/bin/ranlib"
+    search_context:
+      ENV{PATH}:
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/go/bin"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/.local/share/nvm/v24.15.0/bin"
+        - "/home/fontana/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:28 (project)"
+    mode: "program"
+    variable: "CMAKE_STRIP"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "strip"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64/"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64/"
+      - "/home/fontana/.local/bin/"
+      - "/home/fontana/go/bin/"
+      - "/home/fontana/.local/share/nvm/v24.15.0/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin/"
+    found: "/usr/bin/strip"
+    search_context:
+      ENV{PATH}:
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/go/bin"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/.local/share/nvm/v24.15.0/bin"
+        - "/home/fontana/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:28 (project)"
+    mode: "program"
+    variable: "CMAKE_LINKER"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "ld"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64/"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64/"
+      - "/home/fontana/.local/bin/"
+      - "/home/fontana/go/bin/"
+      - "/home/fontana/.local/share/nvm/v24.15.0/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin/"
+    found: "/usr/bin/ld"
+    search_context:
+      ENV{PATH}:
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/go/bin"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/.local/share/nvm/v24.15.0/bin"
+        - "/home/fontana/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:28 (project)"
+    mode: "program"
+    variable: "CMAKE_NM"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "nm"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64/"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64/"
+      - "/home/fontana/.local/bin/"
+      - "/home/fontana/go/bin/"
+      - "/home/fontana/.local/share/nvm/v24.15.0/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin/"
+    found: "/usr/bin/nm"
+    search_context:
+      ENV{PATH}:
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/go/bin"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/.local/share/nvm/v24.15.0/bin"
+        - "/home/fontana/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:28 (project)"
+    mode: "program"
+    variable: "CMAKE_OBJDUMP"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "objdump"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64/"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64/"
+      - "/home/fontana/.local/bin/"
+      - "/home/fontana/go/bin/"
+      - "/home/fontana/.local/share/nvm/v24.15.0/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin/"
+    found: "/usr/bin/objdump"
+    search_context:
+      ENV{PATH}:
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/go/bin"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/.local/share/nvm/v24.15.0/bin"
+        - "/home/fontana/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:28 (project)"
+    mode: "program"
+    variable: "CMAKE_OBJCOPY"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "objcopy"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64/"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64/"
+      - "/home/fontana/.local/bin/"
+      - "/home/fontana/go/bin/"
+      - "/home/fontana/.local/share/nvm/v24.15.0/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin/"
+    found: "/usr/bin/objcopy"
+    search_context:
+      ENV{PATH}:
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/go/bin"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/.local/share/nvm/v24.15.0/bin"
+        - "/home/fontana/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:28 (project)"
+    mode: "program"
+    variable: "CMAKE_READELF"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "readelf"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64/"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64/"
+      - "/home/fontana/.local/bin/"
+      - "/home/fontana/go/bin/"
+      - "/home/fontana/.local/share/nvm/v24.15.0/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin/"
+    found: "/usr/bin/readelf"
+    search_context:
+      ENV{PATH}:
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/go/bin"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/.local/share/nvm/v24.15.0/bin"
+        - "/home/fontana/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:28 (project)"
+    mode: "program"
+    variable: "CMAKE_DLLTOOL"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "dlltool"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64/"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64/"
+      - "/home/fontana/.local/bin/"
+      - "/home/fontana/go/bin/"
+      - "/home/fontana/.local/share/nvm/v24.15.0/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin/"
+    searched_directories:
+      - "/usr/bin/dlltool"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/dlltool"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/dlltool"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64/dlltool"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64/dlltool"
+      - "/home/fontana/.local/bin/dlltool"
+      - "/home/fontana/go/bin/dlltool"
+      - "/home/fontana/.local/share/nvm/v24.15.0/bin/dlltool"
+      - "/usr/local/sbin/dlltool"
+      - "/usr/local/bin/dlltool"
+      - "/usr/lib/jvm/default/bin/dlltool"
+      - "/usr/bin/site_perl/dlltool"
+      - "/usr/bin/vendor_perl/dlltool"
+      - "/usr/bin/core_perl/dlltool"
+      - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin/dlltool"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/go/bin"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/.local/share/nvm/v24.15.0/bin"
+        - "/home/fontana/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:28 (project)"
+    mode: "program"
+    variable: "CMAKE_ADDR2LINE"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "addr2line"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64/"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64/"
+      - "/home/fontana/.local/bin/"
+      - "/home/fontana/go/bin/"
+      - "/home/fontana/.local/share/nvm/v24.15.0/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin/"
+    found: "/usr/bin/addr2line"
+    search_context:
+      ENV{PATH}:
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/go/bin"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/.local/share/nvm/v24.15.0/bin"
+        - "/home/fontana/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:28 (project)"
+    mode: "program"
+    variable: "CMAKE_TAPI"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "tapi"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64/"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64/"
+      - "/home/fontana/.local/bin/"
+      - "/home/fontana/go/bin/"
+      - "/home/fontana/.local/share/nvm/v24.15.0/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin/"
+    searched_directories:
+      - "/usr/bin/tapi"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/tapi"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/tapi"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64/tapi"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64/tapi"
+      - "/home/fontana/.local/bin/tapi"
+      - "/home/fontana/go/bin/tapi"
+      - "/home/fontana/.local/share/nvm/v24.15.0/bin/tapi"
+      - "/usr/local/sbin/tapi"
+      - "/usr/local/bin/tapi"
+      - "/usr/lib/jvm/default/bin/tapi"
+      - "/usr/bin/site_perl/tapi"
+      - "/usr/bin/vendor_perl/tapi"
+      - "/usr/bin/core_perl/tapi"
+      - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin/tapi"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/go/bin"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/.local/share/nvm/v24.15.0/bin"
+        - "/home/fontana/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Compiler/GNU-FindBinUtils.cmake:18 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:201 (include)"
+      - "CMakeLists.txt:28 (project)"
+    mode: "program"
+    variable: "CMAKE_C_COMPILER_AR"
+    description: "A wrapper around 'ar' adding the appropriate '--plugin' option for the GCC compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "gcc-ar-16.1"
+      - "gcc-ar-16"
+      - "gcc-ar16"
+      - "gcc-ar"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64/"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64/"
+      - "/home/fontana/.local/bin/"
+      - "/home/fontana/go/bin/"
+      - "/home/fontana/.local/share/nvm/v24.15.0/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin/"
+    searched_directories:
+      - "/usr/bin/gcc-ar-16.1"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/gcc-ar-16.1"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/gcc-ar-16.1"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64/gcc-ar-16.1"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64/gcc-ar-16.1"
+      - "/home/fontana/.local/bin/gcc-ar-16.1"
+      - "/home/fontana/go/bin/gcc-ar-16.1"
+      - "/home/fontana/.local/share/nvm/v24.15.0/bin/gcc-ar-16.1"
+      - "/usr/local/sbin/gcc-ar-16.1"
+      - "/usr/local/bin/gcc-ar-16.1"
+      - "/usr/lib/jvm/default/bin/gcc-ar-16.1"
+      - "/usr/bin/site_perl/gcc-ar-16.1"
+      - "/usr/bin/vendor_perl/gcc-ar-16.1"
+      - "/usr/bin/core_perl/gcc-ar-16.1"
+      - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin/gcc-ar-16.1"
+      - "/usr/bin/gcc-ar-16"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/gcc-ar-16"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/gcc-ar-16"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64/gcc-ar-16"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64/gcc-ar-16"
+      - "/home/fontana/.local/bin/gcc-ar-16"
+      - "/home/fontana/go/bin/gcc-ar-16"
+      - "/home/fontana/.local/share/nvm/v24.15.0/bin/gcc-ar-16"
+      - "/usr/local/sbin/gcc-ar-16"
+      - "/usr/local/bin/gcc-ar-16"
+      - "/usr/lib/jvm/default/bin/gcc-ar-16"
+      - "/usr/bin/site_perl/gcc-ar-16"
+      - "/usr/bin/vendor_perl/gcc-ar-16"
+      - "/usr/bin/core_perl/gcc-ar-16"
+      - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin/gcc-ar-16"
+      - "/usr/bin/gcc-ar16"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/gcc-ar16"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/gcc-ar16"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64/gcc-ar16"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64/gcc-ar16"
+      - "/home/fontana/.local/bin/gcc-ar16"
+      - "/home/fontana/go/bin/gcc-ar16"
+      - "/home/fontana/.local/share/nvm/v24.15.0/bin/gcc-ar16"
+      - "/usr/local/sbin/gcc-ar16"
+      - "/usr/local/bin/gcc-ar16"
+      - "/usr/lib/jvm/default/bin/gcc-ar16"
+      - "/usr/bin/site_perl/gcc-ar16"
+      - "/usr/bin/vendor_perl/gcc-ar16"
+      - "/usr/bin/core_perl/gcc-ar16"
+      - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin/gcc-ar16"
+    found: "/usr/bin/gcc-ar"
+    search_context:
+      ENV{PATH}:
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/go/bin"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/.local/share/nvm/v24.15.0/bin"
+        - "/home/fontana/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Compiler/GNU-FindBinUtils.cmake:30 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:201 (include)"
+      - "CMakeLists.txt:28 (project)"
+    mode: "program"
+    variable: "CMAKE_C_COMPILER_RANLIB"
+    description: "A wrapper around 'ranlib' adding the appropriate '--plugin' option for the GCC compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "gcc-ranlib-16.1"
+      - "gcc-ranlib-16"
+      - "gcc-ranlib16"
+      - "gcc-ranlib"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64/"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64/"
+      - "/home/fontana/.local/bin/"
+      - "/home/fontana/go/bin/"
+      - "/home/fontana/.local/share/nvm/v24.15.0/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin/"
+    searched_directories:
+      - "/usr/bin/gcc-ranlib-16.1"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/gcc-ranlib-16.1"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/gcc-ranlib-16.1"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64/gcc-ranlib-16.1"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64/gcc-ranlib-16.1"
+      - "/home/fontana/.local/bin/gcc-ranlib-16.1"
+      - "/home/fontana/go/bin/gcc-ranlib-16.1"
+      - "/home/fontana/.local/share/nvm/v24.15.0/bin/gcc-ranlib-16.1"
+      - "/usr/local/sbin/gcc-ranlib-16.1"
+      - "/usr/local/bin/gcc-ranlib-16.1"
+      - "/usr/lib/jvm/default/bin/gcc-ranlib-16.1"
+      - "/usr/bin/site_perl/gcc-ranlib-16.1"
+      - "/usr/bin/vendor_perl/gcc-ranlib-16.1"
+      - "/usr/bin/core_perl/gcc-ranlib-16.1"
+      - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin/gcc-ranlib-16.1"
+      - "/usr/bin/gcc-ranlib-16"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/gcc-ranlib-16"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/gcc-ranlib-16"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64/gcc-ranlib-16"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64/gcc-ranlib-16"
+      - "/home/fontana/.local/bin/gcc-ranlib-16"
+      - "/home/fontana/go/bin/gcc-ranlib-16"
+      - "/home/fontana/.local/share/nvm/v24.15.0/bin/gcc-ranlib-16"
+      - "/usr/local/sbin/gcc-ranlib-16"
+      - "/usr/local/bin/gcc-ranlib-16"
+      - "/usr/lib/jvm/default/bin/gcc-ranlib-16"
+      - "/usr/bin/site_perl/gcc-ranlib-16"
+      - "/usr/bin/vendor_perl/gcc-ranlib-16"
+      - "/usr/bin/core_perl/gcc-ranlib-16"
+      - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin/gcc-ranlib-16"
+      - "/usr/bin/gcc-ranlib16"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/gcc-ranlib16"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/gcc-ranlib16"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64/gcc-ranlib16"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64/gcc-ranlib16"
+      - "/home/fontana/.local/bin/gcc-ranlib16"
+      - "/home/fontana/go/bin/gcc-ranlib16"
+      - "/home/fontana/.local/share/nvm/v24.15.0/bin/gcc-ranlib16"
+      - "/usr/local/sbin/gcc-ranlib16"
+      - "/usr/local/bin/gcc-ranlib16"
+      - "/usr/lib/jvm/default/bin/gcc-ranlib16"
+      - "/usr/bin/site_perl/gcc-ranlib16"
+      - "/usr/bin/vendor_perl/gcc-ranlib16"
+      - "/usr/bin/core_perl/gcc-ranlib16"
+      - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin/gcc-ranlib16"
+    found: "/usr/bin/gcc-ranlib"
+    search_context:
+      ENV{PATH}:
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/go/bin"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/.local/share/nvm/v24.15.0/bin"
+        - "/home/fontana/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompiler.cmake:54 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:69 (_cmake_find_compiler)"
+      - "CMakeLists.txt:28 (project)"
+    mode: "program"
+    variable: "CMAKE_CXX_COMPILER"
+    description: "CXX compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "c++"
+      - "CC"
+      - "g++"
+      - "aCC"
+      - "cl"
+      - "bcc"
+      - "xlC"
+      - "icpx"
+      - "icx"
+      - "clang++"
+    candidate_directories:
+      - "/usr/bin/"
+    found: "/usr/bin/c++"
+    search_context:
+      ENV{PATH}:
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/go/bin"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/.local/share/nvm/v24.15.0/bin"
+        - "/home/fontana/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:468 (find_file)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:506 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:28 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCXXCompilerId.cpp.in"
+    candidate_directories:
+      - "/usr/share/cmake/Modules/"
+    found: "/usr/share/cmake/Modules/CMakeCXXCompilerId.cpp.in"
+    search_context:
+      ENV{PATH}:
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/go/bin"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/.local/share/nvm/v24.15.0/bin"
+        - "/home/fontana/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:28 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: /usr/bin/c++ 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+      
+      The CXX compiler identification is GNU, found in:
+        /home/fontana/dev/ufba/lab-2/arca/Debug/CMakeFiles/4.3.2/CompilerIdCXX/a.out
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Compiler/GNU-FindBinUtils.cmake:18 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:207 (include)"
+      - "CMakeLists.txt:28 (project)"
+    mode: "program"
+    variable: "CMAKE_CXX_COMPILER_AR"
+    description: "A wrapper around 'ar' adding the appropriate '--plugin' option for the GCC compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "gcc-ar-16.1"
+      - "gcc-ar-16"
+      - "gcc-ar16"
+      - "gcc-ar"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64/"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64/"
+      - "/home/fontana/.local/bin/"
+      - "/home/fontana/go/bin/"
+      - "/home/fontana/.local/share/nvm/v24.15.0/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin/"
+    searched_directories:
+      - "/usr/bin/gcc-ar-16.1"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/gcc-ar-16.1"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/gcc-ar-16.1"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64/gcc-ar-16.1"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64/gcc-ar-16.1"
+      - "/home/fontana/.local/bin/gcc-ar-16.1"
+      - "/home/fontana/go/bin/gcc-ar-16.1"
+      - "/home/fontana/.local/share/nvm/v24.15.0/bin/gcc-ar-16.1"
+      - "/usr/local/sbin/gcc-ar-16.1"
+      - "/usr/local/bin/gcc-ar-16.1"
+      - "/usr/lib/jvm/default/bin/gcc-ar-16.1"
+      - "/usr/bin/site_perl/gcc-ar-16.1"
+      - "/usr/bin/vendor_perl/gcc-ar-16.1"
+      - "/usr/bin/core_perl/gcc-ar-16.1"
+      - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin/gcc-ar-16.1"
+      - "/usr/bin/gcc-ar-16"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/gcc-ar-16"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/gcc-ar-16"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64/gcc-ar-16"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64/gcc-ar-16"
+      - "/home/fontana/.local/bin/gcc-ar-16"
+      - "/home/fontana/go/bin/gcc-ar-16"
+      - "/home/fontana/.local/share/nvm/v24.15.0/bin/gcc-ar-16"
+      - "/usr/local/sbin/gcc-ar-16"
+      - "/usr/local/bin/gcc-ar-16"
+      - "/usr/lib/jvm/default/bin/gcc-ar-16"
+      - "/usr/bin/site_perl/gcc-ar-16"
+      - "/usr/bin/vendor_perl/gcc-ar-16"
+      - "/usr/bin/core_perl/gcc-ar-16"
+      - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin/gcc-ar-16"
+      - "/usr/bin/gcc-ar16"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/gcc-ar16"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/gcc-ar16"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64/gcc-ar16"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64/gcc-ar16"
+      - "/home/fontana/.local/bin/gcc-ar16"
+      - "/home/fontana/go/bin/gcc-ar16"
+      - "/home/fontana/.local/share/nvm/v24.15.0/bin/gcc-ar16"
+      - "/usr/local/sbin/gcc-ar16"
+      - "/usr/local/bin/gcc-ar16"
+      - "/usr/lib/jvm/default/bin/gcc-ar16"
+      - "/usr/bin/site_perl/gcc-ar16"
+      - "/usr/bin/vendor_perl/gcc-ar16"
+      - "/usr/bin/core_perl/gcc-ar16"
+      - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin/gcc-ar16"
+    found: "/usr/bin/gcc-ar"
+    search_context:
+      ENV{PATH}:
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/go/bin"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/.local/share/nvm/v24.15.0/bin"
+        - "/home/fontana/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Compiler/GNU-FindBinUtils.cmake:30 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:207 (include)"
+      - "CMakeLists.txt:28 (project)"
+    mode: "program"
+    variable: "CMAKE_CXX_COMPILER_RANLIB"
+    description: "A wrapper around 'ranlib' adding the appropriate '--plugin' option for the GCC compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "gcc-ranlib-16.1"
+      - "gcc-ranlib-16"
+      - "gcc-ranlib16"
+      - "gcc-ranlib"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64/"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64/"
+      - "/home/fontana/.local/bin/"
+      - "/home/fontana/go/bin/"
+      - "/home/fontana/.local/share/nvm/v24.15.0/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin/"
+    searched_directories:
+      - "/usr/bin/gcc-ranlib-16.1"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/gcc-ranlib-16.1"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/gcc-ranlib-16.1"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64/gcc-ranlib-16.1"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64/gcc-ranlib-16.1"
+      - "/home/fontana/.local/bin/gcc-ranlib-16.1"
+      - "/home/fontana/go/bin/gcc-ranlib-16.1"
+      - "/home/fontana/.local/share/nvm/v24.15.0/bin/gcc-ranlib-16.1"
+      - "/usr/local/sbin/gcc-ranlib-16.1"
+      - "/usr/local/bin/gcc-ranlib-16.1"
+      - "/usr/lib/jvm/default/bin/gcc-ranlib-16.1"
+      - "/usr/bin/site_perl/gcc-ranlib-16.1"
+      - "/usr/bin/vendor_perl/gcc-ranlib-16.1"
+      - "/usr/bin/core_perl/gcc-ranlib-16.1"
+      - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin/gcc-ranlib-16.1"
+      - "/usr/bin/gcc-ranlib-16"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/gcc-ranlib-16"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/gcc-ranlib-16"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64/gcc-ranlib-16"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64/gcc-ranlib-16"
+      - "/home/fontana/.local/bin/gcc-ranlib-16"
+      - "/home/fontana/go/bin/gcc-ranlib-16"
+      - "/home/fontana/.local/share/nvm/v24.15.0/bin/gcc-ranlib-16"
+      - "/usr/local/sbin/gcc-ranlib-16"
+      - "/usr/local/bin/gcc-ranlib-16"
+      - "/usr/lib/jvm/default/bin/gcc-ranlib-16"
+      - "/usr/bin/site_perl/gcc-ranlib-16"
+      - "/usr/bin/vendor_perl/gcc-ranlib-16"
+      - "/usr/bin/core_perl/gcc-ranlib-16"
+      - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin/gcc-ranlib-16"
+      - "/usr/bin/gcc-ranlib16"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/gcc-ranlib16"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/gcc-ranlib16"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64/gcc-ranlib16"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64/gcc-ranlib16"
+      - "/home/fontana/.local/bin/gcc-ranlib16"
+      - "/home/fontana/go/bin/gcc-ranlib16"
+      - "/home/fontana/.local/share/nvm/v24.15.0/bin/gcc-ranlib16"
+      - "/usr/local/sbin/gcc-ranlib16"
+      - "/usr/local/bin/gcc-ranlib16"
+      - "/usr/lib/jvm/default/bin/gcc-ranlib16"
+      - "/usr/bin/site_perl/gcc-ranlib16"
+      - "/usr/bin/vendor_perl/gcc-ranlib16"
+      - "/usr/bin/core_perl/gcc-ranlib16"
+      - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin/gcc-ranlib16"
+    found: "/usr/bin/gcc-ranlib"
+    search_context:
+      ENV{PATH}:
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/go/bin"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/.local/share/nvm/v24.15.0/bin"
+        - "/home/fontana/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin"
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
+      - "/usr/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:28 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "/home/fontana/dev/ufba/lab-2/arca/Debug/CMakeFiles/CMakeScratch/TryCompile-Cb2Ukk"
+      binary: "/home/fontana/dev/ufba/lab-2/arca/Debug/CMakeFiles/CMakeScratch/TryCompile-Cb2Ukk"
+    cmakeVariables:
+      CMAKE_CXX_STDLIB_MODULES_JSON: ""
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/home/fontana/dev/ufba/lab-2/arca/Debug/CMakeFiles/CMakeScratch/TryCompile-Cb2Ukk'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_52809/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_52809.dir/build.make CMakeFiles/cmTC_52809.dir/build
+        make[1]: Entering directory '/home/fontana/dev/ufba/lab-2/arca/Debug/CMakeFiles/CMakeScratch/TryCompile-Cb2Ukk'
+        Building C object CMakeFiles/cmTC_52809.dir/CMakeCCompilerABI.c.o
+        /usr/bin/cc   -std=gnu11   -v -o CMakeFiles/cmTC_52809.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake/Modules/CMakeCCompilerABI.c
+        Using built-in specs.
+        COLLECT_GCC=/usr/bin/cc
+        Target: x86_64-pc-linux-gnu
+        Configured with: /tmp/pkg/src/gcc/configure --enable-languages=ada,c,c++,d,fortran,go,lto,m2,objc,obj-c++,rust,cobol --enable-bootstrap --prefix=/usr --libdir=/usr/lib --libexecdir=/usr/lib --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://github.com/CachyOS/CachyOS-PKGBUILDS/issues --with-build-config=bootstrap-lto --with-linker-hash-style=gnu --with-system-zlib --enable-cet=auto --enable-checking=release --enable-clocale=gnu --enable-default-pie --enable-default-ssp --enable-gnu-indirect-function --enable-gnu-unique-object --enable-libstdcxx-backtrace --enable-link-serialization=1 --enable-linker-build-id --enable-lto --enable-multilib --enable-plugin --enable-shared --enable-threads=posix --disable-libssp --disable-libstdcxx-pch --disable-werror --disable-fixincludes
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 16.1.1 20260430 (GCC) 
+        COLLECT_GCC_OPTIONS='-std=gnu11' '-v' '-o' 'CMakeFiles/cmTC_52809.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_52809.dir/'
+         /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/cc1 -quiet -v /usr/share/cmake/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_52809.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -std=gnu11 -version -o /tmp/ccTbSXBt.s
+        GNU C11 (GCC) version 16.1.1 20260430 (x86_64-pc-linux-gnu)
+        	compiled by GNU C version 16.1.1 20260430, GMP version 6.3.0, MPFR version 4.2.2, MPC version 1.4.1, isl version isl-0.27-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        ignoring nonexistent directory "/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/include-fixed"
+        ignoring nonexistent directory "/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../x86_64-pc-linux-gnu/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/include
+         /usr/local/include
+         /usr/include
+        End of search list.
+        Compiler executable checksum: 8e30ce17ad1eefe3f15199dda02dd603
+        COLLECT_GCC_OPTIONS='-std=gnu11' '-v' '-o' 'CMakeFiles/cmTC_52809.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_52809.dir/'
+         as -v --64 -o CMakeFiles/cmTC_52809.dir/CMakeCCompilerABI.c.o /tmp/ccTbSXBt.s
+        GNU assembler version 2.46.0 (x86_64-pc-linux-gnu) using BFD version (GNU Binutils) 2.46.0
+        COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/
+        LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-std=gnu11' '-v' '-o' 'CMakeFiles/cmTC_52809.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_52809.dir/CMakeCCompilerABI.c.'
+        Linking C executable cmTC_52809
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_52809.dir/link.txt --verbose=1
+        Using built-in specs.
+        COLLECT_GCC=/usr/bin/cc
+        COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/lto-wrapper
+        Target: x86_64-pc-linux-gnu
+        Configured with: /tmp/pkg/src/gcc/configure --enable-languages=ada,c,c++,d,fortran,go,lto,m2,objc,obj-c++,rust,cobol --enable-bootstrap --prefix=/usr --libdir=/usr/lib --libexecdir=/usr/lib --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://github.com/CachyOS/CachyOS-PKGBUILDS/issues --with-build-config=bootstrap-lto --with-linker-hash-style=gnu --with-system-zlib --enable-cet=auto --enable-checking=release --enable-clocale=gnu --enable-default-pie --enable-default-ssp --enable-gnu-indirect-function --enable-gnu-unique-object --enable-libstdcxx-backtrace --enable-link-serialization=1 --enable-linker-build-id --enable-lto --enable-multilib --enable-plugin --enable-shared --enable-threads=posix --disable-libssp --disable-libstdcxx-pch --disable-werror --disable-fixincludes
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 16.1.1 20260430 (GCC) 
+        COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/
+        LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_52809' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_52809.'
+         /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccARqCze.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s_asneeded -plugin-opt=-pass-through=-latomic_asneeded -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s_asneeded --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_52809 /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_52809.dir/CMakeCCompilerABI.c.o -lgcc -lgcc_s_asneeded -latomic_asneeded -lc -lgcc -lgcc_s_asneeded /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/crtn.o
+        collect2 version 16.1.1 20260430
+        /usr/bin/ld -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccARqCze.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s_asneeded -plugin-opt=-pass-through=-latomic_asneeded -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s_asneeded --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_52809 /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_52809.dir/CMakeCCompilerABI.c.o -lgcc -lgcc_s_asneeded -latomic_asneeded -lc -lgcc -lgcc_s_asneeded /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/crtn.o
+        GNU ld (GNU Binutils) 2.46.0
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_52809' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_52809.'
+        /usr/bin/cc  -v -Wl,-v CMakeFiles/cmTC_52809.dir/CMakeCCompilerABI.c.o -o cmTC_52809
+        make[1]: Leaving directory '/home/fontana/dev/ufba/lab-2/arca/Debug/CMakeFiles/CMakeScratch/TryCompile-Cb2Ukk'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:217 (message)"
+      - "/usr/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:28 (project)"
+    message: |
+      Parsed C implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/include]
+          add: [/usr/local/include]
+          add: [/usr/include]
+        end of search list found
+        collapse include dir [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/include] ==> [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/include]
+        collapse include dir [/usr/local/include] ==> [/usr/local/include]
+        collapse include dir [/usr/include] ==> [/usr/include]
+        implicit include dirs: [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/include;/usr/local/include;/usr/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
+      - "/usr/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:28 (project)"
+    message: |
+      Parsed C implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
+        ignore line: [Change Dir: '/home/fontana/dev/ufba/lab-2/arca/Debug/CMakeFiles/CMakeScratch/TryCompile-Cb2Ukk']
+        ignore line: []
+        ignore line: [Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_52809/fast]
+        ignore line: [/usr/bin/make  -f CMakeFiles/cmTC_52809.dir/build.make CMakeFiles/cmTC_52809.dir/build]
+        ignore line: [make[1]: Entering directory '/home/fontana/dev/ufba/lab-2/arca/Debug/CMakeFiles/CMakeScratch/TryCompile-Cb2Ukk']
+        ignore line: [Building C object CMakeFiles/cmTC_52809.dir/CMakeCCompilerABI.c.o]
+        ignore line: [/usr/bin/cc   -std=gnu11   -v -o CMakeFiles/cmTC_52809.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake/Modules/CMakeCCompilerABI.c]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/usr/bin/cc]
+        ignore line: [Target: x86_64-pc-linux-gnu]
+        ignore line: [Configured with: /tmp/pkg/src/gcc/configure --enable-languages=ada c c++ d fortran go lto m2 objc obj-c++ rust cobol --enable-bootstrap --prefix=/usr --libdir=/usr/lib --libexecdir=/usr/lib --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://github.com/CachyOS/CachyOS-PKGBUILDS/issues --with-build-config=bootstrap-lto --with-linker-hash-style=gnu --with-system-zlib --enable-cet=auto --enable-checking=release --enable-clocale=gnu --enable-default-pie --enable-default-ssp --enable-gnu-indirect-function --enable-gnu-unique-object --enable-libstdcxx-backtrace --enable-link-serialization=1 --enable-linker-build-id --enable-lto --enable-multilib --enable-plugin --enable-shared --enable-threads=posix --disable-libssp --disable-libstdcxx-pch --disable-werror --disable-fixincludes]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 16.1.1 20260430 (GCC) ]
+        ignore line: [COLLECT_GCC_OPTIONS='-std=gnu11' '-v' '-o' 'CMakeFiles/cmTC_52809.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_52809.dir/']
+        ignore line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/cc1 -quiet -v /usr/share/cmake/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_52809.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -std=gnu11 -version -o /tmp/ccTbSXBt.s]
+        ignore line: [GNU C11 (GCC) version 16.1.1 20260430 (x86_64-pc-linux-gnu)]
+        ignore line: [	compiled by GNU C version 16.1.1 20260430  GMP version 6.3.0  MPFR version 4.2.2  MPC version 1.4.1  isl version isl-0.27-GMP]
+        ignore line: []
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/include-fixed"]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../x86_64-pc-linux-gnu/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/include]
+        ignore line: [ /usr/local/include]
+        ignore line: [ /usr/include]
+        ignore line: [End of search list.]
+        ignore line: [Compiler executable checksum: 8e30ce17ad1eefe3f15199dda02dd603]
+        ignore line: [COLLECT_GCC_OPTIONS='-std=gnu11' '-v' '-o' 'CMakeFiles/cmTC_52809.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_52809.dir/']
+        ignore line: [ as -v --64 -o CMakeFiles/cmTC_52809.dir/CMakeCCompilerABI.c.o /tmp/ccTbSXBt.s]
+        ignore line: [GNU assembler version 2.46.0 (x86_64-pc-linux-gnu) using BFD version (GNU Binutils) 2.46.0]
+        ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/]
+        ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-std=gnu11' '-v' '-o' 'CMakeFiles/cmTC_52809.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_52809.dir/CMakeCCompilerABI.c.']
+        ignore line: [Linking C executable cmTC_52809]
+        ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_52809.dir/link.txt --verbose=1]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/usr/bin/cc]
+        ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/lto-wrapper]
+        ignore line: [Target: x86_64-pc-linux-gnu]
+        ignore line: [Configured with: /tmp/pkg/src/gcc/configure --enable-languages=ada c c++ d fortran go lto m2 objc obj-c++ rust cobol --enable-bootstrap --prefix=/usr --libdir=/usr/lib --libexecdir=/usr/lib --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://github.com/CachyOS/CachyOS-PKGBUILDS/issues --with-build-config=bootstrap-lto --with-linker-hash-style=gnu --with-system-zlib --enable-cet=auto --enable-checking=release --enable-clocale=gnu --enable-default-pie --enable-default-ssp --enable-gnu-indirect-function --enable-gnu-unique-object --enable-libstdcxx-backtrace --enable-link-serialization=1 --enable-linker-build-id --enable-lto --enable-multilib --enable-plugin --enable-shared --enable-threads=posix --disable-libssp --disable-libstdcxx-pch --disable-werror --disable-fixincludes]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 16.1.1 20260430 (GCC) ]
+        ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/]
+        ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_52809' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_52809.']
+        link line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccARqCze.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s_asneeded -plugin-opt=-pass-through=-latomic_asneeded -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s_asneeded --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_52809 /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_52809.dir/CMakeCCompilerABI.c.o -lgcc -lgcc_s_asneeded -latomic_asneeded -lc -lgcc -lgcc_s_asneeded /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/crtn.o]
+          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/collect2] ==> ignore
+          arg [-plugin] ==> ignore
+          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/liblto_plugin.so] ==> ignore
+          arg [-plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/lto-wrapper] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/ccARqCze.res] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s_asneeded] ==> ignore
+          arg [-plugin-opt=-pass-through=-latomic_asneeded] ==> ignore
+          arg [-plugin-opt=-pass-through=-lc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s_asneeded] ==> ignore
+          arg [--build-id] ==> ignore
+          arg [--eh-frame-hdr] ==> ignore
+          arg [--hash-style=gnu] ==> ignore
+          arg [-m] ==> ignore
+          arg [elf_x86_64] ==> ignore
+          arg [-dynamic-linker] ==> ignore
+          arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+          arg [-pie] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_52809] ==> ignore
+          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/Scrt1.o] ==> obj [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/Scrt1.o]
+          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/crti.o] ==> obj [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/crti.o]
+          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/crtbeginS.o]
+          arg [-L/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1] ==> dir [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1]
+          arg [-L/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib]
+          arg [-L/lib/../lib] ==> dir [/lib/../lib]
+          arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+          arg [-L/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../..] ==> dir [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../..]
+          arg [-L/lib] ==> dir [/lib]
+          arg [-L/usr/lib] ==> dir [/usr/lib]
+          arg [-v] ==> ignore
+          arg [CMakeFiles/cmTC_52809.dir/CMakeCCompilerABI.c.o] ==> ignore
+          arg [-lgcc] ==> lib [gcc]
+          arg [-lgcc_s_asneeded] ==> lib [gcc_s_asneeded]
+          arg [-latomic_asneeded] ==> lib [atomic_asneeded]
+          arg [-lc] ==> lib [c]
+          arg [-lgcc] ==> lib [gcc]
+          arg [-lgcc_s_asneeded] ==> lib [gcc_s_asneeded]
+          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/crtendS.o] ==> obj [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/crtendS.o]
+          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/crtn.o] ==> obj [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/crtn.o]
+        ignore line: [collect2 version 16.1.1 20260430]
+        ignore line: [/usr/bin/ld -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccARqCze.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s_asneeded -plugin-opt=-pass-through=-latomic_asneeded -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s_asneeded --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_52809 /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_52809.dir/CMakeCCompilerABI.c.o -lgcc -lgcc_s_asneeded -latomic_asneeded -lc -lgcc -lgcc_s_asneeded /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/crtn.o]
+        linker tool for 'C': /usr/bin/ld
+        collapse obj [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/Scrt1.o] ==> [/usr/lib/Scrt1.o]
+        collapse obj [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/crti.o] ==> [/usr/lib/crti.o]
+        collapse obj [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/crtn.o] ==> [/usr/lib/crtn.o]
+        collapse library dir [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1] ==> [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1]
+        collapse library dir [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib] ==> [/usr/lib]
+        collapse library dir [/lib/../lib] ==> [/lib]
+        collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+        collapse library dir [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../..] ==> [/usr/lib]
+        collapse library dir [/lib] ==> [/lib]
+        collapse library dir [/usr/lib] ==> [/usr/lib]
+        implicit libs: [gcc;gcc_s_asneeded;atomic_asneeded;c;gcc;gcc_s_asneeded]
+        implicit objs: [/usr/lib/Scrt1.o;/usr/lib/crti.o;/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/crtbeginS.o;/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/crtendS.o;/usr/lib/crtn.o]
+        implicit dirs: [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1;/usr/lib;/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Internal/CMakeDetermineLinkerId.cmake:38 (message)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
+      - "/usr/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:28 (project)"
+    message: |
+      Running the C compiler's linker: "/usr/bin/ld" "-v"
+      GNU ld (GNU Binutils) 2.46.0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
+      - "/usr/share/cmake/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:28 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "/home/fontana/dev/ufba/lab-2/arca/Debug/CMakeFiles/CMakeScratch/TryCompile-h6gY0M"
+      binary: "/home/fontana/dev/ufba/lab-2/arca/Debug/CMakeFiles/CMakeScratch/TryCompile-h6gY0M"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_CXX_STDLIB_MODULES_JSON: ""
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/home/fontana/dev/ufba/lab-2/arca/Debug/CMakeFiles/CMakeScratch/TryCompile-h6gY0M'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_56ce9/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_56ce9.dir/build.make CMakeFiles/cmTC_56ce9.dir/build
+        make[1]: Entering directory '/home/fontana/dev/ufba/lab-2/arca/Debug/CMakeFiles/CMakeScratch/TryCompile-h6gY0M'
+        Building CXX object CMakeFiles/cmTC_56ce9.dir/CMakeCXXCompilerABI.cpp.o
+        /usr/bin/c++   -v -o CMakeFiles/cmTC_56ce9.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp
+        Using built-in specs.
+        COLLECT_GCC=/usr/bin/c++
+        Target: x86_64-pc-linux-gnu
+        Configured with: /tmp/pkg/src/gcc/configure --enable-languages=ada,c,c++,d,fortran,go,lto,m2,objc,obj-c++,rust,cobol --enable-bootstrap --prefix=/usr --libdir=/usr/lib --libexecdir=/usr/lib --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://github.com/CachyOS/CachyOS-PKGBUILDS/issues --with-build-config=bootstrap-lto --with-linker-hash-style=gnu --with-system-zlib --enable-cet=auto --enable-checking=release --enable-clocale=gnu --enable-default-pie --enable-default-ssp --enable-gnu-indirect-function --enable-gnu-unique-object --enable-libstdcxx-backtrace --enable-link-serialization=1 --enable-linker-build-id --enable-lto --enable-multilib --enable-plugin --enable-shared --enable-threads=posix --disable-libssp --disable-libstdcxx-pch --disable-werror --disable-fixincludes
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 16.1.1 20260430 (GCC) 
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_56ce9.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_56ce9.dir/'
+         /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/cc1plus -quiet -v -D_GNU_SOURCE /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_56ce9.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -o /tmp/ccK78yU8.s
+        GNU C++20 (GCC) version 16.1.1 20260430 (x86_64-pc-linux-gnu)
+        	compiled by GNU C version 16.1.1 20260430, GMP version 6.3.0, MPFR version 4.2.2, MPC version 1.4.1, isl version isl-0.27-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        ignoring nonexistent directory "/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/include-fixed"
+        ignoring nonexistent directory "/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../x86_64-pc-linux-gnu/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../include/c++/16.1.1
+         /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../include/c++/16.1.1/x86_64-pc-linux-gnu
+         /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../include/c++/16.1.1/backward
+         /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/include
+         /usr/local/include
+         /usr/include
+        End of search list.
+        Compiler executable checksum: 01fb603e66dcb466f7fe3398b5ee0e67
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_56ce9.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_56ce9.dir/'
+         as -v --64 -o CMakeFiles/cmTC_56ce9.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccK78yU8.s
+        GNU assembler version 2.46.0 (x86_64-pc-linux-gnu) using BFD version (GNU Binutils) 2.46.0
+        COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/
+        LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_56ce9.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_56ce9.dir/CMakeCXXCompilerABI.cpp.'
+        Linking CXX executable cmTC_56ce9
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_56ce9.dir/link.txt --verbose=1
+        Using built-in specs.
+        COLLECT_GCC=/usr/bin/c++
+        COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/lto-wrapper
+        Target: x86_64-pc-linux-gnu
+        Configured with: /tmp/pkg/src/gcc/configure --enable-languages=ada,c,c++,d,fortran,go,lto,m2,objc,obj-c++,rust,cobol --enable-bootstrap --prefix=/usr --libdir=/usr/lib --libexecdir=/usr/lib --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://github.com/CachyOS/CachyOS-PKGBUILDS/issues --with-build-config=bootstrap-lto --with-linker-hash-style=gnu --with-system-zlib --enable-cet=auto --enable-checking=release --enable-clocale=gnu --enable-default-pie --enable-default-ssp --enable-gnu-indirect-function --enable-gnu-unique-object --enable-libstdcxx-backtrace --enable-link-serialization=1 --enable-linker-build-id --enable-lto --enable-multilib --enable-plugin --enable-shared --enable-threads=posix --disable-libssp --disable-libstdcxx-pch --disable-werror --disable-fixincludes
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 16.1.1 20260430 (GCC) 
+        COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/
+        LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_56ce9' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_56ce9.'
+         /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccL6b8S4.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-latomic_asneeded -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_56ce9 /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_56ce9.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -latomic_asneeded -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/crtn.o
+        collect2 version 16.1.1 20260430
+        /usr/bin/ld -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccL6b8S4.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-latomic_asneeded -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_56ce9 /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_56ce9.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -latomic_asneeded -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/crtn.o
+        GNU ld (GNU Binutils) 2.46.0
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_56ce9' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_56ce9.'
+        /usr/bin/c++  -v -Wl,-v CMakeFiles/cmTC_56ce9.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_56ce9
+        make[1]: Leaving directory '/home/fontana/dev/ufba/lab-2/arca/Debug/CMakeFiles/CMakeScratch/TryCompile-h6gY0M'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:217 (message)"
+      - "/usr/share/cmake/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:28 (project)"
+    message: |
+      Parsed CXX implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../include/c++/16.1.1]
+          add: [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../include/c++/16.1.1/x86_64-pc-linux-gnu]
+          add: [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../include/c++/16.1.1/backward]
+          add: [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/include]
+          add: [/usr/local/include]
+          add: [/usr/include]
+        end of search list found
+        collapse include dir [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../include/c++/16.1.1] ==> [/usr/include/c++/16.1.1]
+        collapse include dir [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../include/c++/16.1.1/x86_64-pc-linux-gnu] ==> [/usr/include/c++/16.1.1/x86_64-pc-linux-gnu]
+        collapse include dir [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../include/c++/16.1.1/backward] ==> [/usr/include/c++/16.1.1/backward]
+        collapse include dir [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/include] ==> [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/include]
+        collapse include dir [/usr/local/include] ==> [/usr/local/include]
+        collapse include dir [/usr/include] ==> [/usr/include]
+        implicit include dirs: [/usr/include/c++/16.1.1;/usr/include/c++/16.1.1/x86_64-pc-linux-gnu;/usr/include/c++/16.1.1/backward;/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/include;/usr/local/include;/usr/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
+      - "/usr/share/cmake/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:28 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
+        ignore line: [Change Dir: '/home/fontana/dev/ufba/lab-2/arca/Debug/CMakeFiles/CMakeScratch/TryCompile-h6gY0M']
+        ignore line: []
+        ignore line: [Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_56ce9/fast]
+        ignore line: [/usr/bin/make  -f CMakeFiles/cmTC_56ce9.dir/build.make CMakeFiles/cmTC_56ce9.dir/build]
+        ignore line: [make[1]: Entering directory '/home/fontana/dev/ufba/lab-2/arca/Debug/CMakeFiles/CMakeScratch/TryCompile-h6gY0M']
+        ignore line: [Building CXX object CMakeFiles/cmTC_56ce9.dir/CMakeCXXCompilerABI.cpp.o]
+        ignore line: [/usr/bin/c++   -v -o CMakeFiles/cmTC_56ce9.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/usr/bin/c++]
+        ignore line: [Target: x86_64-pc-linux-gnu]
+        ignore line: [Configured with: /tmp/pkg/src/gcc/configure --enable-languages=ada c c++ d fortran go lto m2 objc obj-c++ rust cobol --enable-bootstrap --prefix=/usr --libdir=/usr/lib --libexecdir=/usr/lib --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://github.com/CachyOS/CachyOS-PKGBUILDS/issues --with-build-config=bootstrap-lto --with-linker-hash-style=gnu --with-system-zlib --enable-cet=auto --enable-checking=release --enable-clocale=gnu --enable-default-pie --enable-default-ssp --enable-gnu-indirect-function --enable-gnu-unique-object --enable-libstdcxx-backtrace --enable-link-serialization=1 --enable-linker-build-id --enable-lto --enable-multilib --enable-plugin --enable-shared --enable-threads=posix --disable-libssp --disable-libstdcxx-pch --disable-werror --disable-fixincludes]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 16.1.1 20260430 (GCC) ]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_56ce9.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_56ce9.dir/']
+        ignore line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/cc1plus -quiet -v -D_GNU_SOURCE /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_56ce9.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -o /tmp/ccK78yU8.s]
+        ignore line: [GNU C++20 (GCC) version 16.1.1 20260430 (x86_64-pc-linux-gnu)]
+        ignore line: [	compiled by GNU C version 16.1.1 20260430  GMP version 6.3.0  MPFR version 4.2.2  MPC version 1.4.1  isl version isl-0.27-GMP]
+        ignore line: []
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/include-fixed"]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../x86_64-pc-linux-gnu/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../include/c++/16.1.1]
+        ignore line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../include/c++/16.1.1/x86_64-pc-linux-gnu]
+        ignore line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../include/c++/16.1.1/backward]
+        ignore line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/include]
+        ignore line: [ /usr/local/include]
+        ignore line: [ /usr/include]
+        ignore line: [End of search list.]
+        ignore line: [Compiler executable checksum: 01fb603e66dcb466f7fe3398b5ee0e67]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_56ce9.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_56ce9.dir/']
+        ignore line: [ as -v --64 -o CMakeFiles/cmTC_56ce9.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccK78yU8.s]
+        ignore line: [GNU assembler version 2.46.0 (x86_64-pc-linux-gnu) using BFD version (GNU Binutils) 2.46.0]
+        ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/]
+        ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_56ce9.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_56ce9.dir/CMakeCXXCompilerABI.cpp.']
+        ignore line: [Linking CXX executable cmTC_56ce9]
+        ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_56ce9.dir/link.txt --verbose=1]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/usr/bin/c++]
+        ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/lto-wrapper]
+        ignore line: [Target: x86_64-pc-linux-gnu]
+        ignore line: [Configured with: /tmp/pkg/src/gcc/configure --enable-languages=ada c c++ d fortran go lto m2 objc obj-c++ rust cobol --enable-bootstrap --prefix=/usr --libdir=/usr/lib --libexecdir=/usr/lib --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://github.com/CachyOS/CachyOS-PKGBUILDS/issues --with-build-config=bootstrap-lto --with-linker-hash-style=gnu --with-system-zlib --enable-cet=auto --enable-checking=release --enable-clocale=gnu --enable-default-pie --enable-default-ssp --enable-gnu-indirect-function --enable-gnu-unique-object --enable-libstdcxx-backtrace --enable-link-serialization=1 --enable-linker-build-id --enable-lto --enable-multilib --enable-plugin --enable-shared --enable-threads=posix --disable-libssp --disable-libstdcxx-pch --disable-werror --disable-fixincludes]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 16.1.1 20260430 (GCC) ]
+        ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/]
+        ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_56ce9' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_56ce9.']
+        link line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccL6b8S4.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-latomic_asneeded -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_56ce9 /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_56ce9.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -latomic_asneeded -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/crtn.o]
+          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/collect2] ==> ignore
+          arg [-plugin] ==> ignore
+          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/liblto_plugin.so] ==> ignore
+          arg [-plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/lto-wrapper] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/ccL6b8S4.res] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-latomic_asneeded] ==> ignore
+          arg [-plugin-opt=-pass-through=-lc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [--build-id] ==> ignore
+          arg [--eh-frame-hdr] ==> ignore
+          arg [--hash-style=gnu] ==> ignore
+          arg [-m] ==> ignore
+          arg [elf_x86_64] ==> ignore
+          arg [-dynamic-linker] ==> ignore
+          arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+          arg [-pie] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_56ce9] ==> ignore
+          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/Scrt1.o] ==> obj [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/Scrt1.o]
+          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/crti.o] ==> obj [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/crti.o]
+          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/crtbeginS.o]
+          arg [-L/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1] ==> dir [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1]
+          arg [-L/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib]
+          arg [-L/lib/../lib] ==> dir [/lib/../lib]
+          arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+          arg [-L/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../..] ==> dir [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../..]
+          arg [-L/lib] ==> dir [/lib]
+          arg [-L/usr/lib] ==> dir [/usr/lib]
+          arg [-v] ==> ignore
+          arg [CMakeFiles/cmTC_56ce9.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+          arg [-lstdc++] ==> lib [stdc++]
+          arg [-lm] ==> lib [m]
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [-lgcc] ==> lib [gcc]
+          arg [-latomic_asneeded] ==> lib [atomic_asneeded]
+          arg [-lc] ==> lib [c]
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [-lgcc] ==> lib [gcc]
+          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/crtendS.o] ==> obj [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/crtendS.o]
+          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/crtn.o] ==> obj [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/crtn.o]
+        ignore line: [collect2 version 16.1.1 20260430]
+        ignore line: [/usr/bin/ld -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccL6b8S4.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-latomic_asneeded -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_56ce9 /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_56ce9.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -latomic_asneeded -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/crtn.o]
+        linker tool for 'CXX': /usr/bin/ld
+        collapse obj [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/Scrt1.o] ==> [/usr/lib/Scrt1.o]
+        collapse obj [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/crti.o] ==> [/usr/lib/crti.o]
+        collapse obj [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/crtn.o] ==> [/usr/lib/crtn.o]
+        collapse library dir [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1] ==> [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1]
+        collapse library dir [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib] ==> [/usr/lib]
+        collapse library dir [/lib/../lib] ==> [/lib]
+        collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+        collapse library dir [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../..] ==> [/usr/lib]
+        collapse library dir [/lib] ==> [/lib]
+        collapse library dir [/usr/lib] ==> [/usr/lib]
+        implicit libs: [stdc++;m;gcc_s;gcc;atomic_asneeded;c;gcc_s;gcc]
+        implicit objs: [/usr/lib/Scrt1.o;/usr/lib/crti.o;/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/crtbeginS.o;/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/crtendS.o;/usr/lib/crtn.o]
+        implicit dirs: [/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1;/usr/lib;/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Internal/CMakeDetermineLinkerId.cmake:38 (message)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
+      - "/usr/share/cmake/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:28 (project)"
+    message: |
+      Running the CXX compiler's linker: "/usr/bin/ld" "-v"
+      GNU ld (GNU Binutils) 2.46.0
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompiler.cmake:54 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineASMCompiler.cmake:61 (_cmake_find_compiler)"
+      - "CMakeLists.txt:32 (enable_language)"
+    mode: "program"
+    variable: "CMAKE_ASM_COMPILER"
+    description: "ASM compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "/usr/bin/cc"
+    candidate_directories:
+      - "/usr/bin/"
+    found: "/usr/bin/cc"
+    search_context:
+      ENV{PATH}:
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/go/bin"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/.local/share/nvm/v24.15.0/bin"
+        - "/home/fontana/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/usr"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1296 (message)"
+      - "/usr/share/cmake/Modules/CMakeDetermineASMCompiler.cmake:170 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
+      - "CMakeLists.txt:32 (enable_language)"
+    message: |
+      Checking whether the ASM compiler is GNU using "--version" matched "(GNU assembler)|(GCC)|(Free Software Foundation)":
+      cc (GCC) 16.1.1 20260430
+      Copyright (C) 2026 Free Software Foundation, Inc.
+      This is free software; see the source for copying conditions.  There is NO
+      warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Compiler/GNU-FindBinUtils.cmake:18 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineASMCompiler.cmake:268 (include)"
+      - "CMakeLists.txt:32 (enable_language)"
+    mode: "program"
+    variable: "CMAKE_ASM_COMPILER_AR"
+    description: "A wrapper around 'ar' adding the appropriate '--plugin' option for the GCC compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "gcc-ar-"
+      - "gcc-ar-"
+      - "gcc-ar"
+      - "gcc-ar"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64/"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64/"
+      - "/home/fontana/.local/bin/"
+      - "/home/fontana/go/bin/"
+      - "/home/fontana/.local/share/nvm/v24.15.0/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin/"
+      - "/usr/local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/"
+      - "/usr/bin/"
+      - "/usr/sbin/"
+      - "/usr/"
+      - "/bin/"
+      - "/sbin/"
+      - "/usr/X11R6/bin/"
+      - "/usr/X11R6/sbin/"
+      - "/usr/X11R6/"
+      - "/usr/pkg/bin/"
+      - "/usr/pkg/sbin/"
+      - "/usr/pkg/"
+      - "/opt/bin/"
+      - "/opt/sbin/"
+      - "/opt/"
+    searched_directories:
+      - "/usr/bin/gcc-ar-"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/gcc-ar-"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/gcc-ar-"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64/gcc-ar-"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64/gcc-ar-"
+      - "/home/fontana/.local/bin/gcc-ar-"
+      - "/home/fontana/go/bin/gcc-ar-"
+      - "/home/fontana/.local/share/nvm/v24.15.0/bin/gcc-ar-"
+      - "/usr/local/sbin/gcc-ar-"
+      - "/usr/local/bin/gcc-ar-"
+      - "/usr/lib/jvm/default/bin/gcc-ar-"
+      - "/usr/bin/site_perl/gcc-ar-"
+      - "/usr/bin/vendor_perl/gcc-ar-"
+      - "/usr/bin/core_perl/gcc-ar-"
+      - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin/gcc-ar-"
+      - "/usr/local/bin/gcc-ar-"
+      - "/usr/local/sbin/gcc-ar-"
+      - "/usr/local/gcc-ar-"
+      - "/usr/bin/gcc-ar-"
+      - "/usr/sbin/gcc-ar-"
+      - "/usr/gcc-ar-"
+      - "/bin/gcc-ar-"
+      - "/sbin/gcc-ar-"
+      - "/usr/X11R6/bin/gcc-ar-"
+      - "/usr/X11R6/sbin/gcc-ar-"
+      - "/usr/X11R6/gcc-ar-"
+      - "/usr/pkg/bin/gcc-ar-"
+      - "/usr/pkg/sbin/gcc-ar-"
+      - "/usr/pkg/gcc-ar-"
+      - "/opt/bin/gcc-ar-"
+      - "/opt/sbin/gcc-ar-"
+      - "/opt/gcc-ar-"
+      - "/usr/bin/gcc-ar-"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/gcc-ar-"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/gcc-ar-"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64/gcc-ar-"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64/gcc-ar-"
+      - "/home/fontana/.local/bin/gcc-ar-"
+      - "/home/fontana/go/bin/gcc-ar-"
+      - "/home/fontana/.local/share/nvm/v24.15.0/bin/gcc-ar-"
+      - "/usr/local/sbin/gcc-ar-"
+      - "/usr/local/bin/gcc-ar-"
+      - "/usr/lib/jvm/default/bin/gcc-ar-"
+      - "/usr/bin/site_perl/gcc-ar-"
+      - "/usr/bin/vendor_perl/gcc-ar-"
+      - "/usr/bin/core_perl/gcc-ar-"
+      - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin/gcc-ar-"
+      - "/usr/local/bin/gcc-ar-"
+      - "/usr/local/sbin/gcc-ar-"
+      - "/usr/local/gcc-ar-"
+      - "/usr/bin/gcc-ar-"
+      - "/usr/sbin/gcc-ar-"
+      - "/usr/gcc-ar-"
+      - "/bin/gcc-ar-"
+      - "/sbin/gcc-ar-"
+      - "/usr/X11R6/bin/gcc-ar-"
+      - "/usr/X11R6/sbin/gcc-ar-"
+      - "/usr/X11R6/gcc-ar-"
+      - "/usr/pkg/bin/gcc-ar-"
+      - "/usr/pkg/sbin/gcc-ar-"
+      - "/usr/pkg/gcc-ar-"
+      - "/opt/bin/gcc-ar-"
+      - "/opt/sbin/gcc-ar-"
+      - "/opt/gcc-ar-"
+    found: "/usr/bin/gcc-ar"
+    search_context:
+      ENV{PATH}:
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/go/bin"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/.local/share/nvm/v24.15.0/bin"
+        - "/home/fontana/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/usr"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Compiler/GNU-FindBinUtils.cmake:30 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineASMCompiler.cmake:268 (include)"
+      - "CMakeLists.txt:32 (enable_language)"
+    mode: "program"
+    variable: "CMAKE_ASM_COMPILER_RANLIB"
+    description: "A wrapper around 'ranlib' adding the appropriate '--plugin' option for the GCC compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "gcc-ranlib-"
+      - "gcc-ranlib-"
+      - "gcc-ranlib"
+      - "gcc-ranlib"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64/"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64/"
+      - "/home/fontana/.local/bin/"
+      - "/home/fontana/go/bin/"
+      - "/home/fontana/.local/share/nvm/v24.15.0/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin/"
+      - "/usr/local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/"
+      - "/usr/bin/"
+      - "/usr/sbin/"
+      - "/usr/"
+      - "/bin/"
+      - "/sbin/"
+      - "/usr/X11R6/bin/"
+      - "/usr/X11R6/sbin/"
+      - "/usr/X11R6/"
+      - "/usr/pkg/bin/"
+      - "/usr/pkg/sbin/"
+      - "/usr/pkg/"
+      - "/opt/bin/"
+      - "/opt/sbin/"
+      - "/opt/"
+    searched_directories:
+      - "/usr/bin/gcc-ranlib-"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/gcc-ranlib-"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/gcc-ranlib-"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64/gcc-ranlib-"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64/gcc-ranlib-"
+      - "/home/fontana/.local/bin/gcc-ranlib-"
+      - "/home/fontana/go/bin/gcc-ranlib-"
+      - "/home/fontana/.local/share/nvm/v24.15.0/bin/gcc-ranlib-"
+      - "/usr/local/sbin/gcc-ranlib-"
+      - "/usr/local/bin/gcc-ranlib-"
+      - "/usr/lib/jvm/default/bin/gcc-ranlib-"
+      - "/usr/bin/site_perl/gcc-ranlib-"
+      - "/usr/bin/vendor_perl/gcc-ranlib-"
+      - "/usr/bin/core_perl/gcc-ranlib-"
+      - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin/gcc-ranlib-"
+      - "/usr/local/bin/gcc-ranlib-"
+      - "/usr/local/sbin/gcc-ranlib-"
+      - "/usr/local/gcc-ranlib-"
+      - "/usr/bin/gcc-ranlib-"
+      - "/usr/sbin/gcc-ranlib-"
+      - "/usr/gcc-ranlib-"
+      - "/bin/gcc-ranlib-"
+      - "/sbin/gcc-ranlib-"
+      - "/usr/X11R6/bin/gcc-ranlib-"
+      - "/usr/X11R6/sbin/gcc-ranlib-"
+      - "/usr/X11R6/gcc-ranlib-"
+      - "/usr/pkg/bin/gcc-ranlib-"
+      - "/usr/pkg/sbin/gcc-ranlib-"
+      - "/usr/pkg/gcc-ranlib-"
+      - "/opt/bin/gcc-ranlib-"
+      - "/opt/sbin/gcc-ranlib-"
+      - "/opt/gcc-ranlib-"
+      - "/usr/bin/gcc-ranlib-"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/gcc-ranlib-"
+      - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/gcc-ranlib-"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64/gcc-ranlib-"
+      - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64/gcc-ranlib-"
+      - "/home/fontana/.local/bin/gcc-ranlib-"
+      - "/home/fontana/go/bin/gcc-ranlib-"
+      - "/home/fontana/.local/share/nvm/v24.15.0/bin/gcc-ranlib-"
+      - "/usr/local/sbin/gcc-ranlib-"
+      - "/usr/local/bin/gcc-ranlib-"
+      - "/usr/lib/jvm/default/bin/gcc-ranlib-"
+      - "/usr/bin/site_perl/gcc-ranlib-"
+      - "/usr/bin/vendor_perl/gcc-ranlib-"
+      - "/usr/bin/core_perl/gcc-ranlib-"
+      - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin/gcc-ranlib-"
+      - "/usr/local/bin/gcc-ranlib-"
+      - "/usr/local/sbin/gcc-ranlib-"
+      - "/usr/local/gcc-ranlib-"
+      - "/usr/bin/gcc-ranlib-"
+      - "/usr/sbin/gcc-ranlib-"
+      - "/usr/gcc-ranlib-"
+      - "/bin/gcc-ranlib-"
+      - "/sbin/gcc-ranlib-"
+      - "/usr/X11R6/bin/gcc-ranlib-"
+      - "/usr/X11R6/sbin/gcc-ranlib-"
+      - "/usr/X11R6/gcc-ranlib-"
+      - "/usr/pkg/bin/gcc-ranlib-"
+      - "/usr/pkg/sbin/gcc-ranlib-"
+      - "/usr/pkg/gcc-ranlib-"
+      - "/opt/bin/gcc-ranlib-"
+      - "/opt/sbin/gcc-ranlib-"
+      - "/opt/gcc-ranlib-"
+    found: "/usr/bin/gcc-ranlib"
+    search_context:
+      ENV{PATH}:
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/go/bin"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.3.0-linux-x64/resources/binaries/linux/x86_64"
+        - "/home/fontana/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/fontana/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/fontana/.local/bin"
+        - "/home/fontana/.local/share/nvm/v24.15.0/bin"
+        - "/home/fontana/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/fontana/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0/bin"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/usr"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+...

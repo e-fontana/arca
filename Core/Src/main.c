@@ -21,7 +21,9 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <stdio.h>
+#include <string.h>
 #include "cc1101.h"
+#include "com.h"
 #include "stm32f411xe.h"
 #include "stm32f4xx_hal_def.h"
 #include "stm32f4xx_hal_gpio.h"
@@ -56,8 +58,9 @@ SPI_HandleTypeDef hspi1;
 UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
-volatile uint8_t cc1101_rx_flag = 0;   // Setado pela ISR quando pacote chega
-CC1101_Packet_t  rx_packet;             // Struct do pacote recebido
+volatile uint8_t gdo0_flag = 0;
+uint8_t cc1101_payload[64];
+uint8_t cc1101_payload_len;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -106,52 +109,42 @@ int main(void)
   MX_USART1_UART_Init();
 
   /* USER CODE BEGIN 2 */
-  const char *msg = CC1101_CheckPartNumber()
-    ? "[CC1101] OK - Aguardando pacotes...\r\n"
-    : "[CC1101] ERRO - Verifique conexoes SPI!\r\n";
-
-  HAL_UART_Transmit(&huart1, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
+  COM_CC1101_Init(&hspi1, &huart1);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  char dbg[128];
   while (1)
   {
-    /* USER CODE END WHILE */
+    HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_15);
+    uint8_t gdo0  = HAL_GPIO_ReadPin(INT_CC1101_GPIO_Port, INT_CC1101_Pin);
+    uint8_t state = TI_read_status(CCxxx0_MARCSTATE);
+    uint8_t rxb   = TI_read_status(CCxxx0_RXBYTES);
 
-    /* USER CODE BEGIN 3 */
-    HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
+    snprintf(dbg, sizeof(dbg),
+             "GDO0=%d STATE=0x%02X RXBYTES=%d\r\n",
+             gdo0, state & 0x1F, rxb & 0x7F);
+    HAL_UART_Transmit(&huart1, (uint8_t*)dbg, strlen(dbg), HAL_MAX_DELAY);
 
-    // Verifica se a ISR sinalizou recepção de pacote
-    if (cc1101_rx_flag) {
-      cc1101_rx_flag = 0;
+    if (gdo0_flag) {
+      gdo0_flag = 0;
+      cc1101_payload_len = sizeof(cc1101_payload);
 
-      char buf[64];
+      if (COM_CC1101_Receive(cc1101_payload, &cc1101_payload_len)) {
+        int n = snprintf(dbg, sizeof(dbg), "RX len=%u: ", cc1101_payload_len);
+        HAL_UART_Transmit(&huart1, (uint8_t *)dbg, n, HAL_MAX_DELAY);
 
-      if (CC1101_ReceivePacket(&rx_packet)) {
-        snprintf(buf, sizeof(buf), "Pacote OK | RSSI: %d dBm | LQI: %d | Len: %d\r\n",
-                rx_packet.rssi, rx_packet.lqi, rx_packet.length);
-        HAL_UART_Transmit(&huart1, (uint8_t*)buf, strlen(buf), HAL_MAX_DELAY);
-
-        for (uint8_t i = 0; i < rx_packet.length; i++) {
-            snprintf(buf, sizeof(buf), "%02X ", rx_packet.data[i]);
-            HAL_UART_Transmit(&huart1, (uint8_t*)buf, strlen(buf), HAL_MAX_DELAY);
+        for (uint8_t i = 0; i < cc1101_payload_len; i++) {
+          n = snprintf(dbg, sizeof(dbg), "%02X ", cc1101_payload[i]);
+          HAL_UART_Transmit(&huart1, (uint8_t *)dbg, n, HAL_MAX_DELAY);
         }
 
-        HAL_UART_Transmit(&huart1, (uint8_t*)"\r\n", 2, HAL_MAX_DELAY);
+        HAL_UART_Transmit(&huart1, (uint8_t *)"\r\n", 2, HAL_MAX_DELAY);
       } else {
-        HAL_UART_Transmit(&huart1, (uint8_t*)"Pacote CRC FAIL\r\n", 17, HAL_MAX_DELAY);
+        HAL_UART_Transmit(&huart1, (uint8_t *)"RX invalido\r\n", 13, HAL_MAX_DELAY);
       }
     }
-
-    // uint8_t payload[] = {0x01, 0x02, 0x03, 0xAA};
-    
-    // const char *send_msg = CC1101_SendPacket(payload, sizeof(payload))
-    //   ? "Pacote enviado\r\n"
-    //   : "Falha ao enviar\r\n";
-    
-    // HAL_UART_Transmit(&huart1, (uint8_t*)send_msg, strlen(send_msg), HAL_MAX_DELAY);
-    // HAL_Delay(1000);
   }
   /* USER CODE END 3 */
 }
@@ -446,19 +439,17 @@ static void MX_GPIO_Init(void)
   HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
 
   /* USER CODE BEGIN MX_GPIO_Init_2 */
+  HAL_NVIC_DisableIRQ(EXTI15_10_IRQn);
+  __HAL_GPIO_EXTI_CLEAR_IT(INT_CC1101_Pin);
+  NVIC_ClearPendingIRQ(EXTI15_10_IRQn);
   /* USER CODE END MX_GPIO_Init_2 */
 }
 
 /* USER CODE BEGIN 4 */
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-  switch (GPIO_Pin) {
-    case INT_CC1101_Pin:
-      cc1101_rx_flag = 1;
-      break;
-    default:
-      break;
-  }
+  if (GPIO_Pin == INT_CC1101_Pin)
+    gdo0_flag = 1;
 }
 /* USER CODE END 4 */
 

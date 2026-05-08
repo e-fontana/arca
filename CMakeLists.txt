@@ -49,6 +49,8 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     Core/Src/Modules/temp.c
     Core/Src/Modules/press.c
     Core/Src/Modules/Communication/cc1101.c
+    Core/Src/Modules/Communication/com.c
+    Core/Src/dw_stm32_delay.c
 )
 
 # Add include paths
