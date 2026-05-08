@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdbool.h>
 
 /* * Importamos a variável do conversor analógico (ADC) que 
  * foi configurada automaticamente pelo CubeMX no main.c

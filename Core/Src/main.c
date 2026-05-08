@@ -18,6 +18,8 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include <stdbool.h>
+
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -64,6 +66,7 @@ static void MX_RTC_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_USART1_UART_Init(void);
 /* USER CODE BEGIN PFP */
+extern bool Press_IsDoorOpen(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -111,7 +114,6 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 
-    // Verifica se a porta está aberta usando a nossa função
     if (Press_IsDoorOpen() == true) {
         
         // Porta ABERTA! 
@@ -127,9 +129,11 @@ int main(void)
     }
 
     // Dá uma pequena pausa de 100 milissegundos para não sobrecarregar o processador
+    HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
     HAL_Delay(100);
 
   }
+}  
   /* USER CODE END 3 */
 /**
   * @brief System Clock Configuration
