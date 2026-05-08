@@ -103,19 +103,34 @@ int main(void)
   /* USER CODE BEGIN 2 */
   /* USER CODE END 2 */
 
-  /* Infinite loop */
+/* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
-    HAL_Delay(1000);
+
+    // Verifica se a porta está aberta usando a nossa função
+    if (Press_IsDoorOpen() == true) {
+        
+        // Porta ABERTA! 
+        // Vamos acender o LED da placa (No STM32, o PC13 geralmente acende com nível BAIXO / RESET)
+        HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
+        
+    } else {
+        
+        // Porta FECHADA!
+        // Apaga o LED
+        HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);
+        
+    }
+
+    // Dá uma pequena pausa de 100 milissegundos para não sobrecarregar o processador
+    HAL_Delay(100);
+
   }
   /* USER CODE END 3 */
-}
-
 /**
   * @brief System Clock Configuration
   * @retval None
