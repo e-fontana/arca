@@ -166,6 +166,30 @@ Core/Src/Modules/Communication/cc1101.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/teste.dir/build.make CMakeFiles/teste.dir/Core/Src/Modules/Communication/cc1101.c.s
 .PHONY : Core/Src/Modules/Communication/cc1101.c.s
 
+Core/Src/Modules/Communication/com.o: Core/Src/Modules/Communication/com.c.o
+.PHONY : Core/Src/Modules/Communication/com.o
+
+# target to build an object file
+Core/Src/Modules/Communication/com.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/teste.dir/build.make CMakeFiles/teste.dir/Core/Src/Modules/Communication/com.c.o
+.PHONY : Core/Src/Modules/Communication/com.c.o
+
+Core/Src/Modules/Communication/com.i: Core/Src/Modules/Communication/com.c.i
+.PHONY : Core/Src/Modules/Communication/com.i
+
+# target to preprocess a source file
+Core/Src/Modules/Communication/com.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/teste.dir/build.make CMakeFiles/teste.dir/Core/Src/Modules/Communication/com.c.i
+.PHONY : Core/Src/Modules/Communication/com.c.i
+
+Core/Src/Modules/Communication/com.s: Core/Src/Modules/Communication/com.c.s
+.PHONY : Core/Src/Modules/Communication/com.s
+
+# target to generate assembly for a file
+Core/Src/Modules/Communication/com.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/teste.dir/build.make CMakeFiles/teste.dir/Core/Src/Modules/Communication/com.c.s
+.PHONY : Core/Src/Modules/Communication/com.c.s
+
 Core/Src/Modules/nfc.o: Core/Src/Modules/nfc.c.o
 .PHONY : Core/Src/Modules/nfc.o
 
@@ -403,6 +427,9 @@ help:
 	@echo "... Core/Src/Modules/Communication/cc1101.o"
 	@echo "... Core/Src/Modules/Communication/cc1101.i"
 	@echo "... Core/Src/Modules/Communication/cc1101.s"
+	@echo "... Core/Src/Modules/Communication/com.o"
+	@echo "... Core/Src/Modules/Communication/com.i"
+	@echo "... Core/Src/Modules/Communication/com.s"
 	@echo "... Core/Src/Modules/nfc.o"
 	@echo "... Core/Src/Modules/nfc.i"
 	@echo "... Core/Src/Modules/nfc.s"

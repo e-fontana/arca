@@ -20,15 +20,14 @@
 #include "main.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include <stdio.h>
-#include <string.h>
-#include "cc1101.h"
 #include "com.h"
+#include <stdio.h>
 #include "stm32f411xe.h"
 #include "stm32f4xx_hal_def.h"
 #include "stm32f4xx_hal_gpio.h"
 #include "stm32f4xx_hal_uart.h"
 #include "system_types.h"
+#include <stdint.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -58,9 +57,6 @@ SPI_HandleTypeDef hspi1;
 UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
-volatile uint8_t gdo0_flag = 0;
-uint8_t cc1101_payload[64];
-uint8_t cc1101_payload_len;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -114,36 +110,17 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  char dbg[128];
+  // uint8_t data[] = "Hello, World!";
+  COM_CC1101_RxEvent_t event;
   while (1)
   {
-    HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_15);
-    uint8_t gdo0  = HAL_GPIO_ReadPin(INT_CC1101_GPIO_Port, INT_CC1101_Pin);
-    uint8_t state = TI_read_status(CCxxx0_MARCSTATE);
-    uint8_t rxb   = TI_read_status(CCxxx0_RXBYTES);
-
-    snprintf(dbg, sizeof(dbg),
-             "GDO0=%d STATE=0x%02X RXBYTES=%d\r\n",
-             gdo0, state & 0x1F, rxb & 0x7F);
-    HAL_UART_Transmit(&huart1, (uint8_t*)dbg, strlen(dbg), HAL_MAX_DELAY);
-
-    if (gdo0_flag) {
-      gdo0_flag = 0;
-      cc1101_payload_len = sizeof(cc1101_payload);
-
-      if (COM_CC1101_Receive(cc1101_payload, &cc1101_payload_len)) {
-        int n = snprintf(dbg, sizeof(dbg), "RX len=%u: ", cc1101_payload_len);
-        HAL_UART_Transmit(&huart1, (uint8_t *)dbg, n, HAL_MAX_DELAY);
-
-        for (uint8_t i = 0; i < cc1101_payload_len; i++) {
-          n = snprintf(dbg, sizeof(dbg), "%02X ", cc1101_payload[i]);
-          HAL_UART_Transmit(&huart1, (uint8_t *)dbg, n, HAL_MAX_DELAY);
-        }
-
-        HAL_UART_Transmit(&huart1, (uint8_t *)"\r\n", 2, HAL_MAX_DELAY);
-      } else {
-        HAL_UART_Transmit(&huart1, (uint8_t *)"RX invalido\r\n", 13, HAL_MAX_DELAY);
+    if (COM_CC1101_Poll(&event) && event.is_valid) {
+      char hex[4];
+      for (uint8_t i = 0; i < event.payload_len; i++) {
+        int n = snprintf(hex, sizeof(hex), "%02X ", event.payload[i]);
+        HAL_UART_Transmit(&huart1, (uint8_t *)hex, (uint16_t)n, HAL_MAX_DELAY);
       }
+      HAL_UART_Transmit(&huart1, (uint8_t *)"\r\n", 2, HAL_MAX_DELAY);
     }
   }
   /* USER CODE END 3 */
@@ -448,8 +425,13 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-  if (GPIO_Pin == INT_CC1101_Pin)
-    gdo0_flag = 1;
+  switch (GPIO_Pin) {
+    case INT_CC1101_Pin:
+      COM_CC1101_HandleInterrupt(GPIO_Pin);
+      break;
+    default:
+      break;
+  }
 }
 /* USER CODE END 4 */
 

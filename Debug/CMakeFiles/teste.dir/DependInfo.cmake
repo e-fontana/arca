@@ -33,6 +33,7 @@ set(CMAKE_ASM_TARGET_INCLUDE_PATH
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/fontana/dev/ufba/lab-2/arca/Core/Src/Modules/Communication/cc1101.c" "CMakeFiles/teste.dir/Core/Src/Modules/Communication/cc1101.c.o" "gcc" "CMakeFiles/teste.dir/Core/Src/Modules/Communication/cc1101.c.o.d"
+  "/home/fontana/dev/ufba/lab-2/arca/Core/Src/Modules/Communication/com.c" "CMakeFiles/teste.dir/Core/Src/Modules/Communication/com.c.o" "gcc" "CMakeFiles/teste.dir/Core/Src/Modules/Communication/com.c.o.d"
   "/home/fontana/dev/ufba/lab-2/arca/Core/Src/Modules/nfc.c" "CMakeFiles/teste.dir/Core/Src/Modules/nfc.c.o" "gcc" "CMakeFiles/teste.dir/Core/Src/Modules/nfc.c.o.d"
   "/home/fontana/dev/ufba/lab-2/arca/Core/Src/Modules/press.c" "CMakeFiles/teste.dir/Core/Src/Modules/press.c.o" "gcc" "CMakeFiles/teste.dir/Core/Src/Modules/press.c.o.d"
   "/home/fontana/dev/ufba/lab-2/arca/Core/Src/Modules/temp.c" "CMakeFiles/teste.dir/Core/Src/Modules/temp.c.o" "gcc" "CMakeFiles/teste.dir/Core/Src/Modules/temp.c.o.d"

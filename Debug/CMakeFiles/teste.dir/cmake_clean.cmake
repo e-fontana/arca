@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "teste.map"
   "CMakeFiles/teste.dir/Core/Src/Modules/Communication/cc1101.c.o"
   "CMakeFiles/teste.dir/Core/Src/Modules/Communication/cc1101.c.o.d"
+  "CMakeFiles/teste.dir/Core/Src/Modules/Communication/com.c.o"
+  "CMakeFiles/teste.dir/Core/Src/Modules/Communication/com.c.o.d"
   "CMakeFiles/teste.dir/Core/Src/Modules/nfc.c.o"
   "CMakeFiles/teste.dir/Core/Src/Modules/nfc.c.o.d"
   "CMakeFiles/teste.dir/Core/Src/Modules/press.c.o"

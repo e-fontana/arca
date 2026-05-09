@@ -211,10 +211,24 @@ CMakeFiles/teste.dir/Core/Src/Modules/Communication/cc1101.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/teste.dir/Core/Src/Modules/Communication/cc1101.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/fontana/dev/ufba/lab-2/arca/Core/Src/Modules/Communication/cc1101.c -o CMakeFiles/teste.dir/Core/Src/Modules/Communication/cc1101.c.s
 
+CMakeFiles/teste.dir/Core/Src/Modules/Communication/com.c.o: CMakeFiles/teste.dir/flags.make
+CMakeFiles/teste.dir/Core/Src/Modules/Communication/com.c.o: /home/fontana/dev/ufba/lab-2/arca/Core/Src/Modules/Communication/com.c
+CMakeFiles/teste.dir/Core/Src/Modules/Communication/com.c.o: CMakeFiles/teste.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/fontana/dev/ufba/lab-2/arca/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/teste.dir/Core/Src/Modules/Communication/com.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/teste.dir/Core/Src/Modules/Communication/com.c.o -MF CMakeFiles/teste.dir/Core/Src/Modules/Communication/com.c.o.d -o CMakeFiles/teste.dir/Core/Src/Modules/Communication/com.c.o -c /home/fontana/dev/ufba/lab-2/arca/Core/Src/Modules/Communication/com.c
+
+CMakeFiles/teste.dir/Core/Src/Modules/Communication/com.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/teste.dir/Core/Src/Modules/Communication/com.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/fontana/dev/ufba/lab-2/arca/Core/Src/Modules/Communication/com.c > CMakeFiles/teste.dir/Core/Src/Modules/Communication/com.c.i
+
+CMakeFiles/teste.dir/Core/Src/Modules/Communication/com.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/teste.dir/Core/Src/Modules/Communication/com.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/fontana/dev/ufba/lab-2/arca/Core/Src/Modules/Communication/com.c -o CMakeFiles/teste.dir/Core/Src/Modules/Communication/com.c.s
+
 CMakeFiles/teste.dir/Core/Src/dw_stm32_delay.c.o: CMakeFiles/teste.dir/flags.make
 CMakeFiles/teste.dir/Core/Src/dw_stm32_delay.c.o: /home/fontana/dev/ufba/lab-2/arca/Core/Src/dw_stm32_delay.c
 CMakeFiles/teste.dir/Core/Src/dw_stm32_delay.c.o: CMakeFiles/teste.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/fontana/dev/ufba/lab-2/arca/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/teste.dir/Core/Src/dw_stm32_delay.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/fontana/dev/ufba/lab-2/arca/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/teste.dir/Core/Src/dw_stm32_delay.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/teste.dir/Core/Src/dw_stm32_delay.c.o -MF CMakeFiles/teste.dir/Core/Src/dw_stm32_delay.c.o.d -o CMakeFiles/teste.dir/Core/Src/dw_stm32_delay.c.o -c /home/fontana/dev/ufba/lab-2/arca/Core/Src/dw_stm32_delay.c
 
 CMakeFiles/teste.dir/Core/Src/dw_stm32_delay.c.i: cmake_force
@@ -237,6 +251,7 @@ teste_OBJECTS = \
 "CMakeFiles/teste.dir/Core/Src/Modules/temp.c.o" \
 "CMakeFiles/teste.dir/Core/Src/Modules/press.c.o" \
 "CMakeFiles/teste.dir/Core/Src/Modules/Communication/cc1101.c.o" \
+"CMakeFiles/teste.dir/Core/Src/Modules/Communication/com.c.o" \
 "CMakeFiles/teste.dir/Core/Src/dw_stm32_delay.c.o"
 
 # External object files for target teste
@@ -272,6 +287,7 @@ teste: CMakeFiles/teste.dir/Core/Src/Modules/nfc.c.o
 teste: CMakeFiles/teste.dir/Core/Src/Modules/temp.c.o
 teste: CMakeFiles/teste.dir/Core/Src/Modules/press.c.o
 teste: CMakeFiles/teste.dir/Core/Src/Modules/Communication/cc1101.c.o
+teste: CMakeFiles/teste.dir/Core/Src/Modules/Communication/com.c.o
 teste: CMakeFiles/teste.dir/Core/Src/dw_stm32_delay.c.o
 teste: cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f4xx.c.o
 teste: cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c.o
@@ -296,7 +312,7 @@ teste: cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HA
 teste: CMakeFiles/teste.dir/build.make
 teste: CMakeFiles/teste.dir/compiler_depend.ts
 teste: CMakeFiles/teste.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/fontana/dev/ufba/lab-2/arca/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking C executable teste"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/fontana/dev/ufba/lab-2/arca/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking C executable teste"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/teste.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
