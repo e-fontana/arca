@@ -21,6 +21,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "com.h"
+#include "events.h"
 #include <stdio.h>
 #include "stm32f411xe.h"
 #include "stm32f4xx_hal_def.h"
@@ -111,17 +112,22 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   // uint8_t data[] = "Hello, World!";
+  EVENT_Status_t mock_status = {
+      .temp      = 2350,   // 23.50 °C
+      .humidity  = 6010,   // 60.10 %RH
+      .direction = DIRECTION_ENTRY,
+      .door_open = 0,
+  };
+  
   COM_CC1101_RxEvent_t event;
   while (1)
   {
-    if (COM_CC1101_Poll(&event) && event.is_valid) {
-      char hex[4];
-      for (uint8_t i = 0; i < event.payload_len; i++) {
-        int n = snprintf(hex, sizeof(hex), "%02X ", event.payload[i]);
-        HAL_UART_Transmit(&huart1, (uint8_t *)hex, (uint16_t)n, HAL_MAX_DELAY);
-      }
-      HAL_UART_Transmit(&huart1, (uint8_t *)"\r\n", 2, HAL_MAX_DELAY);
-    }
+    HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
+    EVENT_SendStatus(ADDR_ROOM_2, &mock_status);
+    
+    //if (COM_CC1101_Poll(&event) && event.is_valid) {
+      //EVENT_Dispatch(&event.frame);
+    //}
   }
   /* USER CODE END 3 */
 }

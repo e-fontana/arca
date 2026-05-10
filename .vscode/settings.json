@@ -1,7 +1,9 @@
 {
     "cmake.cmakePath": "cube-cmake",
     "cmake.configureArgs": [
-        "-DCMAKE_COMMAND=cube-cmake"
+        "-DCMAKE_COMMAND=cube-cmake",
+        "-DROOM_ID=1",
+        "-DCOM_DIAG_DISABLE_ADDR_CHK=0"
     ],
     "cmake.preferredGenerators": [
         "Ninja"

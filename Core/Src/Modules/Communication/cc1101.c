@@ -137,8 +137,8 @@ void TI_write_settings(void)
     TI_write_reg(CCxxx0_FIFOTHR,  0x47);
     TI_write_reg(CCxxx0_SYNC1,    0xD3);
     TI_write_reg(CCxxx0_SYNC0,    0x91);
-    TI_write_reg(CCxxx0_PKTLEN,   0xFF);
-    TI_write_reg(CCxxx0_PKTCTRL1, 0x04);
+    TI_write_reg(CCxxx0_PKTLEN,   0x3D);
+    TI_write_reg(CCxxx0_PKTCTRL1, 0x0E);
     TI_write_reg(CCxxx0_PKTCTRL0, 0x05);
     TI_write_reg(CCxxx0_ADDR,     0x00);
     TI_write_reg(CCxxx0_CHANNR,   0x00);
