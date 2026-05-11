@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "com.h"
@@ -31,6 +32,7 @@
 #include "stm32f4xx_hal_uart.h"
 #include "system_types.h"
 #include <stdint.h>
+#include <string.h>
 #include "fsm.h"
 #include "nfc.h"
 /* USER CODE END Includes */
@@ -120,21 +122,22 @@ int main(void)
   MX_RTC_Init();
   MX_SPI1_Init();
   MX_USART1_UART_Init();
-
   /* USER CODE BEGIN 2 */
   HAL_UART_Transmit(&huart1, (uint8_t *)"UART OK\r\n", 9, 100);
   COM_CC1101_Init(&hspi1, &huart1);
   Protocol_Init(&huart1);
   Controller_Init(&controller, &huart1);
-  NFC_Init(&hspi1);
+  NFC_Begin(&hspi1);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+    /* USER CODE END WHILE */
+    
+    /* USER CODE BEGIN 3 */
     APP_Process();
-    HAL_Delay(10);
   }
   /* USER CODE END 3 */
 }
@@ -380,7 +383,7 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(NFC_LED_STATUS_GPIO_Port, NFC_LED_STATUS_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, NSS_NFC_Pin|NSS_TEMP_Pin|NSS_CC1101_Pin, GPIO_PIN_SET);
@@ -388,12 +391,15 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(NFC_RESET_GPIO_Port, NFC_RESET_Pin, GPIO_PIN_SET);
 
-  /*Configure GPIO pin : PC13 */
-  GPIO_InitStruct.Pin = GPIO_PIN_13;
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOB, AUTH_LED_CHECK_Pin|AUTH_LED_ERR_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin : NFC_LED_STATUS_Pin */
+  GPIO_InitStruct.Pin = NFC_LED_STATUS_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+  HAL_GPIO_Init(NFC_LED_STATUS_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : INT_NFC_Pin */
   GPIO_InitStruct.Pin = INT_NFC_Pin;
@@ -408,12 +414,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : NFC_RESET_Pin */
-  GPIO_InitStruct.Pin = NFC_RESET_Pin;
+  /*Configure GPIO pins : NFC_RESET_Pin AUTH_LED_CHECK_Pin AUTH_LED_ERR_Pin */
+  GPIO_InitStruct.Pin = NFC_RESET_Pin|AUTH_LED_CHECK_Pin|AUTH_LED_ERR_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(NFC_RESET_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /*Configure GPIO pin : INT_CC1101_Pin */
   GPIO_InitStruct.Pin = INT_CC1101_Pin;
@@ -458,6 +464,27 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
     Controller_UART_RxCallback(&controller);
   }
 }
+
+void NFC_CardDetected(PN532_Card_t *card)
+{
+  if (!card || !card->valid) return;
+
+  EVENT_Authorize_t auth = {0};
+
+  memcpy(auth.uid, card->uid, card->uid_len);
+  auth.uid_len = card->uid_len;
+  auth.direction = MODULE_DIRECTION;
+  auth.authorized = 0u;
+
+  uint8_t sent = EVENT_SendAuthorizeRequest(ADDR_BROADCAST, &auth);
+  if (!sent)
+  {
+    // Falha ao enviar, acende LED de erro
+    HAL_GPIO_WritePin(AUTH_LED_ERR_GPIO_Port, AUTH_LED_ERR_Pin, GPIO_PIN_SET);
+  }
+}
+
+
 /* USER CODE END 4 */
 
 /**

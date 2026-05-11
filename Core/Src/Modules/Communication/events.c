@@ -1,5 +1,8 @@
 #include "events.h"
 #include "com.h"
+#include "main.h"
+#include "stm32f4xx_hal_gpio.h"
+#include <stdint.h>
 #include <string.h>
 #include <stdio.h>
 #include <stdarg.h>
@@ -46,7 +49,7 @@ static void serialize_authorize(const EVENT_Authorize_t *auth,
     *len = 10;
 }
 
-static void serialize_status(const EVENT_Status_t *st,
+static void serialize_status(const EVENT_Status_Response_t *st,
                               uint8_t *buf, uint8_t *len)
 {
     buf[0] = (uint8_t)(st->temp >> 8);
@@ -70,7 +73,7 @@ static void deserialize_authorize(const uint8_t *buf,
 }
 
 static void deserialize_status(const uint8_t *buf,
-                                EVENT_Status_t *st)
+                                EVENT_Status_Response_t *st)
 {
     st->temp      = (int16_t)((buf[0] << 8) | buf[1]);
     st->humidity  = (uint16_t)((buf[2] << 8) | buf[3]);
@@ -96,7 +99,7 @@ static void log_authorize(const EVENT_Authorize_t *auth)
               direction_str(auth->direction));
 }
 
-static void log_status(const EVENT_Status_t *st)
+static void log_status(const EVENT_Status_Response_t *st)
 {
     int16_t t     = st->temp;
     char    tsign = (t < 0) ? '-' : '+';
@@ -142,7 +145,7 @@ static uint8_t send_with_retry(uint8_t dst, uint8_t *buf, uint8_t len,
     return 0;
 }
 
-uint8_t EVENT_SendAuthorize(uint8_t dst, const EVENT_Authorize_t *auth)
+static uint8_t send_authorize(uint8_t dst, const EVENT_Authorize_t *auth, uint8_t type)
 {
     uint8_t payload[10];
     uint8_t payload_len;
@@ -153,7 +156,7 @@ uint8_t EVENT_SendAuthorize(uint8_t dst, const EVENT_Authorize_t *auth)
 
     COM_Frame_t frame = {
         .dst         = dst,
-        .type        = TYPE_AUTHORIZE,
+        .type        = type,
         .src         = MY_ADDR,
         .payload_len = payload_len
     };
@@ -165,7 +168,17 @@ uint8_t EVENT_SendAuthorize(uint8_t dst, const EVENT_Authorize_t *auth)
     return send_with_retry(dst, buf, len, "AUTHORIZE");
 }
 
-uint8_t EVENT_SendStatus(uint8_t dst, const EVENT_Status_t *st)
+uint8_t EVENT_SendAuthorizeRequest(uint8_t dst, const EVENT_Authorize_t *auth)
+{
+    return send_authorize(dst, auth, TYPE_AUTHORIZE_REQUEST);
+}
+
+uint8_t EVENT_SendAuthorizeResponse(uint8_t dst, const EVENT_Authorize_t *auth)
+{
+    return send_authorize(dst, auth, TYPE_AUTHORIZE_RESPONSE);
+}
+
+uint8_t EVENT_SendStatusResponse(uint8_t dst, const EVENT_Status_Response_t *st)
 {
     uint8_t payload[6];
     uint8_t payload_len;
@@ -176,7 +189,7 @@ uint8_t EVENT_SendStatus(uint8_t dst, const EVENT_Status_t *st)
 
     COM_Frame_t frame = {
         .dst         = dst,
-        .type        = TYPE_STATUS,
+        .type        = TYPE_STATUS_RESPONSE,
         .src         = MY_ADDR,
         .payload_len = payload_len
     };
@@ -199,7 +212,7 @@ void EVENT_Dispatch(const COM_Frame_t *frame)
 
     switch (frame->type)
     {
-        case TYPE_AUTHORIZE:
+        case TYPE_AUTHORIZE_REQUEST:
         {
             if (frame->payload_len < 10) {
                 uart_logf("[DISPATCH] AUTHORIZE rejeitado: payload curto (%u bytes, min=10) — NACK enviado\r\n",
@@ -218,10 +231,40 @@ void EVENT_Dispatch(const COM_Frame_t *frame)
              * TODO: passar auth para a lógica de negócio
              * ex: ACCESS_CheckUid(&auth);
              */
+
+            auth.authorized = 1; /* TODO: resultado real da lógica de negócio */
+            EVENT_SendAuthorizeResponse(frame->src, &auth);
             break;
         }
 
-        case TYPE_STATUS:
+        case TYPE_AUTHORIZE_RESPONSE:
+        {
+            if (frame->payload_len < 10) {
+                uart_logf("[DISPATCH] AUTHORIZE_RESPONSE rejeitado: payload curto (%u bytes, min=10) — NACK enviado\r\n",
+                          (unsigned)frame->payload_len);
+                COM_SendNack(frame->src, frame->dst, NACK_UNKNOWN_TYPE);
+                return;
+            }
+            COM_SendAck(frame->src, frame->dst);
+            uart_logf("[DISPATCH] ACK enviado para 0x%02X — processando AUTHORIZE_RESPONSE\r\n", frame->src);
+
+            EVENT_Authorize_t auth;
+            deserialize_authorize(frame->payload, &auth);
+            log_authorize(&auth);
+
+            if (auth.authorized)
+            {
+                HAL_GPIO_WritePin(AUTH_LED_CHECK_GPIO_Port, AUTH_LED_CHECK_Pin, GPIO_PIN_SET);
+            }
+            else
+            {
+                HAL_GPIO_WritePin(AUTH_LED_ERR_GPIO_Port, AUTH_LED_ERR_Pin, GPIO_PIN_SET);
+            }
+
+            break;
+        }
+
+        case TYPE_STATUS_REQUEST:
         {
             if (frame->payload_len < 6) {
                 uart_logf("[DISPATCH] STATUS rejeitado: payload curto (%u bytes, min=6) — NACK enviado\r\n",
@@ -232,7 +275,7 @@ void EVENT_Dispatch(const COM_Frame_t *frame)
             COM_SendAck(frame->src, frame->dst);
             uart_logf("[DISPATCH] ACK enviado para 0x%02X — processando STATUS\r\n", frame->src);
 
-            EVENT_Status_t st;
+            EVENT_Status_Response_t st;
             deserialize_status(frame->payload, &st);
             log_status(&st);
 

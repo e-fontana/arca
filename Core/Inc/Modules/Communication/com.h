@@ -14,10 +14,12 @@
 #define ADDR_BROADCAST  0x00
 
 /* ── Tipos de mensagem ─────────────────────────────────── */
-#define TYPE_AUTHORIZE  0x01
-#define TYPE_STATUS     0x02
-#define TYPE_ACK        0x03
-#define TYPE_NACK       0x04
+#define TYPE_AUTHORIZE_REQUEST  0x01
+#define TYPE_AUTHORIZE_RESPONSE 0x02
+#define TYPE_STATUS_REQUEST     0x03
+#define TYPE_STATUS_RESPONSE    0x04
+#define TYPE_ACK                0x05
+#define TYPE_NACK               0x06
 
 /* ── Códigos NACK ──────────────────────────────────────── */
 #define NACK_CRC_ERROR      0x01
