@@ -190,6 +190,102 @@ Core/Src/Modules/Communication/com.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/teste.dir/build.make CMakeFiles/teste.dir/Core/Src/Modules/Communication/com.c.s
 .PHONY : Core/Src/Modules/Communication/com.c.s
 
+Core/Src/Modules/Communication/dw_stm32_delay.o: Core/Src/Modules/Communication/dw_stm32_delay.c.o
+.PHONY : Core/Src/Modules/Communication/dw_stm32_delay.o
+
+# target to build an object file
+Core/Src/Modules/Communication/dw_stm32_delay.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/teste.dir/build.make CMakeFiles/teste.dir/Core/Src/Modules/Communication/dw_stm32_delay.c.o
+.PHONY : Core/Src/Modules/Communication/dw_stm32_delay.c.o
+
+Core/Src/Modules/Communication/dw_stm32_delay.i: Core/Src/Modules/Communication/dw_stm32_delay.c.i
+.PHONY : Core/Src/Modules/Communication/dw_stm32_delay.i
+
+# target to preprocess a source file
+Core/Src/Modules/Communication/dw_stm32_delay.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/teste.dir/build.make CMakeFiles/teste.dir/Core/Src/Modules/Communication/dw_stm32_delay.c.i
+.PHONY : Core/Src/Modules/Communication/dw_stm32_delay.c.i
+
+Core/Src/Modules/Communication/dw_stm32_delay.s: Core/Src/Modules/Communication/dw_stm32_delay.c.s
+.PHONY : Core/Src/Modules/Communication/dw_stm32_delay.s
+
+# target to generate assembly for a file
+Core/Src/Modules/Communication/dw_stm32_delay.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/teste.dir/build.make CMakeFiles/teste.dir/Core/Src/Modules/Communication/dw_stm32_delay.c.s
+.PHONY : Core/Src/Modules/Communication/dw_stm32_delay.c.s
+
+Core/Src/Modules/Communication/events.o: Core/Src/Modules/Communication/events.c.o
+.PHONY : Core/Src/Modules/Communication/events.o
+
+# target to build an object file
+Core/Src/Modules/Communication/events.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/teste.dir/build.make CMakeFiles/teste.dir/Core/Src/Modules/Communication/events.c.o
+.PHONY : Core/Src/Modules/Communication/events.c.o
+
+Core/Src/Modules/Communication/events.i: Core/Src/Modules/Communication/events.c.i
+.PHONY : Core/Src/Modules/Communication/events.i
+
+# target to preprocess a source file
+Core/Src/Modules/Communication/events.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/teste.dir/build.make CMakeFiles/teste.dir/Core/Src/Modules/Communication/events.c.i
+.PHONY : Core/Src/Modules/Communication/events.c.i
+
+Core/Src/Modules/Communication/events.s: Core/Src/Modules/Communication/events.c.s
+.PHONY : Core/Src/Modules/Communication/events.s
+
+# target to generate assembly for a file
+Core/Src/Modules/Communication/events.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/teste.dir/build.make CMakeFiles/teste.dir/Core/Src/Modules/Communication/events.c.s
+.PHONY : Core/Src/Modules/Communication/events.c.s
+
+Core/Src/Modules/RTC/rtc_api.o: Core/Src/Modules/RTC/rtc_api.c.o
+.PHONY : Core/Src/Modules/RTC/rtc_api.o
+
+# target to build an object file
+Core/Src/Modules/RTC/rtc_api.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/teste.dir/build.make CMakeFiles/teste.dir/Core/Src/Modules/RTC/rtc_api.c.o
+.PHONY : Core/Src/Modules/RTC/rtc_api.c.o
+
+Core/Src/Modules/RTC/rtc_api.i: Core/Src/Modules/RTC/rtc_api.c.i
+.PHONY : Core/Src/Modules/RTC/rtc_api.i
+
+# target to preprocess a source file
+Core/Src/Modules/RTC/rtc_api.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/teste.dir/build.make CMakeFiles/teste.dir/Core/Src/Modules/RTC/rtc_api.c.i
+.PHONY : Core/Src/Modules/RTC/rtc_api.c.i
+
+Core/Src/Modules/RTC/rtc_api.s: Core/Src/Modules/RTC/rtc_api.c.s
+.PHONY : Core/Src/Modules/RTC/rtc_api.s
+
+# target to generate assembly for a file
+Core/Src/Modules/RTC/rtc_api.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/teste.dir/build.make CMakeFiles/teste.dir/Core/Src/Modules/RTC/rtc_api.c.s
+.PHONY : Core/Src/Modules/RTC/rtc_api.c.s
+
+Core/Src/Modules/RTC/rtc_sync.o: Core/Src/Modules/RTC/rtc_sync.c.o
+.PHONY : Core/Src/Modules/RTC/rtc_sync.o
+
+# target to build an object file
+Core/Src/Modules/RTC/rtc_sync.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/teste.dir/build.make CMakeFiles/teste.dir/Core/Src/Modules/RTC/rtc_sync.c.o
+.PHONY : Core/Src/Modules/RTC/rtc_sync.c.o
+
+Core/Src/Modules/RTC/rtc_sync.i: Core/Src/Modules/RTC/rtc_sync.c.i
+.PHONY : Core/Src/Modules/RTC/rtc_sync.i
+
+# target to preprocess a source file
+Core/Src/Modules/RTC/rtc_sync.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/teste.dir/build.make CMakeFiles/teste.dir/Core/Src/Modules/RTC/rtc_sync.c.i
+.PHONY : Core/Src/Modules/RTC/rtc_sync.c.i
+
+Core/Src/Modules/RTC/rtc_sync.s: Core/Src/Modules/RTC/rtc_sync.c.s
+.PHONY : Core/Src/Modules/RTC/rtc_sync.s
+
+# target to generate assembly for a file
+Core/Src/Modules/RTC/rtc_sync.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/teste.dir/build.make CMakeFiles/teste.dir/Core/Src/Modules/RTC/rtc_sync.c.s
+.PHONY : Core/Src/Modules/RTC/rtc_sync.c.s
+
 Core/Src/Modules/nfc.o: Core/Src/Modules/nfc.c.o
 .PHONY : Core/Src/Modules/nfc.o
 
@@ -261,30 +357,6 @@ Core/Src/Modules/temp.s: Core/Src/Modules/temp.c.s
 Core/Src/Modules/temp.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/teste.dir/build.make CMakeFiles/teste.dir/Core/Src/Modules/temp.c.s
 .PHONY : Core/Src/Modules/temp.c.s
-
-Core/Src/dw_stm32_delay.o: Core/Src/dw_stm32_delay.c.o
-.PHONY : Core/Src/dw_stm32_delay.o
-
-# target to build an object file
-Core/Src/dw_stm32_delay.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/teste.dir/build.make CMakeFiles/teste.dir/Core/Src/dw_stm32_delay.c.o
-.PHONY : Core/Src/dw_stm32_delay.c.o
-
-Core/Src/dw_stm32_delay.i: Core/Src/dw_stm32_delay.c.i
-.PHONY : Core/Src/dw_stm32_delay.i
-
-# target to preprocess a source file
-Core/Src/dw_stm32_delay.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/teste.dir/build.make CMakeFiles/teste.dir/Core/Src/dw_stm32_delay.c.i
-.PHONY : Core/Src/dw_stm32_delay.c.i
-
-Core/Src/dw_stm32_delay.s: Core/Src/dw_stm32_delay.c.s
-.PHONY : Core/Src/dw_stm32_delay.s
-
-# target to generate assembly for a file
-Core/Src/dw_stm32_delay.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/teste.dir/build.make CMakeFiles/teste.dir/Core/Src/dw_stm32_delay.c.s
-.PHONY : Core/Src/dw_stm32_delay.c.s
 
 Core/Src/main.o: Core/Src/main.c.o
 .PHONY : Core/Src/main.o
@@ -430,6 +502,18 @@ help:
 	@echo "... Core/Src/Modules/Communication/com.o"
 	@echo "... Core/Src/Modules/Communication/com.i"
 	@echo "... Core/Src/Modules/Communication/com.s"
+	@echo "... Core/Src/Modules/Communication/dw_stm32_delay.o"
+	@echo "... Core/Src/Modules/Communication/dw_stm32_delay.i"
+	@echo "... Core/Src/Modules/Communication/dw_stm32_delay.s"
+	@echo "... Core/Src/Modules/Communication/events.o"
+	@echo "... Core/Src/Modules/Communication/events.i"
+	@echo "... Core/Src/Modules/Communication/events.s"
+	@echo "... Core/Src/Modules/RTC/rtc_api.o"
+	@echo "... Core/Src/Modules/RTC/rtc_api.i"
+	@echo "... Core/Src/Modules/RTC/rtc_api.s"
+	@echo "... Core/Src/Modules/RTC/rtc_sync.o"
+	@echo "... Core/Src/Modules/RTC/rtc_sync.i"
+	@echo "... Core/Src/Modules/RTC/rtc_sync.s"
 	@echo "... Core/Src/Modules/nfc.o"
 	@echo "... Core/Src/Modules/nfc.i"
 	@echo "... Core/Src/Modules/nfc.s"
@@ -439,9 +523,6 @@ help:
 	@echo "... Core/Src/Modules/temp.o"
 	@echo "... Core/Src/Modules/temp.i"
 	@echo "... Core/Src/Modules/temp.s"
-	@echo "... Core/Src/dw_stm32_delay.o"
-	@echo "... Core/Src/dw_stm32_delay.i"
-	@echo "... Core/Src/dw_stm32_delay.s"
 	@echo "... Core/Src/main.o"
 	@echo "... Core/Src/main.i"
 	@echo "... Core/Src/main.s"

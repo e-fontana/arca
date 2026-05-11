@@ -21,6 +21,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "com.h"
+#include "rtc_api.h"
 #include "events.h"
 #include <stdio.h>
 #include "stm32f411xe.h"
@@ -106,6 +107,7 @@ int main(void)
   MX_USART1_UART_Init();
 
   /* USER CODE BEGIN 2 */
+  HAL_UART_Transmit(&huart1, (uint8_t *)"UART OK\r\n", 9, 100);
   COM_CC1101_Init(&hspi1, &huart1);
   /* USER CODE END 2 */
 
@@ -122,12 +124,14 @@ int main(void)
   COM_CC1101_RxEvent_t event;
   while (1)
   {
-    HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
-    EVENT_SendStatus(ADDR_ROOM_2, &mock_status);
-    
+    //HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
+    //EVENT_SendStatus(ADDR_ROOM_2, &mock_status);
+
     //if (COM_CC1101_Poll(&event) && event.is_valid) {
       //EVENT_Dispatch(&event.frame);
     //}
+    RTC_SendStatus(&huart1);
+    HAL_Delay(1000);
   }
   /* USER CODE END 3 */
 }
