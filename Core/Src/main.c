@@ -22,6 +22,7 @@
 /* USER CODE BEGIN Includes */
 #include "com.h"
 #include "rtc_api.h"
+#include "uart_protocol.h"
 #include "events.h"
 #include <stdio.h>
 #include "stm32f411xe.h"
@@ -73,6 +74,16 @@ static void MX_USART1_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+static void APP_Process(void)
+{
+  COM_CC1101_RxEvent_t event;
+
+  RTC_API_Process();
+
+  if (COM_CC1101_Poll(&event) && event.is_valid) {
+    EVENT_Dispatch(&event.frame);
+  }
+}
 /* USER CODE END 0 */
 
 /**
@@ -109,29 +120,15 @@ int main(void)
   /* USER CODE BEGIN 2 */
   HAL_UART_Transmit(&huart1, (uint8_t *)"UART OK\r\n", 9, 100);
   COM_CC1101_Init(&hspi1, &huart1);
+  Protocol_Init(&huart1);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  // uint8_t data[] = "Hello, World!";
-  EVENT_Status_t mock_status = {
-      .temp      = 2350,   // 23.50 °C
-      .humidity  = 6010,   // 60.10 %RH
-      .direction = DIRECTION_ENTRY,
-      .door_open = 0,
-  };
-  
-  COM_CC1101_RxEvent_t event;
   while (1)
   {
-    //HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
-    //EVENT_SendStatus(ADDR_ROOM_2, &mock_status);
-
-    //if (COM_CC1101_Poll(&event) && event.is_valid) {
-      //EVENT_Dispatch(&event.frame);
-    //}
-    RTC_SendStatus(&huart1);
-    HAL_Delay(1000);
+    APP_Process();
+    HAL_Delay(10);
   }
   /* USER CODE END 3 */
 }
@@ -441,6 +438,13 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
       break;
     default:
       break;
+  }
+}
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+  if (huart->Instance == USART1) {
+    Protocol_UART_RxCallback();
   }
 }
 /* USER CODE END 4 */
