@@ -62,6 +62,7 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     Core/Src/Modules/Communication/com.c
     Core/Src/Modules/Communication/events.c
     Core/Src/Modules/Communication/dw_stm32_delay.c
+    Core/Src/Modules/Communication/uart_protocol.c
     Core/Src/Modules/RTC/rtc_api.c
     Core/Src/Modules/RTC/rtc_sync.c
 )

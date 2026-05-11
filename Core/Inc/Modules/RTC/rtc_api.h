@@ -3,11 +3,15 @@
 
 #include "stm32f4xx_hal.h"
 #include "rtc_sync.h"
+#include "uart_protocol.h"
 
-#define CMD_GET_TIME  'G'   /* 0x47 — retorna JSON com data/hora */
-#define CMD_SET_TIME  'S'   /* 0x53 — seta hora (protocolo já existente) */
+#define CMD_GET_TIME  'G'   /* 0x47 */
+#define CMD_SET_TIME  'S'   /* 0x53 */
 
-void RTC_API_Process(UART_HandleTypeDef *huart);
+/* Processa um frame recebido via Protocol_Receive() */
+void RTC_API_Process(void);
+
+/* Debug: envia JSON do RTC atual via UART diretamente */
 void RTC_SendStatus(UART_HandleTypeDef *huart);
 
 #endif
