@@ -18,12 +18,17 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "com.h"
+#include "events.h"
+#include <stdio.h>
 #include "stm32f411xe.h"
+#include "stm32f4xx_hal_def.h"
 #include "stm32f4xx_hal_gpio.h"
+#include "stm32f4xx_hal_uart.h"
 #include "system_types.h"
+#include <stdint.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -53,7 +58,6 @@ SPI_HandleTypeDef hspi1;
 UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
-
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -100,18 +104,30 @@ int main(void)
   MX_RTC_Init();
   MX_SPI1_Init();
   MX_USART1_UART_Init();
+
   /* USER CODE BEGIN 2 */
+  COM_CC1101_Init(&hspi1, &huart1);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  // uint8_t data[] = "Hello, World!";
+  EVENT_Status_t mock_status = {
+      .temp      = 2350,   // 23.50 °C
+      .humidity  = 6010,   // 60.10 %RH
+      .direction = DIRECTION_ENTRY,
+      .door_open = 0,
+  };
+  
+  COM_CC1101_RxEvent_t event;
   while (1)
   {
-    /* USER CODE END WHILE */
-
-    /* USER CODE BEGIN 3 */
     HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
-    HAL_Delay(1000);
+    EVENT_SendStatus(ADDR_ROOM_2, &mock_status);
+    
+    //if (COM_CC1101_Poll(&event) && event.is_valid) {
+      //EVENT_Dispatch(&event.frame);
+    //}
   }
   /* USER CODE END 3 */
 }
@@ -406,10 +422,23 @@ static void MX_GPIO_Init(void)
   HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
 
   /* USER CODE BEGIN MX_GPIO_Init_2 */
+  HAL_NVIC_DisableIRQ(EXTI15_10_IRQn);
+  __HAL_GPIO_EXTI_CLEAR_IT(INT_CC1101_Pin);
+  NVIC_ClearPendingIRQ(EXTI15_10_IRQn);
   /* USER CODE END MX_GPIO_Init_2 */
 }
 
 /* USER CODE BEGIN 4 */
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+  switch (GPIO_Pin) {
+    case INT_CC1101_Pin:
+      COM_CC1101_HandleInterrupt(GPIO_Pin);
+      break;
+    default:
+      break;
+  }
+}
 /* USER CODE END 4 */
 
 /**

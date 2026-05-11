@@ -1,0 +1,194 @@
+[
+{
+  "directory": "/home/fontana/dev/ufba/lab-2/arca/Debug",
+  "command": "/usr/bin/cc -DDEBUG -DSTM32F411xE -DUSE_HAL_DRIVER -I/home/fontana/dev/ufba/lab-2/arca/Core/Inc -I/home/fontana/dev/ufba/lab-2/arca/Core/Inc/Modules -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Core/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -o CMakeFiles/teste.dir/Core/Src/main.c.o -c /home/fontana/dev/ufba/lab-2/arca/Core/Src/main.c",
+  "file": "/home/fontana/dev/ufba/lab-2/arca/Core/Src/main.c",
+  "output": "CMakeFiles/teste.dir/Core/Src/main.c.o"
+},
+{
+  "directory": "/home/fontana/dev/ufba/lab-2/arca/Debug",
+  "command": "/usr/bin/cc -DDEBUG -DSTM32F411xE -DUSE_HAL_DRIVER -I/home/fontana/dev/ufba/lab-2/arca/Core/Inc -I/home/fontana/dev/ufba/lab-2/arca/Core/Inc/Modules -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Core/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -o CMakeFiles/teste.dir/Core/Src/stm32f4xx_it.c.o -c /home/fontana/dev/ufba/lab-2/arca/Core/Src/stm32f4xx_it.c",
+  "file": "/home/fontana/dev/ufba/lab-2/arca/Core/Src/stm32f4xx_it.c",
+  "output": "CMakeFiles/teste.dir/Core/Src/stm32f4xx_it.c.o"
+},
+{
+  "directory": "/home/fontana/dev/ufba/lab-2/arca/Debug",
+  "command": "/usr/bin/cc -DDEBUG -DSTM32F411xE -DUSE_HAL_DRIVER -I/home/fontana/dev/ufba/lab-2/arca/Core/Inc -I/home/fontana/dev/ufba/lab-2/arca/Core/Inc/Modules -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Core/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -o CMakeFiles/teste.dir/Core/Src/stm32f4xx_hal_msp.c.o -c /home/fontana/dev/ufba/lab-2/arca/Core/Src/stm32f4xx_hal_msp.c",
+  "file": "/home/fontana/dev/ufba/lab-2/arca/Core/Src/stm32f4xx_hal_msp.c",
+  "output": "CMakeFiles/teste.dir/Core/Src/stm32f4xx_hal_msp.c.o"
+},
+{
+  "directory": "/home/fontana/dev/ufba/lab-2/arca/Debug",
+  "command": "/usr/bin/cc -DDEBUG -DSTM32F411xE -DUSE_HAL_DRIVER -I/home/fontana/dev/ufba/lab-2/arca/Core/Inc -I/home/fontana/dev/ufba/lab-2/arca/Core/Inc/Modules -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Core/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -o CMakeFiles/teste.dir/Core/Src/sysmem.c.o -c /home/fontana/dev/ufba/lab-2/arca/Core/Src/sysmem.c",
+  "file": "/home/fontana/dev/ufba/lab-2/arca/Core/Src/sysmem.c",
+  "output": "CMakeFiles/teste.dir/Core/Src/sysmem.c.o"
+},
+{
+  "directory": "/home/fontana/dev/ufba/lab-2/arca/Debug",
+  "command": "/usr/bin/cc -DDEBUG -DSTM32F411xE -DUSE_HAL_DRIVER -I/home/fontana/dev/ufba/lab-2/arca/Core/Inc -I/home/fontana/dev/ufba/lab-2/arca/Core/Inc/Modules -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Core/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -o CMakeFiles/teste.dir/Core/Src/syscalls.c.o -c /home/fontana/dev/ufba/lab-2/arca/Core/Src/syscalls.c",
+  "file": "/home/fontana/dev/ufba/lab-2/arca/Core/Src/syscalls.c",
+  "output": "CMakeFiles/teste.dir/Core/Src/syscalls.c.o"
+},
+{
+  "directory": "/home/fontana/dev/ufba/lab-2/arca/Debug",
+  "command": "/usr/bin/cc -DDEBUG -DSTM32F411xE -DUSE_HAL_DRIVER -I/home/fontana/dev/ufba/lab-2/arca/Core/Inc -I/home/fontana/dev/ufba/lab-2/arca/Core/Inc/Modules -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Core/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -o CMakeFiles/teste.dir/startup_stm32f411xe.s.o -c /home/fontana/dev/ufba/lab-2/arca/startup_stm32f411xe.s",
+  "file": "/home/fontana/dev/ufba/lab-2/arca/startup_stm32f411xe.s",
+  "output": "CMakeFiles/teste.dir/startup_stm32f411xe.s.o"
+},
+{
+  "directory": "/home/fontana/dev/ufba/lab-2/arca/Debug",
+  "command": "/usr/bin/cc -DDEBUG -DSTM32F411xE -DUSE_HAL_DRIVER -I/home/fontana/dev/ufba/lab-2/arca/Core/Inc -I/home/fontana/dev/ufba/lab-2/arca/Core/Inc/Modules -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Core/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -o CMakeFiles/teste.dir/Core/Src/Modules/nfc.c.o -c /home/fontana/dev/ufba/lab-2/arca/Core/Src/Modules/nfc.c",
+  "file": "/home/fontana/dev/ufba/lab-2/arca/Core/Src/Modules/nfc.c",
+  "output": "CMakeFiles/teste.dir/Core/Src/Modules/nfc.c.o"
+},
+{
+  "directory": "/home/fontana/dev/ufba/lab-2/arca/Debug",
+  "command": "/usr/bin/cc -DDEBUG -DSTM32F411xE -DUSE_HAL_DRIVER -I/home/fontana/dev/ufba/lab-2/arca/Core/Inc -I/home/fontana/dev/ufba/lab-2/arca/Core/Inc/Modules -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Core/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -o CMakeFiles/teste.dir/Core/Src/Modules/temp.c.o -c /home/fontana/dev/ufba/lab-2/arca/Core/Src/Modules/temp.c",
+  "file": "/home/fontana/dev/ufba/lab-2/arca/Core/Src/Modules/temp.c",
+  "output": "CMakeFiles/teste.dir/Core/Src/Modules/temp.c.o"
+},
+{
+  "directory": "/home/fontana/dev/ufba/lab-2/arca/Debug",
+  "command": "/usr/bin/cc -DDEBUG -DSTM32F411xE -DUSE_HAL_DRIVER -I/home/fontana/dev/ufba/lab-2/arca/Core/Inc -I/home/fontana/dev/ufba/lab-2/arca/Core/Inc/Modules -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Core/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -o CMakeFiles/teste.dir/Core/Src/Modules/press.c.o -c /home/fontana/dev/ufba/lab-2/arca/Core/Src/Modules/press.c",
+  "file": "/home/fontana/dev/ufba/lab-2/arca/Core/Src/Modules/press.c",
+  "output": "CMakeFiles/teste.dir/Core/Src/Modules/press.c.o"
+},
+{
+  "directory": "/home/fontana/dev/ufba/lab-2/arca/Debug",
+  "command": "/usr/bin/cc -DDEBUG -DSTM32F411xE -DUSE_HAL_DRIVER -I/home/fontana/dev/ufba/lab-2/arca/Core/Inc -I/home/fontana/dev/ufba/lab-2/arca/Core/Inc/Modules -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Core/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -o CMakeFiles/teste.dir/Core/Src/Modules/Communication/cc1101.c.o -c /home/fontana/dev/ufba/lab-2/arca/Core/Src/Modules/Communication/cc1101.c",
+  "file": "/home/fontana/dev/ufba/lab-2/arca/Core/Src/Modules/Communication/cc1101.c",
+  "output": "CMakeFiles/teste.dir/Core/Src/Modules/Communication/cc1101.c.o"
+},
+{
+  "directory": "/home/fontana/dev/ufba/lab-2/arca/Debug",
+  "command": "/usr/bin/cc -DDEBUG -DSTM32F411xE -DUSE_HAL_DRIVER -I/home/fontana/dev/ufba/lab-2/arca/Core/Inc -I/home/fontana/dev/ufba/lab-2/arca/Core/Inc/Modules -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Core/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -o CMakeFiles/teste.dir/Core/Src/Modules/Communication/com.c.o -c /home/fontana/dev/ufba/lab-2/arca/Core/Src/Modules/Communication/com.c",
+  "file": "/home/fontana/dev/ufba/lab-2/arca/Core/Src/Modules/Communication/com.c",
+  "output": "CMakeFiles/teste.dir/Core/Src/Modules/Communication/com.c.o"
+},
+{
+  "directory": "/home/fontana/dev/ufba/lab-2/arca/Debug",
+  "command": "/usr/bin/cc -DDEBUG -DSTM32F411xE -DUSE_HAL_DRIVER -I/home/fontana/dev/ufba/lab-2/arca/Core/Inc -I/home/fontana/dev/ufba/lab-2/arca/Core/Inc/Modules -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Core/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -o CMakeFiles/teste.dir/Core/Src/dw_stm32_delay.c.o -c /home/fontana/dev/ufba/lab-2/arca/Core/Src/dw_stm32_delay.c",
+  "file": "/home/fontana/dev/ufba/lab-2/arca/Core/Src/dw_stm32_delay.c",
+  "output": "CMakeFiles/teste.dir/Core/Src/dw_stm32_delay.c.o"
+},
+{
+  "directory": "/home/fontana/dev/ufba/lab-2/arca/Debug/cmake/stm32cubemx",
+  "command": "/usr/bin/cc -DDEBUG -DSTM32F411xE -DUSE_HAL_DRIVER -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Core/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -o CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f4xx.c.o -c /home/fontana/dev/ufba/lab-2/arca/Core/Src/system_stm32f4xx.c",
+  "file": "/home/fontana/dev/ufba/lab-2/arca/Core/Src/system_stm32f4xx.c",
+  "output": "cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f4xx.c.o"
+},
+{
+  "directory": "/home/fontana/dev/ufba/lab-2/arca/Debug/cmake/stm32cubemx",
+  "command": "/usr/bin/cc -DDEBUG -DSTM32F411xE -DUSE_HAL_DRIVER -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Core/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -o CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c.o -c /home/fontana/dev/ufba/lab-2/arca/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c",
+  "file": "/home/fontana/dev/ufba/lab-2/arca/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c",
+  "output": "cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c.o"
+},
+{
+  "directory": "/home/fontana/dev/ufba/lab-2/arca/Debug/cmake/stm32cubemx",
+  "command": "/usr/bin/cc -DDEBUG -DSTM32F411xE -DUSE_HAL_DRIVER -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Core/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -o CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c.o -c /home/fontana/dev/ufba/lab-2/arca/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c",
+  "file": "/home/fontana/dev/ufba/lab-2/arca/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c",
+  "output": "cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c.o"
+},
+{
+  "directory": "/home/fontana/dev/ufba/lab-2/arca/Debug/cmake/stm32cubemx",
+  "command": "/usr/bin/cc -DDEBUG -DSTM32F411xE -DUSE_HAL_DRIVER -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Core/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -o CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.o -c /home/fontana/dev/ufba/lab-2/arca/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c",
+  "file": "/home/fontana/dev/ufba/lab-2/arca/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c",
+  "output": "cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.o"
+},
+{
+  "directory": "/home/fontana/dev/ufba/lab-2/arca/Debug/cmake/stm32cubemx",
+  "command": "/usr/bin/cc -DDEBUG -DSTM32F411xE -DUSE_HAL_DRIVER -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Core/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -o CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c.o -c /home/fontana/dev/ufba/lab-2/arca/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c",
+  "file": "/home/fontana/dev/ufba/lab-2/arca/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c",
+  "output": "cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c.o"
+},
+{
+  "directory": "/home/fontana/dev/ufba/lab-2/arca/Debug/cmake/stm32cubemx",
+  "command": "/usr/bin/cc -DDEBUG -DSTM32F411xE -DUSE_HAL_DRIVER -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Core/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -o CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c.o -c /home/fontana/dev/ufba/lab-2/arca/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c",
+  "file": "/home/fontana/dev/ufba/lab-2/arca/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c",
+  "output": "cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c.o"
+},
+{
+  "directory": "/home/fontana/dev/ufba/lab-2/arca/Debug/cmake/stm32cubemx",
+  "command": "/usr/bin/cc -DDEBUG -DSTM32F411xE -DUSE_HAL_DRIVER -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Core/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -o CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c.o -c /home/fontana/dev/ufba/lab-2/arca/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c",
+  "file": "/home/fontana/dev/ufba/lab-2/arca/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c",
+  "output": "cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c.o"
+},
+{
+  "directory": "/home/fontana/dev/ufba/lab-2/arca/Debug/cmake/stm32cubemx",
+  "command": "/usr/bin/cc -DDEBUG -DSTM32F411xE -DUSE_HAL_DRIVER -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Core/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -o CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c.o -c /home/fontana/dev/ufba/lab-2/arca/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c",
+  "file": "/home/fontana/dev/ufba/lab-2/arca/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c",
+  "output": "cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c.o"
+},
+{
+  "directory": "/home/fontana/dev/ufba/lab-2/arca/Debug/cmake/stm32cubemx",
+  "command": "/usr/bin/cc -DDEBUG -DSTM32F411xE -DUSE_HAL_DRIVER -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Core/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -o CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.o -c /home/fontana/dev/ufba/lab-2/arca/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c",
+  "file": "/home/fontana/dev/ufba/lab-2/arca/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c",
+  "output": "cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.o"
+},
+{
+  "directory": "/home/fontana/dev/ufba/lab-2/arca/Debug/cmake/stm32cubemx",
+  "command": "/usr/bin/cc -DDEBUG -DSTM32F411xE -DUSE_HAL_DRIVER -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Core/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -o CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c.o -c /home/fontana/dev/ufba/lab-2/arca/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c",
+  "file": "/home/fontana/dev/ufba/lab-2/arca/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c",
+  "output": "cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c.o"
+},
+{
+  "directory": "/home/fontana/dev/ufba/lab-2/arca/Debug/cmake/stm32cubemx",
+  "command": "/usr/bin/cc -DDEBUG -DSTM32F411xE -DUSE_HAL_DRIVER -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Core/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -o CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c.o -c /home/fontana/dev/ufba/lab-2/arca/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c",
+  "file": "/home/fontana/dev/ufba/lab-2/arca/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c",
+  "output": "cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c.o"
+},
+{
+  "directory": "/home/fontana/dev/ufba/lab-2/arca/Debug/cmake/stm32cubemx",
+  "command": "/usr/bin/cc -DDEBUG -DSTM32F411xE -DUSE_HAL_DRIVER -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Core/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -o CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c.o -c /home/fontana/dev/ufba/lab-2/arca/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c",
+  "file": "/home/fontana/dev/ufba/lab-2/arca/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c",
+  "output": "cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c.o"
+},
+{
+  "directory": "/home/fontana/dev/ufba/lab-2/arca/Debug/cmake/stm32cubemx",
+  "command": "/usr/bin/cc -DDEBUG -DSTM32F411xE -DUSE_HAL_DRIVER -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Core/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -o CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c.o -c /home/fontana/dev/ufba/lab-2/arca/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c",
+  "file": "/home/fontana/dev/ufba/lab-2/arca/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c",
+  "output": "cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c.o"
+},
+{
+  "directory": "/home/fontana/dev/ufba/lab-2/arca/Debug/cmake/stm32cubemx",
+  "command": "/usr/bin/cc -DDEBUG -DSTM32F411xE -DUSE_HAL_DRIVER -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Core/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -o CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.o -c /home/fontana/dev/ufba/lab-2/arca/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c",
+  "file": "/home/fontana/dev/ufba/lab-2/arca/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c",
+  "output": "cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.o"
+},
+{
+  "directory": "/home/fontana/dev/ufba/lab-2/arca/Debug/cmake/stm32cubemx",
+  "command": "/usr/bin/cc -DDEBUG -DSTM32F411xE -DUSE_HAL_DRIVER -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Core/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -o CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.o -c /home/fontana/dev/ufba/lab-2/arca/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c",
+  "file": "/home/fontana/dev/ufba/lab-2/arca/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c",
+  "output": "cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.o"
+},
+{
+  "directory": "/home/fontana/dev/ufba/lab-2/arca/Debug/cmake/stm32cubemx",
+  "command": "/usr/bin/cc -DDEBUG -DSTM32F411xE -DUSE_HAL_DRIVER -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Core/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -o CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c.o -c /home/fontana/dev/ufba/lab-2/arca/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c",
+  "file": "/home/fontana/dev/ufba/lab-2/arca/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c",
+  "output": "cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c.o"
+},
+{
+  "directory": "/home/fontana/dev/ufba/lab-2/arca/Debug/cmake/stm32cubemx",
+  "command": "/usr/bin/cc -DDEBUG -DSTM32F411xE -DUSE_HAL_DRIVER -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Core/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -o CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc.c.o -c /home/fontana/dev/ufba/lab-2/arca/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc.c",
+  "file": "/home/fontana/dev/ufba/lab-2/arca/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc.c",
+  "output": "cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc.c.o"
+},
+{
+  "directory": "/home/fontana/dev/ufba/lab-2/arca/Debug/cmake/stm32cubemx",
+  "command": "/usr/bin/cc -DDEBUG -DSTM32F411xE -DUSE_HAL_DRIVER -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Core/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -o CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c.o -c /home/fontana/dev/ufba/lab-2/arca/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c",
+  "file": "/home/fontana/dev/ufba/lab-2/arca/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c",
+  "output": "cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c.o"
+},
+{
+  "directory": "/home/fontana/dev/ufba/lab-2/arca/Debug/cmake/stm32cubemx",
+  "command": "/usr/bin/cc -DDEBUG -DSTM32F411xE -DUSE_HAL_DRIVER -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Core/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -o CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.o -c /home/fontana/dev/ufba/lab-2/arca/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c",
+  "file": "/home/fontana/dev/ufba/lab-2/arca/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c",
+  "output": "cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.o"
+},
+{
+  "directory": "/home/fontana/dev/ufba/lab-2/arca/Debug/cmake/stm32cubemx",
+  "command": "/usr/bin/cc -DDEBUG -DSTM32F411xE -DUSE_HAL_DRIVER -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Core/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -o CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.o -c /home/fontana/dev/ufba/lab-2/arca/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c",
+  "file": "/home/fontana/dev/ufba/lab-2/arca/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c",
+  "output": "cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.o"
+}
+]

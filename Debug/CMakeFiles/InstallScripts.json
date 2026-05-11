@@ -1,0 +1,8 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/fontana/dev/ufba/lab-2/arca/Debug/cmake_install.cmake",
+		"/home/fontana/dev/ufba/lab-2/arca/Debug/cmake/stm32cubemx/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
