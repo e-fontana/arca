@@ -31,6 +31,8 @@
 #include "stm32f4xx_hal_uart.h"
 #include "system_types.h"
 #include <stdint.h>
+#include "fsm.h"
+#include "nfc.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -60,6 +62,7 @@ SPI_HandleTypeDef hspi1;
 UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
+Controller_Context controller;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -79,6 +82,7 @@ static void APP_Process(void)
   COM_CC1101_RxEvent_t event;
 
   RTC_API_Process();
+  Controller_Run(&controller);
 
   if (COM_CC1101_Poll(&event) && event.is_valid) {
     EVENT_Dispatch(&event.frame);
@@ -121,6 +125,8 @@ int main(void)
   HAL_UART_Transmit(&huart1, (uint8_t *)"UART OK\r\n", 9, 100);
   COM_CC1101_Init(&hspi1, &huart1);
   Protocol_Init(&huart1);
+  Controller_Init(&controller, &huart1);
+  NFC_Init(&hspi1);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -436,6 +442,9 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
     case INT_CC1101_Pin:
       COM_CC1101_HandleInterrupt(GPIO_Pin);
       break;
+    case INT_NFC_Pin:
+      NFC_IRQ_Handler();
+      break;
     default:
       break;
   }
@@ -444,7 +453,9 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
   if (huart->Instance == USART1) {
+    // TODO: Implementar apenas uma FSM para envio via UART
     Protocol_UART_RxCallback();
+    Controller_UART_RxCallback(&controller);
   }
 }
 /* USER CODE END 4 */

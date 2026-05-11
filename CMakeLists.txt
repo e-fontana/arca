@@ -65,6 +65,8 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     Core/Src/Modules/Communication/uart_protocol.c
     Core/Src/Modules/RTC/rtc_api.c
     Core/Src/Modules/RTC/rtc_sync.c
+    Core/Src/Modules/flash_db.c
+    Core/Src/Modules/fsm.c
 )
 
 # Add include paths
