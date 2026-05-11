@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "com.h"
@@ -116,7 +117,6 @@ int main(void)
   MX_RTC_Init();
   MX_SPI1_Init();
   MX_USART1_UART_Init();
-
   /* USER CODE BEGIN 2 */
   HAL_UART_Transmit(&huart1, (uint8_t *)"UART OK\r\n", 9, 100);
   COM_CC1101_Init(&hspi1, &huart1);
@@ -127,8 +127,9 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    APP_Process();
-    HAL_Delay(10);
+    /* USER CODE END WHILE */
+
+    /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
 }
@@ -382,6 +383,9 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(NFC_RESET_GPIO_Port, NFC_RESET_Pin, GPIO_PIN_SET);
 
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(NFC_LED_STATUS_GPIO_Port, NFC_LED_STATUS_Pin, GPIO_PIN_RESET);
+
   /*Configure GPIO pin : PC13 */
   GPIO_InitStruct.Pin = GPIO_PIN_13;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
@@ -402,12 +406,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : NFC_RESET_Pin */
-  GPIO_InitStruct.Pin = NFC_RESET_Pin;
+  /*Configure GPIO pins : NFC_RESET_Pin NFC_LED_STATUS_Pin */
+  GPIO_InitStruct.Pin = NFC_RESET_Pin|NFC_LED_STATUS_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(NFC_RESET_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /*Configure GPIO pin : INT_CC1101_Pin */
   GPIO_InitStruct.Pin = INT_CC1101_Pin;
