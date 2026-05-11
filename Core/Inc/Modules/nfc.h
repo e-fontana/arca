@@ -34,7 +34,7 @@ extern "C" {
 #define PN532_RESP_BUF_SIZE 32u
 
 /* Comportamento do LED_STATUS */
-#define PN532_LED_STATUS_ACTIVE_LOW 1u
+#define PN532_LED_STATUS_ACTIVE_LOW 0u
 
 /* Struct do cartão detectado */
 typedef struct {

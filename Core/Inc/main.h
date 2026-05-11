@@ -64,19 +64,22 @@ void Error_Handler(void);
 #define NSS_NFC_GPIO_Port GPIOA
 #define NFC_RESET_Pin GPIO_PIN_2
 #define NFC_RESET_GPIO_Port GPIOB
+#define NFC_LED_STATUS_Pin GPIO_PIN_12
+#define NFC_LED_STATUS_GPIO_Port GPIOB
 #define INT_CC1101_Pin GPIO_PIN_15
 #define INT_CC1101_GPIO_Port GPIOB
 #define INT_CC1101_EXTI_IRQn EXTI15_10_IRQn
 #define NSS_TEMP_Pin GPIO_PIN_9
 #define NSS_TEMP_GPIO_Port GPIOA
+#define NSS_CC1101_Pin GPIO_PIN_10
+#define NSS_CC1101_GPIO_Port GPIOA
 #define SERIAL_TX_Pin GPIO_PIN_6
 #define SERIAL_TX_GPIO_Port GPIOB
 #define SERIAL_RX_Pin GPIO_PIN_7
 #define SERIAL_RX_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
-#define NFC_LED_STATUS_GPIO_Port GPIOC
-#define NFC_LED_STATUS_Pin GPIO_PIN_13
+
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

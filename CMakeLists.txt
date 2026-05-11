@@ -49,6 +49,7 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     Core/Src/Modules/fsm.c
     Core/Src/Modules/nfc.c
     Core/Src/Modules/ihm.c
+    Core/Src/Modules/flash_db.c
 )
 
 # Add include paths

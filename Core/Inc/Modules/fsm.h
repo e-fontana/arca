@@ -8,14 +8,18 @@ typedef enum {
     STATE_MENU_PC,
 
     /* sub-estados do cadastro */
-    STATE_CADASTRO_RECEBE_DADOS,
     STATE_CADASTRO_AGUARDA_NFC,
     STATE_CADASTRO_VERIFICA_DUPLICATA,
+    STATE_CADASTRO_RECEBE_DADOS,
     STATE_CADASTRO_GRAVA_FLASH,
     STATE_CADASTRO_CONFIRMA_PC,
 
+    /* sub-estados do deletar */
+    STATE_DELETAR_AGUARDA_NFC,
+    STATE_DELETAR_PROCESSA,
+    STATE_DELETAR_CONFIRMA,
+
    /* outros menus (esqueleto por enquanto) */ 
-   STATE_DELETAR,
    STATE_EXPORTAR_LOGS,
 
    /* validação de acesso RF */
@@ -45,7 +49,7 @@ typedef struct {
 } Controller_Context;
 
 /* Timeouts (ms) */
-#define TIMEOUT_AGUARDA_NFC 5000u
+#define TIMEOUT_AGUARDA_NFC 10000u
 
 /* Comandos do protocolo serial */
 #define CMD_CANCELAR    0xFFu
