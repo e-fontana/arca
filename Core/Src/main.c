@@ -18,12 +18,20 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "com.h"
+#include "rtc_api.h"
+#include "uart_protocol.h"
+#include "events.h"
+#include <stdio.h>
 #include "fsm.h"
 #include "nfc.h"
+#include "stm32f4xx_hal_def.h"
 #include "stm32f4xx_hal_gpio.h"
+#include "stm32f4xx_hal_uart.h"
+#include "system_types.h"
+#include <stdint.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -53,7 +61,6 @@ SPI_HandleTypeDef hspi1;
 UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
-Controller_Context controller;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -68,6 +75,16 @@ static void MX_USART1_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+static void APP_Process(void)
+{
+  COM_CC1101_RxEvent_t event;
+
+  RTC_API_Process();
+
+  if (COM_CC1101_Poll(&event) && event.is_valid) {
+    EVENT_Dispatch(&event.frame);
+  }
+}
 /* USER CODE END 0 */
 
 /**
@@ -100,19 +117,19 @@ int main(void)
   MX_RTC_Init();
   MX_SPI1_Init();
   MX_USART1_UART_Init();
+
   /* USER CODE BEGIN 2 */
-  Controller_Init(&controller, &huart1);
-  NFC_Init(&hspi1);
+  HAL_UART_Transmit(&huart1, (uint8_t *)"UART OK\r\n", 9, 100);
+  COM_CC1101_Init(&hspi1, &huart1);
+  Protocol_Init(&huart1);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    /* USER CODE END WHILE */
-
-    /* USER CODE BEGIN 3 */
-    Controller_Run(&controller);
+    APP_Process();
+    HAL_Delay(10);
   }
   /* USER CODE END 3 */
 }
@@ -361,16 +378,10 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, NSS_NFC_Pin|NSS_TEMP_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOA, NSS_NFC_Pin|NSS_TEMP_Pin|NSS_CC1101_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(NFC_RESET_GPIO_Port, NFC_RESET_Pin, GPIO_PIN_SET);
-
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(NFC_LED_STATUS_GPIO_Port, NFC_LED_STATUS_Pin, GPIO_PIN_RESET);
-
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(NSS_CC1101_GPIO_Port, NSS_CC1101_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : PC13 */
   GPIO_InitStruct.Pin = GPIO_PIN_13;
@@ -392,8 +403,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : NFC_RESET_Pin NFC_LED_STATUS_Pin */
-  GPIO_InitStruct.Pin = NFC_RESET_Pin|NFC_LED_STATUS_Pin;
+  /*Configure GPIO pin : NFC_RESET_Pin */
+  GPIO_InitStruct.Pin = NFC_RESET_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -413,6 +424,9 @@ static void MX_GPIO_Init(void)
   HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
 
   /* USER CODE BEGIN MX_GPIO_Init_2 */
+  HAL_NVIC_DisableIRQ(EXTI15_10_IRQn);
+  __HAL_GPIO_EXTI_CLEAR_IT(INT_CC1101_Pin);
+  NVIC_ClearPendingIRQ(EXTI15_10_IRQn);
   /* USER CODE END MX_GPIO_Init_2 */
 }
 
@@ -427,7 +441,20 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-  if (GPIO_Pin == INT_NFC_Pin) NFC_IRQ_Handler();
+  switch (GPIO_Pin) {
+    case INT_CC1101_Pin:
+      COM_CC1101_HandleInterrupt(GPIO_Pin);
+      break;
+    default:
+      break;
+  }
+}
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+  if (huart->Instance == USART1) {
+    Protocol_UART_RxCallback();
+  }
 }
 /* USER CODE END 4 */
 
