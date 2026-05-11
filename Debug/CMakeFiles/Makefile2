@@ -107,12 +107,12 @@ cmake/stm32cubemx/clean: cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/clean
 CMakeFiles/teste.dir/all: cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/teste.dir/build.make CMakeFiles/teste.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/teste.dir/build.make CMakeFiles/teste.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/fontana/dev/ufba/lab-2/arca/Debug/CMakeFiles --progress-num=21,22,23,24,25,26,27,28,29,30,31,32,33 "Built target teste"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/fontana/dev/ufba/lab-2/arca/Debug/CMakeFiles --progress-num=21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36 "Built target teste"
 .PHONY : CMakeFiles/teste.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/teste.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fontana/dev/ufba/lab-2/arca/Debug/CMakeFiles 33
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/fontana/dev/ufba/lab-2/arca/Debug/CMakeFiles 36
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/teste.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/fontana/dev/ufba/lab-2/arca/Debug/CMakeFiles 0
 .PHONY : CMakeFiles/teste.dir/rule
@@ -124,7 +124,7 @@ teste: CMakeFiles/teste.dir/rule
 # codegen rule for target.
 CMakeFiles/teste.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/teste.dir/build.make CMakeFiles/teste.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/fontana/dev/ufba/lab-2/arca/Debug/CMakeFiles --progress-num=21,22,23,24,25,26,27,28,29,30,31,32,33 "Finished codegen for target teste"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/fontana/dev/ufba/lab-2/arca/Debug/CMakeFiles --progress-num=21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36 "Finished codegen for target teste"
 .PHONY : CMakeFiles/teste.dir/codegen
 
 # clean rule for target.

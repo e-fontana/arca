@@ -36,7 +36,8 @@ extern "C" {
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
-
+#include "stm32f4xx_hal.h"
+extern RTC_HandleTypeDef hrtc;
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/

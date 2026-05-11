@@ -15,6 +15,7 @@ set(CMAKE_ASM_COMPILER_ID "GNU")
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_ASM
   "DEBUG"
+  "ROOM_ID=1"
   "STM32F411xE"
   "USE_HAL_DRIVER"
   )
@@ -23,6 +24,8 @@ set(CMAKE_TARGET_DEFINITIONS_ASM
 set(CMAKE_ASM_TARGET_INCLUDE_PATH
   "/home/fontana/dev/ufba/lab-2/arca/Core/Inc"
   "/home/fontana/dev/ufba/lab-2/arca/Core/Inc/Modules"
+  "/home/fontana/dev/ufba/lab-2/arca/Core/Inc/Modules/Communication"
+  "/home/fontana/dev/ufba/lab-2/arca/Core/Inc/Modules/RTC"
   "/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Core/Inc"
   "/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc"
   "/home/fontana/dev/ufba/lab-2/arca/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy"
@@ -34,10 +37,13 @@ set(CMAKE_ASM_TARGET_INCLUDE_PATH
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/fontana/dev/ufba/lab-2/arca/Core/Src/Modules/Communication/cc1101.c" "CMakeFiles/teste.dir/Core/Src/Modules/Communication/cc1101.c.o" "gcc" "CMakeFiles/teste.dir/Core/Src/Modules/Communication/cc1101.c.o.d"
   "/home/fontana/dev/ufba/lab-2/arca/Core/Src/Modules/Communication/com.c" "CMakeFiles/teste.dir/Core/Src/Modules/Communication/com.c.o" "gcc" "CMakeFiles/teste.dir/Core/Src/Modules/Communication/com.c.o.d"
+  "/home/fontana/dev/ufba/lab-2/arca/Core/Src/Modules/Communication/dw_stm32_delay.c" "CMakeFiles/teste.dir/Core/Src/Modules/Communication/dw_stm32_delay.c.o" "gcc" "CMakeFiles/teste.dir/Core/Src/Modules/Communication/dw_stm32_delay.c.o.d"
+  "/home/fontana/dev/ufba/lab-2/arca/Core/Src/Modules/Communication/events.c" "CMakeFiles/teste.dir/Core/Src/Modules/Communication/events.c.o" "gcc" "CMakeFiles/teste.dir/Core/Src/Modules/Communication/events.c.o.d"
+  "/home/fontana/dev/ufba/lab-2/arca/Core/Src/Modules/RTC/rtc_api.c" "CMakeFiles/teste.dir/Core/Src/Modules/RTC/rtc_api.c.o" "gcc" "CMakeFiles/teste.dir/Core/Src/Modules/RTC/rtc_api.c.o.d"
+  "/home/fontana/dev/ufba/lab-2/arca/Core/Src/Modules/RTC/rtc_sync.c" "CMakeFiles/teste.dir/Core/Src/Modules/RTC/rtc_sync.c.o" "gcc" "CMakeFiles/teste.dir/Core/Src/Modules/RTC/rtc_sync.c.o.d"
   "/home/fontana/dev/ufba/lab-2/arca/Core/Src/Modules/nfc.c" "CMakeFiles/teste.dir/Core/Src/Modules/nfc.c.o" "gcc" "CMakeFiles/teste.dir/Core/Src/Modules/nfc.c.o.d"
   "/home/fontana/dev/ufba/lab-2/arca/Core/Src/Modules/press.c" "CMakeFiles/teste.dir/Core/Src/Modules/press.c.o" "gcc" "CMakeFiles/teste.dir/Core/Src/Modules/press.c.o.d"
   "/home/fontana/dev/ufba/lab-2/arca/Core/Src/Modules/temp.c" "CMakeFiles/teste.dir/Core/Src/Modules/temp.c.o" "gcc" "CMakeFiles/teste.dir/Core/Src/Modules/temp.c.o.d"
-  "/home/fontana/dev/ufba/lab-2/arca/Core/Src/dw_stm32_delay.c" "CMakeFiles/teste.dir/Core/Src/dw_stm32_delay.c.o" "gcc" "CMakeFiles/teste.dir/Core/Src/dw_stm32_delay.c.o.d"
   "/home/fontana/dev/ufba/lab-2/arca/Core/Src/main.c" "CMakeFiles/teste.dir/Core/Src/main.c.o" "gcc" "CMakeFiles/teste.dir/Core/Src/main.c.o.d"
   "/home/fontana/dev/ufba/lab-2/arca/Core/Src/stm32f4xx_hal_msp.c" "CMakeFiles/teste.dir/Core/Src/stm32f4xx_hal_msp.c.o" "gcc" "CMakeFiles/teste.dir/Core/Src/stm32f4xx_hal_msp.c.o.d"
   "/home/fontana/dev/ufba/lab-2/arca/Core/Src/stm32f4xx_it.c" "CMakeFiles/teste.dir/Core/Src/stm32f4xx_it.c.o" "gcc" "CMakeFiles/teste.dir/Core/Src/stm32f4xx_it.c.o.d"

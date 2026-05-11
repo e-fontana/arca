@@ -225,19 +225,61 @@ CMakeFiles/teste.dir/Core/Src/Modules/Communication/com.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/teste.dir/Core/Src/Modules/Communication/com.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/fontana/dev/ufba/lab-2/arca/Core/Src/Modules/Communication/com.c -o CMakeFiles/teste.dir/Core/Src/Modules/Communication/com.c.s
 
-CMakeFiles/teste.dir/Core/Src/dw_stm32_delay.c.o: CMakeFiles/teste.dir/flags.make
-CMakeFiles/teste.dir/Core/Src/dw_stm32_delay.c.o: /home/fontana/dev/ufba/lab-2/arca/Core/Src/dw_stm32_delay.c
-CMakeFiles/teste.dir/Core/Src/dw_stm32_delay.c.o: CMakeFiles/teste.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/fontana/dev/ufba/lab-2/arca/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/teste.dir/Core/Src/dw_stm32_delay.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/teste.dir/Core/Src/dw_stm32_delay.c.o -MF CMakeFiles/teste.dir/Core/Src/dw_stm32_delay.c.o.d -o CMakeFiles/teste.dir/Core/Src/dw_stm32_delay.c.o -c /home/fontana/dev/ufba/lab-2/arca/Core/Src/dw_stm32_delay.c
+CMakeFiles/teste.dir/Core/Src/Modules/Communication/events.c.o: CMakeFiles/teste.dir/flags.make
+CMakeFiles/teste.dir/Core/Src/Modules/Communication/events.c.o: /home/fontana/dev/ufba/lab-2/arca/Core/Src/Modules/Communication/events.c
+CMakeFiles/teste.dir/Core/Src/Modules/Communication/events.c.o: CMakeFiles/teste.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/fontana/dev/ufba/lab-2/arca/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/teste.dir/Core/Src/Modules/Communication/events.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/teste.dir/Core/Src/Modules/Communication/events.c.o -MF CMakeFiles/teste.dir/Core/Src/Modules/Communication/events.c.o.d -o CMakeFiles/teste.dir/Core/Src/Modules/Communication/events.c.o -c /home/fontana/dev/ufba/lab-2/arca/Core/Src/Modules/Communication/events.c
 
-CMakeFiles/teste.dir/Core/Src/dw_stm32_delay.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/teste.dir/Core/Src/dw_stm32_delay.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/fontana/dev/ufba/lab-2/arca/Core/Src/dw_stm32_delay.c > CMakeFiles/teste.dir/Core/Src/dw_stm32_delay.c.i
+CMakeFiles/teste.dir/Core/Src/Modules/Communication/events.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/teste.dir/Core/Src/Modules/Communication/events.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/fontana/dev/ufba/lab-2/arca/Core/Src/Modules/Communication/events.c > CMakeFiles/teste.dir/Core/Src/Modules/Communication/events.c.i
 
-CMakeFiles/teste.dir/Core/Src/dw_stm32_delay.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/teste.dir/Core/Src/dw_stm32_delay.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/fontana/dev/ufba/lab-2/arca/Core/Src/dw_stm32_delay.c -o CMakeFiles/teste.dir/Core/Src/dw_stm32_delay.c.s
+CMakeFiles/teste.dir/Core/Src/Modules/Communication/events.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/teste.dir/Core/Src/Modules/Communication/events.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/fontana/dev/ufba/lab-2/arca/Core/Src/Modules/Communication/events.c -o CMakeFiles/teste.dir/Core/Src/Modules/Communication/events.c.s
+
+CMakeFiles/teste.dir/Core/Src/Modules/Communication/dw_stm32_delay.c.o: CMakeFiles/teste.dir/flags.make
+CMakeFiles/teste.dir/Core/Src/Modules/Communication/dw_stm32_delay.c.o: /home/fontana/dev/ufba/lab-2/arca/Core/Src/Modules/Communication/dw_stm32_delay.c
+CMakeFiles/teste.dir/Core/Src/Modules/Communication/dw_stm32_delay.c.o: CMakeFiles/teste.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/fontana/dev/ufba/lab-2/arca/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/teste.dir/Core/Src/Modules/Communication/dw_stm32_delay.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/teste.dir/Core/Src/Modules/Communication/dw_stm32_delay.c.o -MF CMakeFiles/teste.dir/Core/Src/Modules/Communication/dw_stm32_delay.c.o.d -o CMakeFiles/teste.dir/Core/Src/Modules/Communication/dw_stm32_delay.c.o -c /home/fontana/dev/ufba/lab-2/arca/Core/Src/Modules/Communication/dw_stm32_delay.c
+
+CMakeFiles/teste.dir/Core/Src/Modules/Communication/dw_stm32_delay.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/teste.dir/Core/Src/Modules/Communication/dw_stm32_delay.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/fontana/dev/ufba/lab-2/arca/Core/Src/Modules/Communication/dw_stm32_delay.c > CMakeFiles/teste.dir/Core/Src/Modules/Communication/dw_stm32_delay.c.i
+
+CMakeFiles/teste.dir/Core/Src/Modules/Communication/dw_stm32_delay.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/teste.dir/Core/Src/Modules/Communication/dw_stm32_delay.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/fontana/dev/ufba/lab-2/arca/Core/Src/Modules/Communication/dw_stm32_delay.c -o CMakeFiles/teste.dir/Core/Src/Modules/Communication/dw_stm32_delay.c.s
+
+CMakeFiles/teste.dir/Core/Src/Modules/RTC/rtc_api.c.o: CMakeFiles/teste.dir/flags.make
+CMakeFiles/teste.dir/Core/Src/Modules/RTC/rtc_api.c.o: /home/fontana/dev/ufba/lab-2/arca/Core/Src/Modules/RTC/rtc_api.c
+CMakeFiles/teste.dir/Core/Src/Modules/RTC/rtc_api.c.o: CMakeFiles/teste.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/fontana/dev/ufba/lab-2/arca/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/teste.dir/Core/Src/Modules/RTC/rtc_api.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/teste.dir/Core/Src/Modules/RTC/rtc_api.c.o -MF CMakeFiles/teste.dir/Core/Src/Modules/RTC/rtc_api.c.o.d -o CMakeFiles/teste.dir/Core/Src/Modules/RTC/rtc_api.c.o -c /home/fontana/dev/ufba/lab-2/arca/Core/Src/Modules/RTC/rtc_api.c
+
+CMakeFiles/teste.dir/Core/Src/Modules/RTC/rtc_api.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/teste.dir/Core/Src/Modules/RTC/rtc_api.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/fontana/dev/ufba/lab-2/arca/Core/Src/Modules/RTC/rtc_api.c > CMakeFiles/teste.dir/Core/Src/Modules/RTC/rtc_api.c.i
+
+CMakeFiles/teste.dir/Core/Src/Modules/RTC/rtc_api.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/teste.dir/Core/Src/Modules/RTC/rtc_api.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/fontana/dev/ufba/lab-2/arca/Core/Src/Modules/RTC/rtc_api.c -o CMakeFiles/teste.dir/Core/Src/Modules/RTC/rtc_api.c.s
+
+CMakeFiles/teste.dir/Core/Src/Modules/RTC/rtc_sync.c.o: CMakeFiles/teste.dir/flags.make
+CMakeFiles/teste.dir/Core/Src/Modules/RTC/rtc_sync.c.o: /home/fontana/dev/ufba/lab-2/arca/Core/Src/Modules/RTC/rtc_sync.c
+CMakeFiles/teste.dir/Core/Src/Modules/RTC/rtc_sync.c.o: CMakeFiles/teste.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/fontana/dev/ufba/lab-2/arca/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/teste.dir/Core/Src/Modules/RTC/rtc_sync.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/teste.dir/Core/Src/Modules/RTC/rtc_sync.c.o -MF CMakeFiles/teste.dir/Core/Src/Modules/RTC/rtc_sync.c.o.d -o CMakeFiles/teste.dir/Core/Src/Modules/RTC/rtc_sync.c.o -c /home/fontana/dev/ufba/lab-2/arca/Core/Src/Modules/RTC/rtc_sync.c
+
+CMakeFiles/teste.dir/Core/Src/Modules/RTC/rtc_sync.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/teste.dir/Core/Src/Modules/RTC/rtc_sync.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/fontana/dev/ufba/lab-2/arca/Core/Src/Modules/RTC/rtc_sync.c > CMakeFiles/teste.dir/Core/Src/Modules/RTC/rtc_sync.c.i
+
+CMakeFiles/teste.dir/Core/Src/Modules/RTC/rtc_sync.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/teste.dir/Core/Src/Modules/RTC/rtc_sync.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/fontana/dev/ufba/lab-2/arca/Core/Src/Modules/RTC/rtc_sync.c -o CMakeFiles/teste.dir/Core/Src/Modules/RTC/rtc_sync.c.s
 
 # Object files for target teste
 teste_OBJECTS = \
@@ -252,7 +294,10 @@ teste_OBJECTS = \
 "CMakeFiles/teste.dir/Core/Src/Modules/press.c.o" \
 "CMakeFiles/teste.dir/Core/Src/Modules/Communication/cc1101.c.o" \
 "CMakeFiles/teste.dir/Core/Src/Modules/Communication/com.c.o" \
-"CMakeFiles/teste.dir/Core/Src/dw_stm32_delay.c.o"
+"CMakeFiles/teste.dir/Core/Src/Modules/Communication/events.c.o" \
+"CMakeFiles/teste.dir/Core/Src/Modules/Communication/dw_stm32_delay.c.o" \
+"CMakeFiles/teste.dir/Core/Src/Modules/RTC/rtc_api.c.o" \
+"CMakeFiles/teste.dir/Core/Src/Modules/RTC/rtc_sync.c.o"
 
 # External object files for target teste
 teste_EXTERNAL_OBJECTS = \
@@ -288,7 +333,10 @@ teste: CMakeFiles/teste.dir/Core/Src/Modules/temp.c.o
 teste: CMakeFiles/teste.dir/Core/Src/Modules/press.c.o
 teste: CMakeFiles/teste.dir/Core/Src/Modules/Communication/cc1101.c.o
 teste: CMakeFiles/teste.dir/Core/Src/Modules/Communication/com.c.o
-teste: CMakeFiles/teste.dir/Core/Src/dw_stm32_delay.c.o
+teste: CMakeFiles/teste.dir/Core/Src/Modules/Communication/events.c.o
+teste: CMakeFiles/teste.dir/Core/Src/Modules/Communication/dw_stm32_delay.c.o
+teste: CMakeFiles/teste.dir/Core/Src/Modules/RTC/rtc_api.c.o
+teste: CMakeFiles/teste.dir/Core/Src/Modules/RTC/rtc_sync.c.o
 teste: cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f4xx.c.o
 teste: cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c.o
 teste: cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c.o
@@ -312,7 +360,7 @@ teste: cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HA
 teste: CMakeFiles/teste.dir/build.make
 teste: CMakeFiles/teste.dir/compiler_depend.ts
 teste: CMakeFiles/teste.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/fontana/dev/ufba/lab-2/arca/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking C executable teste"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/fontana/dev/ufba/lab-2/arca/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking C executable teste"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/teste.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
