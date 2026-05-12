@@ -34,7 +34,7 @@ extern "C" {
 #define PN532_RESP_BUF_SIZE 32u
 
 /* Comportamento do LED_STATUS */
-#define PN532_LED_STATUS_ACTIVE_LOW 0u
+#define PN532_LED_STATUS_ACTIVE_LOW 1u
 
 /* Struct do cartão detectado */
 typedef struct {
@@ -47,6 +47,7 @@ typedef struct {
 
 /* API Pública */
 extern volatile uint8_t pn532_card_ready;
+extern volatile uint8_t nfc_session_active;
 
 void        NFC_Init(SPI_HandleTypeDef *hspi);
 void        NFC_StartRead(void);

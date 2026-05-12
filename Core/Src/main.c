@@ -84,7 +84,8 @@ static void APP_Process(void)
   COM_CC1101_RxEvent_t event;
 
   RTC_API_Process();
-  Controller_Run(&controller);
+  // Controller_Run(&controller);
+  NFC_Process();
 
   if (COM_CC1101_Poll(&event) && event.is_valid) {
     EVENT_Dispatch(&event.frame);

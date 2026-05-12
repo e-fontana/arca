@@ -1,6 +1,7 @@
 #include "events.h"
 #include "com.h"
 #include "main.h"
+#include "nfc.h"
 #include "stm32f4xx_hal_gpio.h"
 #include <stdint.h>
 #include <string.h>
@@ -260,6 +261,9 @@ void EVENT_Dispatch(const COM_Frame_t *frame)
             {
                 HAL_GPIO_WritePin(AUTH_LED_ERR_GPIO_Port, AUTH_LED_ERR_Pin, GPIO_PIN_SET);
             }
+
+            nfc_session_active = 0u;
+            NFC_StartRead();
 
             break;
         }

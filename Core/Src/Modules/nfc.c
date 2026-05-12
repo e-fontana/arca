@@ -9,6 +9,7 @@
 
 static SPI_HandleTypeDef *_hspi = NULL;
 volatile uint8_t pn532_card_ready = 0u;
+volatile uint8_t nfc_session_active = 0u;
 
 static uint8_t _reverse_bits(uint8_t b)
 {
@@ -222,20 +223,6 @@ void NFC_Init(SPI_HandleTypeDef *hspi)
     _read_response(resp, sizeof(resp), &resp_len);
 }
 
-void NFC_StartRead(void)
-{
-    static const uint8_t ilpt_data[] = { 0x01u, 0x00u }; // 0x01u = Procura no máx. 1 cartão por vez, 0x00u = Protocolo MIFARE
-    _send_frame(PN532_CMD_INLISTPASSIVETARGET, ilpt_data, sizeof(ilpt_data));
-    
-    if (!_read_ack())
-    {
-        _set_led(0u);
-        return;
-    }
-
-    _set_led(1u);
-}
-
 void NFC_Begin(SPI_HandleTypeDef *hspi)
 {
     NFC_Init(hspi);
@@ -244,7 +231,9 @@ void NFC_Begin(SPI_HandleTypeDef *hspi)
 
 void NFC_StopRead(void)
 {
-    /* Cancela leitura pendente reenviando SAMConfiguration */
+    HAL_NVIC_DisableIRQ(EXTI1_IRQn);  // para de receber IRQs durante a comunicação
+    __HAL_GPIO_EXTI_CLEAR_IT(INT_NFC_Pin);
+
     static const uint8_t sam_data[] = { 0x01u, 0x00u };
     _send_frame(PN532_CMD_SAMCONFIGURATION, sam_data, sizeof(sam_data));
     _read_ack();
@@ -254,9 +243,28 @@ void NFC_StopRead(void)
     _read_response(resp, sizeof(resp), &resp_len);
 
     _set_led(0u);
-
-    /* Reseta flag de interrupção caso tenha disparado */
     pn532_card_ready = 0u;
+
+    __HAL_GPIO_EXTI_CLEAR_IT(INT_NFC_Pin);  // limpa qualquer pendente gerado durante a comunicação
+    HAL_NVIC_ClearPendingIRQ(EXTI1_IRQn);
+}
+
+void NFC_StartRead(void)
+{
+    static const uint8_t ilpt_data[] = { 0x01u, 0x00u };
+    _send_frame(PN532_CMD_INLISTPASSIVETARGET, ilpt_data, sizeof(ilpt_data));
+
+    if (!_read_ack())
+    {
+        _set_led(0u);
+        return;
+    }
+
+    _set_led(1u);
+
+    __HAL_GPIO_EXTI_CLEAR_IT(INT_NFC_Pin);
+    HAL_NVIC_ClearPendingIRQ(EXTI1_IRQn);
+    HAL_NVIC_EnableIRQ(EXTI1_IRQn);  // só habilita APÓS o comando estar enviado
 }
 
 uint8_t NFC_GetCard(PN532_Card_t *card)
@@ -312,14 +320,20 @@ void NFC_IRQ_Handler(void)
 
 void NFC_Process(void)
 {
-    if (pn532_card_ready)
+    if (!pn532_card_ready || nfc_session_active)
+        return;
+
+    pn532_card_ready = 0u;
+    NFC_StopRead();
+
+    PN532_Card_t card;
+    if (NFC_GetCard(&card))
     {
-        pn532_card_ready = 0u;
-        PN532_Card_t card;
-        if (NFC_GetCard(&card))
-        {
-            NFC_CardDetected(&card);
-        }
-        NFC_StartRead();
+        nfc_session_active = 1u;
+        NFC_CardDetected(&card);
+    }
+    else
+    {
+        NFC_StartRead(); // só chama aqui se não teve cartão válido
     }
 }
