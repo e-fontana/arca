@@ -18,9 +18,11 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "com.h"
+#include "dht11.h"
 #include "rtc_api.h"
 #include "uart_protocol.h"
 #include "events.h"
@@ -63,6 +65,7 @@ UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
 Controller_Context controller;
+static DHT11_Dev dht11;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -87,6 +90,8 @@ static void APP_Process(void)
   if (COM_CC1101_Poll(&event) && event.is_valid) {
     EVENT_Dispatch(&event.frame);
   }
+
+  int dht_read_status = DHT11_read(&dht11);
 }
 /* USER CODE END 0 */
 
@@ -120,12 +125,12 @@ int main(void)
   MX_RTC_Init();
   MX_SPI1_Init();
   MX_USART1_UART_Init();
-
   /* USER CODE BEGIN 2 */
   HAL_UART_Transmit(&huart1, (uint8_t *)"UART OK\r\n", 9, 100);
   COM_CC1101_Init(&hspi1, &huart1);
   Protocol_Init(&huart1);
   Controller_Init(&controller, &huart1);
+  DHT11_init(&dht11, GPIOB, GPIO_PIN_0);
   NFC_Init(&hspi1);
   /* USER CODE END 2 */
 
@@ -135,6 +140,9 @@ int main(void)
   {
     APP_Process();
     HAL_Delay(10);
+    /* USER CODE END WHILE */
+
+    /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
 }
@@ -386,6 +394,9 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOA, NSS_NFC_Pin|NSS_TEMP_Pin|NSS_CC1101_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(DHT11_DATA_GPIO_Port, DHT11_DATA_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(NFC_RESET_GPIO_Port, NFC_RESET_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin : PC13 */
@@ -407,6 +418,13 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : DHT11_DATA_Pin */
+  GPIO_InitStruct.Pin = DHT11_DATA_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_OD;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+  HAL_GPIO_Init(DHT11_DATA_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : NFC_RESET_Pin */
   GPIO_InitStruct.Pin = NFC_RESET_Pin;
