@@ -1,0 +1,40 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/teste.dir/link.d"
+  "teste.map"
+  "CMakeFiles/teste.dir/Core/Src/Modules/Communication/cc1101.c.o"
+  "CMakeFiles/teste.dir/Core/Src/Modules/Communication/cc1101.c.o.d"
+  "CMakeFiles/teste.dir/Core/Src/Modules/Communication/com.c.o"
+  "CMakeFiles/teste.dir/Core/Src/Modules/Communication/com.c.o.d"
+  "CMakeFiles/teste.dir/Core/Src/Modules/Communication/dw_stm32_delay.c.o"
+  "CMakeFiles/teste.dir/Core/Src/Modules/Communication/dw_stm32_delay.c.o.d"
+  "CMakeFiles/teste.dir/Core/Src/Modules/Communication/events.c.o"
+  "CMakeFiles/teste.dir/Core/Src/Modules/Communication/events.c.o.d"
+  "CMakeFiles/teste.dir/Core/Src/Modules/RTC/rtc_api.c.o"
+  "CMakeFiles/teste.dir/Core/Src/Modules/RTC/rtc_api.c.o.d"
+  "CMakeFiles/teste.dir/Core/Src/Modules/RTC/rtc_sync.c.o"
+  "CMakeFiles/teste.dir/Core/Src/Modules/RTC/rtc_sync.c.o.d"
+  "CMakeFiles/teste.dir/Core/Src/Modules/nfc.c.o"
+  "CMakeFiles/teste.dir/Core/Src/Modules/nfc.c.o.d"
+  "CMakeFiles/teste.dir/Core/Src/Modules/press.c.o"
+  "CMakeFiles/teste.dir/Core/Src/Modules/press.c.o.d"
+  "CMakeFiles/teste.dir/Core/Src/Modules/temp.c.o"
+  "CMakeFiles/teste.dir/Core/Src/Modules/temp.c.o.d"
+  "CMakeFiles/teste.dir/Core/Src/main.c.o"
+  "CMakeFiles/teste.dir/Core/Src/main.c.o.d"
+  "CMakeFiles/teste.dir/Core/Src/stm32f4xx_hal_msp.c.o"
+  "CMakeFiles/teste.dir/Core/Src/stm32f4xx_hal_msp.c.o.d"
+  "CMakeFiles/teste.dir/Core/Src/stm32f4xx_it.c.o"
+  "CMakeFiles/teste.dir/Core/Src/stm32f4xx_it.c.o.d"
+  "CMakeFiles/teste.dir/Core/Src/syscalls.c.o"
+  "CMakeFiles/teste.dir/Core/Src/syscalls.c.o.d"
+  "CMakeFiles/teste.dir/Core/Src/sysmem.c.o"
+  "CMakeFiles/teste.dir/Core/Src/sysmem.c.o.d"
+  "CMakeFiles/teste.dir/startup_stm32f411xe.s.o"
+  "teste"
+  "teste.pdb"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang ASM C)
+  include(CMakeFiles/teste.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

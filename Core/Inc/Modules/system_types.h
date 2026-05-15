@@ -9,6 +9,7 @@ typedef struct {
     uint8_t direction;
 } NFC_Package_t;
 
+#define MAX_USER_LEVEL 2u
 #define DIRECTION_ENTRY 0u
 #define DIRECTION_EXIT  1u
 

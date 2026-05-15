@@ -3,8 +3,6 @@ name: STM32 CMake Build
 on:
   push:
     branches: [ "**" ]
-  pull_request:
-    branches: [ "**" ]
 
 jobs:
   build:
@@ -36,7 +34,7 @@ jobs:
         uses: seanmiddleditch/gha-setup-ninja@v5
 
       - name: Configure CMake
-        run: cmake --preset ${{ steps.preset.outputs.build_type }}
+        run: cmake --preset ${{ steps.preset.outputs.build_type }} -DROOM_ID=1
 
       - name: Build
         run: cmake --build --preset ${{ steps.preset.outputs.build_type }} -- -j$(nproc)

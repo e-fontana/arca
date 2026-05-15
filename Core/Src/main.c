@@ -18,12 +18,21 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "com.h"
+#include "rtc_api.h"
+#include "uart_protocol.h"
+#include "events.h"
+#include <stdio.h>
 #include "stm32f411xe.h"
+#include "stm32f4xx_hal_def.h"
 #include "stm32f4xx_hal_gpio.h"
+#include "stm32f4xx_hal_uart.h"
 #include "system_types.h"
+#include <stdint.h>
+#include "fsm.h"
+#include "nfc.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -53,7 +62,7 @@ SPI_HandleTypeDef hspi1;
 UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
-
+Controller_Context controller;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -68,6 +77,17 @@ static void MX_USART1_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+static void APP_Process(void)
+{
+  COM_CC1101_RxEvent_t event;
+
+  RTC_API_Process();
+  Controller_Run(&controller);
+
+  if (COM_CC1101_Poll(&event) && event.is_valid) {
+    EVENT_Dispatch(&event.frame);
+  }
+}
 /* USER CODE END 0 */
 
 /**
@@ -100,18 +120,21 @@ int main(void)
   MX_RTC_Init();
   MX_SPI1_Init();
   MX_USART1_UART_Init();
+
   /* USER CODE BEGIN 2 */
+  HAL_UART_Transmit(&huart1, (uint8_t *)"UART OK\r\n", 9, 100);
+  COM_CC1101_Init(&hspi1, &huart1);
+  Protocol_Init(&huart1);
+  Controller_Init(&controller, &huart1);
+  NFC_Init(&hspi1);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    /* USER CODE END WHILE */
-
-    /* USER CODE BEGIN 3 */
-    HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
-    HAL_Delay(1000);
+    APP_Process();
+    HAL_Delay(10);
   }
   /* USER CODE END 3 */
 }
@@ -406,10 +429,35 @@ static void MX_GPIO_Init(void)
   HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
 
   /* USER CODE BEGIN MX_GPIO_Init_2 */
+  HAL_NVIC_DisableIRQ(EXTI15_10_IRQn);
+  __HAL_GPIO_EXTI_CLEAR_IT(INT_CC1101_Pin);
+  NVIC_ClearPendingIRQ(EXTI15_10_IRQn);
   /* USER CODE END MX_GPIO_Init_2 */
 }
 
 /* USER CODE BEGIN 4 */
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+  switch (GPIO_Pin) {
+    case INT_CC1101_Pin:
+      COM_CC1101_HandleInterrupt(GPIO_Pin);
+      break;
+    case INT_NFC_Pin:
+      NFC_IRQ_Handler();
+      break;
+    default:
+      break;
+  }
+}
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+  if (huart->Instance == USART1) {
+    // TODO: Implementar apenas uma FSM para envio via UART
+    Protocol_UART_RxCallback();
+    Controller_UART_RxCallback(&controller);
+  }
+}
 /* USER CODE END 4 */
 
 /**

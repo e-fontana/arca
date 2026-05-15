@@ -26,6 +26,16 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
 
 # Core project settings
 project(${CMAKE_PROJECT_NAME})
+if(NOT DEFINED ROOM_ID)
+    message(FATAL_ERROR
+        "ROOM_ID não definido.\n"
+        "Use: cmake -DROOM_ID=1 .. ou cmake -DROOM_ID=2 ..")
+endif()
+if(NOT ROOM_ID EQUAL 1 AND NOT ROOM_ID EQUAL 2)
+    message(FATAL_ERROR "ROOM_ID deve ser 1 ou 2, recebido: ${ROOM_ID}")
+endif()
+
+message("Room ID: " ${ROOM_ID})
 message("Build type: " ${CMAKE_BUILD_TYPE})
 
 # Enable CMake support for ASM and C languages
@@ -45,10 +55,18 @@ target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
 # Add sources to executable
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user sources here
-    Core/Src/Modules/com.c
     Core/Src/Modules/nfc.c
     Core/Src/Modules/temp.c
     Core/Src/Modules/press.c
+    Core/Src/Modules/Communication/cc1101.c
+    Core/Src/Modules/Communication/com.c
+    Core/Src/Modules/Communication/events.c
+    Core/Src/Modules/Communication/dw_stm32_delay.c
+    Core/Src/Modules/Communication/uart_protocol.c
+    Core/Src/Modules/RTC/rtc_api.c
+    Core/Src/Modules/RTC/rtc_sync.c
+    Core/Src/Modules/flash_db.c
+    Core/Src/Modules/fsm.c
 )
 
 # Add include paths
@@ -56,11 +74,15 @@ target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined include paths
     Core/Inc
     Core/Inc/Modules
+    Core/Inc/Modules/Communication
+    Core/Inc/Modules/RTC
 )
 
 # Add project symbols (macros)
 target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined symbols
+    $<$<BOOL:${ROOM_ID}>:ROOM_ID=${ROOM_ID}>
+    $<$<BOOL:${COM_DIAG_DISABLE_ADDR_CHK}>:COM_DIAG_DISABLE_ADDR_CHK>
 )
 
 # Remove wrong libob.a library dependency when using cpp files
