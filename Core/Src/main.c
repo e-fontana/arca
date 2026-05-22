@@ -35,6 +35,7 @@
 #include <stdint.h>
 #include "fsm.h"
 #include "nfc.h"
+#include "lcd.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -133,6 +134,14 @@ int main(void)
   DHT11_init(&dht11, GPIOB, GPIO_PIN_0);
   NFC_Init(&hspi1);
   /* USER CODE END 2 */
+
+  LCD_Init();
+
+  LCD_FillRectangle(0, 0, 240, 320, BLACK);
+  HAL_Delay(100);
+
+  LCD_FillRectangle(0, 0, 240, 180, RED);
+  HAL_Delay(100);
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
@@ -394,10 +403,13 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOA, NSS_NFC_Pin|NSS_TEMP_Pin|NSS_CC1101_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(DHT11_DATA_GPIO_Port, DHT11_DATA_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, DHT11_DATA_Pin|IHM_LED_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(NFC_RESET_GPIO_Port, NFC_RESET_Pin, GPIO_PIN_SET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOA, IHM_RESET_Pin|NSS_IHM_Pin|IHM_DC_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : PC13 */
   GPIO_InitStruct.Pin = GPIO_PIN_13;
@@ -412,8 +424,10 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(INT_NFC_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : NSS_NFC_Pin NSS_TEMP_Pin NSS_CC1101_Pin */
-  GPIO_InitStruct.Pin = NSS_NFC_Pin|NSS_TEMP_Pin|NSS_CC1101_Pin;
+  /*Configure GPIO pins : NSS_NFC_Pin IHM_RESET_Pin NSS_TEMP_Pin NSS_CC1101_Pin
+                           NSS_IHM_Pin IHM_DC_Pin */
+  GPIO_InitStruct.Pin = NSS_NFC_Pin|IHM_RESET_Pin|NSS_TEMP_Pin|NSS_CC1101_Pin
+                          |NSS_IHM_Pin|IHM_DC_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -426,12 +440,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
   HAL_GPIO_Init(DHT11_DATA_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : NFC_RESET_Pin */
-  GPIO_InitStruct.Pin = NFC_RESET_Pin;
+  /*Configure GPIO pins : IHM_LED_Pin NFC_RESET_Pin */
+  GPIO_InitStruct.Pin = IHM_LED_Pin|NFC_RESET_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(NFC_RESET_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /*Configure GPIO pin : INT_CC1101_Pin */
   GPIO_InitStruct.Pin = INT_CC1101_Pin;

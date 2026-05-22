@@ -1,0 +1,5 @@
+../Core/Src/lcd.c:20:13:LCD_Command	1
+../Core/Src/lcd.c:27:13:LCD_Data	1
+../Core/Src/lcd.c:34:6:LCD_SetAddressWindow	1
+../Core/Src/lcd.c:51:6:LCD_Init	1
+../Core/Src/lcd.c:85:6:LCD_FillRectangle	2

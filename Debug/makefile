@@ -11,6 +11,9 @@ RM := rm -rf
 -include sources.mk
 -include Drivers/STM32F4xx_HAL_Driver/Src/subdir.mk
 -include Core/Startup/subdir.mk
+-include Core/Src/Modules/RTC/subdir.mk
+-include Core/Src/Modules/Communication/subdir.mk
+-include Core/Src/Modules/subdir.mk
 -include Core/Src/subdir.mk
 -include objects.mk
 
@@ -60,8 +63,8 @@ all: main-build
 main-build: teste.elf secondary-outputs
 
 # Tool invocations
-teste.elf teste.map: $(OBJS) $(USER_OBJS) /home/fontana/dev/ufba/teste/STM32F411CEUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "teste.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/home/fontana/dev/ufba/teste/STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="teste.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+teste.elf teste.map: $(OBJS) $(USER_OBJS) /home/clara/arca/STM32F411CEUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "teste.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/home/clara/arca/STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="teste.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

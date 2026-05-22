@@ -67,6 +67,7 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     Core/Src/Modules/RTC/rtc_sync.c
     Core/Src/Modules/flash_db.c
     Core/Src/Modules/fsm.c
+    Core/Src/Modules/lcd.c
 )
 
 # Add include paths

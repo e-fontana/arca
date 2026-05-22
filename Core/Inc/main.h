@@ -65,15 +65,23 @@ void Error_Handler(void);
 #define NSS_NFC_GPIO_Port GPIOA
 #define DHT11_DATA_Pin GPIO_PIN_0
 #define DHT11_DATA_GPIO_Port GPIOB
+#define IHM_LED_Pin GPIO_PIN_1
+#define IHM_LED_GPIO_Port GPIOB
 #define NFC_RESET_Pin GPIO_PIN_2
 #define NFC_RESET_GPIO_Port GPIOB
 #define INT_CC1101_Pin GPIO_PIN_15
 #define INT_CC1101_GPIO_Port GPIOB
 #define INT_CC1101_EXTI_IRQn EXTI15_10_IRQn
+#define IHM_RESET_Pin GPIO_PIN_8
+#define IHM_RESET_GPIO_Port GPIOA
 #define NSS_TEMP_Pin GPIO_PIN_9
 #define NSS_TEMP_GPIO_Port GPIOA
 #define NSS_CC1101_Pin GPIO_PIN_10
 #define NSS_CC1101_GPIO_Port GPIOA
+#define NSS_IHM_Pin GPIO_PIN_11
+#define NSS_IHM_GPIO_Port GPIOA
+#define IHM_DC_Pin GPIO_PIN_12
+#define IHM_DC_GPIO_Port GPIOA
 
 /* USER CODE BEGIN Private defines */
 
