@@ -12,6 +12,7 @@
  */
 
 #include "lcd.h"
+#include "fonts.h"
 
 extern SPI_HandleTypeDef hspi1;
 
@@ -71,7 +72,10 @@ void LCD_Init(void) {
     LCD_Command(0xC5); LCD_Data(0x3E); LCD_Data(0x28); // VCOM Control 1
     LCD_Command(0xC7); LCD_Data(0x86); // VCOM Control 2
 
-    LCD_Command(0x36); LCD_Data(0x48); // Orientação (BGR mode)
+    // --- MODIFICAÇÃO AQUI PARA MODO PAISAGEM ---
+    // O valor 0xE8 (ou 0x28 dependendo do lado que quer o conector) rotaciona os eixos X e Y
+    LCD_Command(0x36); LCD_Data(0xE8);
+    
     LCD_Command(0x3A); LCD_Data(0x55); // Pixel Format (16-bit)
 
     LCD_Command(0x11); // Exit Sleep
@@ -96,3 +100,95 @@ void LCD_FillRectangle(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t 
     HAL_GPIO_WritePin(GPIOA, GPIO_PIN_11, GPIO_PIN_SET);   // CS = 1
 }
 
+void LCD_WriteChar(uint16_t x, uint16_t y, char ch, FontDef Font, uint16_t color, uint16_t bgcolor) {
+    uint32_t i, j;
+    uint8_t column_data;
+
+    LCD_SetAddressWindow(x, y, Font.width, Font.height);
+    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_11, GPIO_PIN_RESET); // CS = 0
+    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_12, GPIO_PIN_SET);   // DC = 1
+
+    for (i = 0; i < Font.height; i++) {
+        for (j = 0; j < Font.width; j++) {
+            // Pega a coluna correta baseada no novo array
+            column_data = Font.data[(ch - 32) * Font.width + j];
+            
+            // Verifica o bit (agora lendo da base correta)
+            if (column_data & (1 << i)) {
+                uint8_t data[2] = {color >> 8, color & 0xFF};
+                HAL_SPI_Transmit(&hspi1, data, 2, HAL_MAX_DELAY);
+            } else {
+                uint8_t data[2] = {bgcolor >> 8, bgcolor & 0xFF};
+                HAL_SPI_Transmit(&hspi1, data, 2, HAL_MAX_DELAY);
+            }
+        }
+    }
+    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_11, GPIO_PIN_SET); // CS = 1
+}
+
+// Função 2: Varre uma string de texto inteira e escreve caractere por caractere
+void LCD_WriteString(uint16_t x, uint16_t y, const char* str, FontDef Font, uint16_t color, uint16_t bgcolor) {
+    while (*str) {
+        // Se o texto atingir a borda direita da tela (240 px), quebra a linha automaticamente
+        if (x + Font.width >= 240) {
+            x = 0;
+            y += Font.height;
+            if (y + Font.height >= 320) {
+                break; // Se estourar a tela verticalmente, para de desenhar
+            }
+        }
+
+        // Desenha o caractere atual
+        LCD_WriteChar(x, y, *str, Font, color, bgcolor);
+        
+        x += Font.width; // Avança a posição X para a próxima letra
+        str++;           // Avança para o próximo caractere da string
+    }
+}
+
+void LCD_WriteCharScaled(uint16_t x, uint16_t y, char ch, FontDef Font, uint16_t color, uint16_t bgcolor, uint8_t scale) {
+    uint32_t i, j, sx, sy;
+    uint8_t column_data;
+
+    // Aumenta a janela de acordo com a escala escolhida
+    LCD_SetAddressWindow(x, y, Font.width * scale, Font.height * scale);
+    
+    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_11, GPIO_PIN_RESET); // CS = 0
+    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_12, GPIO_PIN_SET);   // DC = 1
+
+    for (i = 0; i < Font.height; i++) {
+        // Estica a letra na vertical repetindo a linha 'scale' vezes
+        for (sy = 0; sy < scale; sy++) {
+            for (j = 0; j < Font.width; j++) {
+                column_data = Font.data[(ch - 32) * Font.width + j];
+                
+                // Define a cor baseada no bit (1 = texto, 0 = fundo)
+                uint16_t pixel_color = (column_data & (1 << i)) ? color : bgcolor;
+                uint8_t data[2] = {pixel_color >> 8, pixel_color & 0xFF};
+                
+                // Estica a letra na horizontal repetindo o pixel 'scale' vezes
+                for (sx = 0; sx < scale; sx++) {
+                    HAL_SPI_Transmit(&hspi1, data, 2, HAL_MAX_DELAY);
+                }
+            }
+        }
+    }
+    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_11, GPIO_PIN_SET); // CS = 1
+}
+
+void LCD_WriteStringScaled(uint16_t x, uint16_t y, const char* str, FontDef Font, uint16_t color, uint16_t bgcolor, uint8_t scale) {
+    while (*str) {
+        // Verifica se a letra estourou o limite da tela deitada (320px) considerando a escala
+        if (x + (Font.width * scale) >= 320) {
+            x = 0;
+            y += (Font.height * scale);
+            if (y + (Font.height * scale) >= 240) break;
+        }
+        
+        LCD_WriteCharScaled(x, y, *str, Font, color, bgcolor, scale);
+        
+        // Avança a posição X com o tamanho da fonte já escalonado
+        x += (Font.width * scale);
+        str++;
+    }
+}

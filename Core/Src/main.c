@@ -92,7 +92,7 @@ static void APP_Process(void)
     EVENT_Dispatch(&event.frame);
   }
 
-  int dht_read_status = DHT11_read(&dht11);
+  /*int dht_read_status = DHT11_read(&dht11); */
 }
 /* USER CODE END 0 */
 
@@ -137,11 +137,20 @@ int main(void)
 
   LCD_Init();
 
-  LCD_FillRectangle(0, 0, 240, 320, BLACK);
+  LCD_FillRectangle(0, 0, 320, 240, BLACK);
   HAL_Delay(100);
 
-  LCD_FillRectangle(0, 0, 240, 180, RED);
-  HAL_Delay(100);
+  LCD_FillRectangle(0, 0, 320, 45, RED);
+
+  // LCD_WriteString(100, 20, "SISTEMA DE ACESSO", Font_5x8, WHITE, RED);
+  // LCD_WriteString(120, 140, "ISSO EH A GANGUE!", Font_5x8, GREEN, BLACK);
+
+  // Fonte normal (Escala 1 - pequena, para rodapés ou detalhes)
+  LCD_WriteStringScaled(10, 200, "Iniciando sistema...", Font_5x8, WHITE, BLACK, 1);
+
+  LCD_WriteStringScaled(80, 15, "SISTEMA DE ACESSO", Font_5x8, WHITE, RED, 2);
+
+  LCD_WriteStringScaled(70, 110, "ISSO EH A GANGUE!", Font_5x8, GREEN, BLACK, 2);
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
