@@ -3,7 +3,7 @@
     "cmake.configureArgs": [
         "-DCMAKE_COMMAND=cube-cmake",
         "-DROOM_ID=1",
-        "-DCOM_DIAG_DISABLE_ADDR_CHK=0"
+        "-DCOM_DIAG_DISABLE_ADDR_CHK=1"
     ],
     "cmake.preferredGenerators": [
         "Ninja"

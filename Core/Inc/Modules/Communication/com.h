@@ -26,9 +26,11 @@
 
 /* ── Endereço deste nó ─────────────────────────────────── */
 #if !defined(ROOM_ID)
-    #error "ROOM_ID não definido — compile com -DROOM_ID=1 ou -DROOM_ID=2"
+    #error "ROOM_ID não definido — compile com -DROOM_ID=0, -DROOM_ID=1 ou -DROOM_ID=2"
 #endif
-#if ROOM_ID == 1
+#if ROOM_ID == 0
+    #define MY_ADDR  ADDR_BROADCAST
+#elif ROOM_ID == 1
     #define MY_ADDR  ADDR_ROOM_1
 #elif ROOM_ID == 2
     #define MY_ADDR  ADDR_ROOM_2

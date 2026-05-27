@@ -29,10 +29,10 @@ project(${CMAKE_PROJECT_NAME})
 if(NOT DEFINED ROOM_ID)
     message(FATAL_ERROR
         "ROOM_ID não definido.\n"
-        "Use: cmake -DROOM_ID=1 .. ou cmake -DROOM_ID=2 ..")
+        "Use: cmake -DROOM_ID=0 (broadcast/coordenador), -DROOM_ID=1 ou -DROOM_ID=2 ..")
 endif()
-if(NOT ROOM_ID EQUAL 1 AND NOT ROOM_ID EQUAL 2)
-    message(FATAL_ERROR "ROOM_ID deve ser 1 ou 2, recebido: ${ROOM_ID}")
+if(NOT ROOM_ID EQUAL 0 AND NOT ROOM_ID EQUAL 1 AND NOT ROOM_ID EQUAL 2)
+    message(FATAL_ERROR "ROOM_ID deve ser 0, 1 ou 2, recebido: ${ROOM_ID}")
 endif()
 
 message("Room ID: " ${ROOM_ID})
@@ -55,7 +55,6 @@ target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
 # Add sources to executable
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user sources here
-    Core/Src/Modules/nfc.c
     Core/Src/Modules/dht11.c
     Core/Src/Modules/press.c
     Core/Src/Modules/Communication/cc1101.c
@@ -66,7 +65,8 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     Core/Src/Modules/RTC/rtc_api.c
     Core/Src/Modules/RTC/rtc_sync.c
     Core/Src/Modules/flash_db.c
-    Core/Src/Modules/fsm.c
+    Core/Src/Modules/NFC/pn532.c
+    Core/Src/Modules/NFC/pn532_stm32f4.c
 )
 
 # Add include paths
@@ -76,12 +76,13 @@ target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     Core/Inc/Modules
     Core/Inc/Modules/Communication
     Core/Inc/Modules/RTC
+    Core/Inc/Modules/NFC
 )
 
 # Add project symbols (macros)
 target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined symbols
-    $<$<BOOL:${ROOM_ID}>:ROOM_ID=${ROOM_ID}>
+    ROOM_ID=${ROOM_ID}
     $<$<BOOL:${COM_DIAG_DISABLE_ADDR_CHK}>:COM_DIAG_DISABLE_ADDR_CHK>
 )
 

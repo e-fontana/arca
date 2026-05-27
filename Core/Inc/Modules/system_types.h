@@ -9,6 +9,11 @@ typedef struct {
     uint8_t direction;
 } NFC_Package_t;
 
+typedef struct {
+    uint8_t  uid[7];
+    uint8_t  uid_len;
+} PN532_Card_t;
+
 #define MAX_USER_LEVEL 2u
 #define DIRECTION_ENTRY 0u
 #define DIRECTION_EXIT  1u

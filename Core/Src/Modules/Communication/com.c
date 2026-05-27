@@ -44,19 +44,25 @@ void COM_CC1101_Transmit(const uint8_t *data, uint8_t length)
 {
     TI_strobe(CCxxx0_SIDLE);
     TI_strobe(CCxxx0_SFTX);
-
     TI_send_packet((BYTE *)data, length);
 
-    /* Aguarda GDO0 subir (início do TX) e descer (fim do TX) */
-    while (!HAL_GPIO_ReadPin(INT_CC1101_GPIO_Port, INT_CC1101_Pin));
-    while ( HAL_GPIO_ReadPin(INT_CC1101_GPIO_Port, INT_CC1101_Pin));
+    /* Aguarda GDO0 subir — TX começou (timeout 50ms) */
+    uint32_t t0 = HAL_GetTick();
+    while (!HAL_GPIO_ReadPin(INT_CC1101_GPIO_Port, INT_CC1101_Pin)) {
+        if ((HAL_GetTick() - t0) > 50) goto tx_done;
+    }
 
+    /* Aguarda GDO0 descer — TX terminou (timeout 200ms) */
+    t0 = HAL_GetTick();
+    while (HAL_GPIO_ReadPin(INT_CC1101_GPIO_Port, INT_CC1101_Pin)) {
+        if ((HAL_GetTick() - t0) > 200) goto tx_done;
+    }
+
+tx_done:
     /* Volta ao modo RX após o envio */
     TI_strobe(CCxxx0_SFRX);
     TI_strobe(CCxxx0_SRX);
 
-    /* A queda do GDO0 no fim do TX dispara o ISR — descarta para não
-       confundir o próximo Poll com um evento de RX. */
     gdo0_flag = 0;
 }
 

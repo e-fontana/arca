@@ -29,7 +29,6 @@ HAL_StatusTypeDef __spi_write(uint8_t *addr, uint8_t *pData, uint16_t size)
 {
     HAL_StatusTypeDef status;
     HAL_GPIO_WritePin(CS_GPIO_Port, CS_Pin, GPIO_PIN_RESET);
-    while (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_6));
     status = HAL_SPI_Transmit(hal_spi, addr, 1, 0xFFFF);
     if (status == HAL_OK && pData != NULL)
         status = HAL_SPI_Transmit(hal_spi, pData, size, 0xFFFF);
@@ -41,7 +40,6 @@ HAL_StatusTypeDef __spi_read(uint8_t *addr, uint8_t *pData, uint16_t size)
 {
     HAL_StatusTypeDef status;
     HAL_GPIO_WritePin(CS_GPIO_Port, CS_Pin, GPIO_PIN_RESET);
-    while (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_6));
     status = HAL_SPI_Transmit(hal_spi, addr, 1, 0xFFFF);
     status = HAL_SPI_Receive(hal_spi, pData, size, 0xFFFF);
     HAL_GPIO_WritePin(CS_GPIO_Port, CS_Pin, GPIO_PIN_SET);

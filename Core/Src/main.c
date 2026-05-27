@@ -27,31 +27,29 @@
 #include "uart_protocol.h"
 #include "events.h"
 #include <stdio.h>
+#include <string.h>
+#include "pn532_stm32f4.h"
 #include "stm32f411xe.h"
 #include "stm32f4xx_hal_def.h"
 #include "stm32f4xx_hal_gpio.h"
 #include "stm32f4xx_hal_uart.h"
 #include "system_types.h"
 #include <stdint.h>
-#include "fsm.h"
-#include "nfc.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
+
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 
-/* Define a direção do módulo para controle de acesso
-Entrada = DIRECTION_ENTRY, Saída = DIRECTION_EXIT */
-#define MODULE_DIRECTION DIRECTION_ENTRY
-
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
+
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -64,8 +62,9 @@ SPI_HandleTypeDef hspi1;
 UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
-Controller_Context controller;
+PN532 pn532;
 static DHT11_Dev dht11;
+volatile uint8_t nfc_card_ready = 0; 
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -76,22 +75,41 @@ static void MX_RTC_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_USART1_UART_Init(void);
 /* USER CODE BEGIN PFP */
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+static void on_card_detected(const uint8_t *uid, uint8_t uid_len)
+{
+  EVENT_Authorize_t auth = {0};
+  auth.uid_len  = uid_len;
+  auth.direction = 0;
+  memcpy(auth.uid, uid, uid_len);
+  printf("Cartão detectado: ");
+  for (int i = 0; i < uid_len; i++) {
+    printf("%02X", auth.uid[i]);
+  }
+  printf("\r\n");
+  EVENT_SendAuthorize(ADDR_BROADCAST, &auth);
+}
+
 static void APP_Process(void)
 {
   COM_CC1101_RxEvent_t event;
 
   RTC_API_Process();
-  Controller_Run(&controller);
+  // Controller_Run(&controller);
+
+  if (nfc_card_ready) {
+    NFC_HandleCardEvent(&pn532);
+  }
 
   if (COM_CC1101_Poll(&event) && event.is_valid) {
     EVENT_Dispatch(&event.frame);
   }
 
-  int dht_read_status = DHT11_read(&dht11);
+  // int dht_read_status = DHT11_read(&dht11);
 }
 /* USER CODE END 0 */
 
@@ -111,12 +129,14 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
+
   /* USER CODE END Init */
 
   /* Configure the system clock */
   SystemClock_Config();
 
   /* USER CODE BEGIN SysInit */
+
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
@@ -126,25 +146,34 @@ int main(void)
   MX_SPI1_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
+  NFC_SetCardCallback(on_card_detected);
+  if (NFC_Begin(&pn532) != PN532_STATUS_OK) {
+      Error_Handler();
+  }
   HAL_UART_Transmit(&huart1, (uint8_t *)"UART OK\r\n", 9, 100);
   COM_CC1101_Init(&hspi1, &huart1);
   Protocol_Init(&huart1);
-  Controller_Init(&controller, &huart1);
   DHT11_init(&dht11, GPIOB, GPIO_PIN_0);
-  NFC_Init(&hspi1);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  static uint32_t last_tx = 0;
+
   while (1)
   {
     APP_Process();
-    HAL_Delay(10);
-    /* USER CODE END WHILE */
 
+    if (HAL_GetTick() - last_tx >= 2000) {
+        last_tx = HAL_GetTick();
+        uint8_t test_buf[] = { 0x00, 0x01, 0xAA, 0xBB };
+        COM_CC1101_Transmit(test_buf, sizeof(test_buf));
+        HAL_UART_Transmit(&huart1, (uint8_t*)"[TX] ping enviado\r\n", 19, 100);
+    }
+    /* USER CODE END WHILE */
     /* USER CODE BEGIN 3 */
-  }
   /* USER CODE END 3 */
+  }
 }
 
 /**
@@ -185,7 +214,7 @@ void SystemClock_Config(void)
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV2;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK)
@@ -203,11 +232,13 @@ static void MX_ADC1_Init(void)
 {
 
   /* USER CODE BEGIN ADC1_Init 0 */
+
   /* USER CODE END ADC1_Init 0 */
 
   ADC_ChannelConfTypeDef sConfig = {0};
 
   /* USER CODE BEGIN ADC1_Init 1 */
+
   /* USER CODE END ADC1_Init 1 */
 
   /** Configure the global features of the ADC (Clock, Resolution, Data Alignment and number of conversion)
@@ -239,6 +270,7 @@ static void MX_ADC1_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN ADC1_Init 2 */
+
   /* USER CODE END ADC1_Init 2 */
 
 }
@@ -252,12 +284,14 @@ static void MX_RTC_Init(void)
 {
 
   /* USER CODE BEGIN RTC_Init 0 */
+
   /* USER CODE END RTC_Init 0 */
 
   RTC_TimeTypeDef sTime = {0};
   RTC_DateTypeDef sDate = {0};
 
   /* USER CODE BEGIN RTC_Init 1 */
+
   /* USER CODE END RTC_Init 1 */
 
   /** Initialize RTC Only
@@ -275,6 +309,7 @@ static void MX_RTC_Init(void)
   }
 
   /* USER CODE BEGIN Check_RTC_BKUP */
+
   /* USER CODE END Check_RTC_BKUP */
 
   /** Initialize RTC and set the Time and Date
@@ -298,6 +333,7 @@ static void MX_RTC_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN RTC_Init 2 */
+
   /* USER CODE END RTC_Init 2 */
 
 }
@@ -311,9 +347,11 @@ static void MX_SPI1_Init(void)
 {
 
   /* USER CODE BEGIN SPI1_Init 0 */
+
   /* USER CODE END SPI1_Init 0 */
 
   /* USER CODE BEGIN SPI1_Init 1 */
+
   /* USER CODE END SPI1_Init 1 */
   /* SPI1 parameter configuration*/
   hspi1.Instance = SPI1;
@@ -333,6 +371,7 @@ static void MX_SPI1_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN SPI1_Init 2 */
+
   /* USER CODE END SPI1_Init 2 */
 
 }
@@ -379,6 +418,7 @@ static void MX_GPIO_Init(void)
 {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
   /* USER CODE BEGIN MX_GPIO_Init_1 */
+
   /* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
@@ -391,13 +431,13 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, NSS_NFC_Pin|NSS_TEMP_Pin|NSS_CC1101_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOA, NFC_RESET_Pin|NSS_TEMP_Pin|NSS_CC1101_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(DHT11_DATA_GPIO_Port, DHT11_DATA_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(NFC_RESET_GPIO_Port, NFC_RESET_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(NFC_NSS_GPIO_Port, NFC_NSS_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin : PC13 */
   GPIO_InitStruct.Pin = GPIO_PIN_13;
@@ -406,14 +446,14 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : INT_NFC_Pin */
-  GPIO_InitStruct.Pin = INT_NFC_Pin;
+  /*Configure GPIO pin : NFC_INT_Pin */
+  GPIO_InitStruct.Pin = NFC_INT_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
-  HAL_GPIO_Init(INT_NFC_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(NFC_INT_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : NSS_NFC_Pin NSS_TEMP_Pin NSS_CC1101_Pin */
-  GPIO_InitStruct.Pin = NSS_NFC_Pin|NSS_TEMP_Pin|NSS_CC1101_Pin;
+  /*Configure GPIO pins : NFC_RESET_Pin NSS_TEMP_Pin NSS_CC1101_Pin */
+  GPIO_InitStruct.Pin = NFC_RESET_Pin|NSS_TEMP_Pin|NSS_CC1101_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -426,12 +466,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
   HAL_GPIO_Init(DHT11_DATA_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : NFC_RESET_Pin */
-  GPIO_InitStruct.Pin = NFC_RESET_Pin;
+  /*Configure GPIO pin : NFC_NSS_Pin */
+  GPIO_InitStruct.Pin = NFC_NSS_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(NFC_RESET_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(NFC_NSS_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : INT_CC1101_Pin */
   GPIO_InitStruct.Pin = INT_CC1101_Pin;
@@ -447,21 +487,27 @@ static void MX_GPIO_Init(void)
   HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
 
   /* USER CODE BEGIN MX_GPIO_Init_2 */
-  HAL_NVIC_DisableIRQ(EXTI15_10_IRQn);
-  __HAL_GPIO_EXTI_CLEAR_IT(INT_CC1101_Pin);
-  NVIC_ClearPendingIRQ(EXTI15_10_IRQn);
+  HAL_NVIC_SetPriority(EXTI1_IRQn, 5, 0);
+  __HAL_GPIO_EXTI_CLEAR_IT(NFC_INT_Pin);
+  NVIC_ClearPendingIRQ(EXTI1_IRQn);
   /* USER CODE END MX_GPIO_Init_2 */
 }
 
 /* USER CODE BEGIN 4 */
+int __io_putchar(int ch)
+{
+    HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, 0xFFFF);
+    return ch;
+}
+
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
   switch (GPIO_Pin) {
     case INT_CC1101_Pin:
       COM_CC1101_HandleInterrupt(GPIO_Pin);
       break;
-    case INT_NFC_Pin:
-      NFC_IRQ_Handler();
+    case NFC_INT_Pin:
+      nfc_card_ready = 1;
       break;
     default:
       break;
@@ -473,7 +519,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
   if (huart->Instance == USART1) {
     // TODO: Implementar apenas uma FSM para envio via UART
     Protocol_UART_RxCallback();
-    Controller_UART_RxCallback(&controller);
+    // Controller_UART_RxCallback(&controller);
   }
 }
 /* USER CODE END 4 */
@@ -485,8 +531,11 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
+  /* User can add his own implementation to report the HAL error return state */
   __disable_irq();
-  while (1) {}
+  while (1)
+  {
+  }
   /* USER CODE END Error_Handler_Debug */
 }
 #ifdef USE_FULL_ASSERT
@@ -500,6 +549,8 @@ void Error_Handler(void)
 void assert_failed(uint8_t *file, uint32_t line)
 {
   /* USER CODE BEGIN 6 */
+  /* User can add his own implementation to report the file name and line number,
+     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */

@@ -58,15 +58,15 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define INT_NFC_Pin GPIO_PIN_1
-#define INT_NFC_GPIO_Port GPIOA
-#define INT_NFC_EXTI_IRQn EXTI1_IRQn
-#define NSS_NFC_Pin GPIO_PIN_3
-#define NSS_NFC_GPIO_Port GPIOA
+#define NFC_INT_Pin GPIO_PIN_1
+#define NFC_INT_GPIO_Port GPIOA
+#define NFC_INT_EXTI_IRQn EXTI1_IRQn
+#define NFC_RESET_Pin GPIO_PIN_3
+#define NFC_RESET_GPIO_Port GPIOA
 #define DHT11_DATA_Pin GPIO_PIN_0
 #define DHT11_DATA_GPIO_Port GPIOB
-#define NFC_RESET_Pin GPIO_PIN_2
-#define NFC_RESET_GPIO_Port GPIOB
+#define NFC_NSS_Pin GPIO_PIN_2
+#define NFC_NSS_GPIO_Port GPIOB
 #define INT_CC1101_Pin GPIO_PIN_15
 #define INT_CC1101_GPIO_Port GPIOB
 #define INT_CC1101_EXTI_IRQn EXTI15_10_IRQn
