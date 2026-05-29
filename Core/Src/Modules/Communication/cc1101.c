@@ -28,10 +28,20 @@ GPIO_TypeDef *CS_GPIO_Port;
 HAL_StatusTypeDef __spi_write(uint8_t *addr, uint8_t *pData, uint16_t size)
 {
     HAL_StatusTypeDef status;
+
     HAL_GPIO_WritePin(CS_GPIO_Port, CS_Pin, GPIO_PIN_RESET);
+
+    /* Aguarda MISO ir LOW — CC1101 sinaliza que está pronto.
+       Timeout de 1ms para não travar em barramento compartilhado. */
+    uint32_t t0 = HAL_GetTick();
+    while (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_6) == GPIO_PIN_SET) {
+        if ((HAL_GetTick() - t0) > 1) break;
+    }
+
     status = HAL_SPI_Transmit(hal_spi, addr, 1, 0xFFFF);
     if (status == HAL_OK && pData != NULL)
         status = HAL_SPI_Transmit(hal_spi, pData, size, 0xFFFF);
+
     HAL_GPIO_WritePin(CS_GPIO_Port, CS_Pin, GPIO_PIN_SET);
     return status;
 }
@@ -39,9 +49,17 @@ HAL_StatusTypeDef __spi_write(uint8_t *addr, uint8_t *pData, uint16_t size)
 HAL_StatusTypeDef __spi_read(uint8_t *addr, uint8_t *pData, uint16_t size)
 {
     HAL_StatusTypeDef status;
+
     HAL_GPIO_WritePin(CS_GPIO_Port, CS_Pin, GPIO_PIN_RESET);
+
+    uint32_t t0 = HAL_GetTick();
+    while (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_6) == GPIO_PIN_SET) {
+        if ((HAL_GetTick() - t0) > 1) break;
+    }
+
     status = HAL_SPI_Transmit(hal_spi, addr, 1, 0xFFFF);
     status = HAL_SPI_Receive(hal_spi, pData, size, 0xFFFF);
+
     HAL_GPIO_WritePin(CS_GPIO_Port, CS_Pin, GPIO_PIN_SET);
     return status;
 }
@@ -185,6 +203,8 @@ void Power_up_reset(SPI_HandleTypeDef *hspi, GPIO_TypeDef *cs_port, uint16_t cs_
     CS_Pin       = cs_pin;
 
     DWT_Delay_Init();
+
+    /* Sequência de power-up reset conforme datasheet CC1101 §10.1 */
     HAL_GPIO_WritePin(CS_GPIO_Port, CS_Pin, GPIO_PIN_SET);
     DWT_Delay_us(1);
     HAL_GPIO_WritePin(CS_GPIO_Port, CS_Pin, GPIO_PIN_RESET);
@@ -192,10 +212,13 @@ void Power_up_reset(SPI_HandleTypeDef *hspi, GPIO_TypeDef *cs_port, uint16_t cs_
     HAL_GPIO_WritePin(CS_GPIO_Port, CS_Pin, GPIO_PIN_SET);
     DWT_Delay_us(41);
 
+    /* Reset */
     HAL_GPIO_WritePin(CS_GPIO_Port, CS_Pin, GPIO_PIN_RESET);
-    while (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_6));
+    DWT_Delay_us(150);   /* aguarda oscilador estabilizar — substitui o while(MISO) */
     TI_strobe(CCxxx0_SRES);
     HAL_GPIO_WritePin(CS_GPIO_Port, CS_Pin, GPIO_PIN_SET);
+
+    HAL_Delay(10);       /* tempo adicional após SRES antes do TI_init */
 }
 
 void TI_init(SPI_HandleTypeDef *hspi, GPIO_TypeDef *cs_port, uint16_t cs_pin)

@@ -22,6 +22,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "com.h"
+#include "cc1101.h"
 #include "dht11.h"
 #include "rtc_api.h"
 #include "uart_protocol.h"
@@ -146,10 +147,10 @@ int main(void)
   MX_SPI1_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
-  NFC_SetCardCallback(on_card_detected);
-  if (NFC_Begin(&pn532) != PN532_STATUS_OK) {
-      Error_Handler();
-  }
+  // NFC_SetCardCallback(on_card_detected);
+  // if (NFC_Begin(&pn532) != PN532_STATUS_OK) {
+  //     Error_Handler();
+  // }
   HAL_UART_Transmit(&huart1, (uint8_t *)"UART OK\r\n", 9, 100);
   COM_CC1101_Init(&hspi1, &huart1);
   Protocol_Init(&huart1);
@@ -159,17 +160,41 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   static uint32_t last_tx = 0;
+  static uint32_t last_check = 0;
+
 
   while (1)
   {
     APP_Process();
 
-    if (HAL_GetTick() - last_tx >= 2000) {
-        last_tx = HAL_GetTick();
-        uint8_t test_buf[] = { 0x00, 0x01, 0xAA, 0xBB };
-        COM_CC1101_Transmit(test_buf, sizeof(test_buf));
-        HAL_UART_Transmit(&huart1, (uint8_t*)"[TX] ping enviado\r\n", 19, 100);
-    }
+    // if (HAL_GetTick() - last_check >= 1000) {
+    //     last_check = HAL_GetTick();
+    //     uint8_t rxbytes = TI_read_status(CCxxx0_RXBYTES);
+    //     uint8_t marcstate = TI_read_status(CCxxx0_MARCSTATE) & 0x1F;
+    //     char dbg[64];
+    //     int n = snprintf(dbg, sizeof(dbg),
+    //         "RXBYTES=%d MARC=0x%02X\r\n", rxbytes, marcstate);
+    //     HAL_UART_Transmit(&huart1, (uint8_t*)dbg, n, 50);
+    // }
+
+    // if (HAL_GetTick() - last_tx >= 3000) {
+    //     last_tx = HAL_GetTick();
+
+    //     EVENT_Authorize_t auth = {0};
+    //     auth.uid[0]   = 0xAA;
+    //     auth.uid[1]   = 0xBB;
+    //     auth.uid[2]   = 0xCC;
+    //     auth.uid[3]   = 0xDD;
+    //     auth.uid_len  = 4;
+    //     auth.direction = DIRECTION_ENTRY;
+    //     auth.authorized = 0;
+
+    //     uint8_t result = EVENT_SendAuthorize(ADDR_BROADCAST, &auth);
+    //     char dbg[48];
+    //     int n = snprintf(dbg, sizeof(dbg),
+    //         "[TX] SendAuthorize: %s\r\n", result ? "ACK" : "sem resposta");
+    //     HAL_UART_Transmit(&huart1, (uint8_t*)dbg, n, 100);
+    // }
     /* USER CODE END WHILE */
     /* USER CODE BEGIN 3 */
   /* USER CODE END 3 */

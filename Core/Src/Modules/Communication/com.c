@@ -19,23 +19,41 @@ static void com_log(const char *msg)
 
 void COM_CC1101_Init(SPI_HandleTypeDef *hspi, UART_HandleTypeDef *huart)
 {
+
     s_huart = huart;
 
+    /* Garante que todos os outros NSS estão inativos antes de inicializar */
+    HAL_GPIO_WritePin(NFC_NSS_GPIO_Port,  NFC_NSS_Pin,  GPIO_PIN_SET);
+    HAL_Delay(5);   /* tempo para o barramento estabilizar */
+
     Power_up_reset(hspi, NSS_CC1101_GPIO_Port, NSS_CC1101_Pin);
+    TI_init(hspi, NSS_CC1101_GPIO_Port, NSS_CC1101_Pin);
     TI_init(hspi, NSS_CC1101_GPIO_Port, NSS_CC1101_Pin);
     TI_write_reg(CCxxx0_MCSM1, 0x30);
     TI_write_reg(CCxxx0_ADDR, MY_ADDR);
 
-    #if defined(COM_DIAG_DISABLE_ADDR_CHK)
-        /* Modo diagnóstico: desabilita ADDR_CHK em hardware para ver todos os pacotes.
-        Ativar com -DCOM_DIAG_DISABLE_ADDR_CHK no CMakeLists.txt. */
-        TI_write_reg(CCxxx0_PKTCTRL1, TI_read_reg(CCxxx0_PKTCTRL1) & ~0x06u);
-    #endif
+    /* === verificação de sanidade === */
+    uint8_t ver      = TI_read_status(CCxxx0_VERSION);
+    uint8_t partnum  = TI_read_status(CCxxx0_PARTNUM);
+    uint8_t freq2    = TI_read_reg(CCxxx0_FREQ2);
+    uint8_t freq1    = TI_read_reg(CCxxx0_FREQ1);
+    uint8_t freq0    = TI_read_reg(CCxxx0_FREQ0);
+    uint8_t pktctrl1 = TI_read_reg(CCxxx0_PKTCTRL1);
+    uint8_t addr_reg = TI_read_reg(CCxxx0_ADDR);
+    uint8_t fifothr  = TI_read_reg(CCxxx0_FIFOTHR);
+
+    char dbg[128];
+    int n = snprintf(dbg, sizeof(dbg),
+        "[CC1101] VER=%02X PART=%02X FREQ=%02X%02X%02X "
+        "PKTCTRL1=%02X ADDR=%02X FIFOTHR=%02X\r\n",
+        ver, partnum, freq2, freq1, freq0,
+        pktctrl1, addr_reg, fifothr);
+    HAL_UART_Transmit(s_huart, (uint8_t*)dbg, n, 200);
+    /* =============================== */
 
     __HAL_GPIO_EXTI_CLEAR_IT(INT_CC1101_Pin);
     NVIC_ClearPendingIRQ(EXTI15_10_IRQn);
     HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
-
     TI_strobe(CCxxx0_SFRX);
     TI_strobe(CCxxx0_SRX);
 }
