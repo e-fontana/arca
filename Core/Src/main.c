@@ -18,6 +18,8 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include <stdbool.h>
+
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -76,6 +78,7 @@ static void MX_RTC_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_USART1_UART_Init(void);
 /* USER CODE BEGIN PFP */
+extern bool Press_IsDoorOpen(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -134,7 +137,7 @@ int main(void)
   NFC_Init(&hspi1);
   /* USER CODE END 2 */
 
-  /* Infinite loop */
+/* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
@@ -144,9 +147,8 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
   }
+}  
   /* USER CODE END 3 */
-}
-
 /**
   * @brief System Clock Configuration
   * @retval None
