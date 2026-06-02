@@ -23,9 +23,20 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "com.h"
+#include "dht11.h"
+#include "rtc_api.h"
+#include "uart_protocol.h"
+#include "events.h"
+#include <stdio.h>
 #include "stm32f411xe.h"
+#include "stm32f4xx_hal_def.h"
 #include "stm32f4xx_hal_gpio.h"
+#include "stm32f4xx_hal_uart.h"
 #include "system_types.h"
+#include <stdint.h>
+#include "fsm.h"
+#include "nfc.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -55,7 +66,8 @@ SPI_HandleTypeDef hspi1;
 UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
-
+Controller_Context controller;
+static DHT11_Dev dht11;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -71,6 +83,19 @@ extern bool Press_IsDoorOpen(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+static void APP_Process(void)
+{
+  COM_CC1101_RxEvent_t event;
+
+  RTC_API_Process();
+  Controller_Run(&controller);
+
+  if (COM_CC1101_Poll(&event) && event.is_valid) {
+    EVENT_Dispatch(&event.frame);
+  }
+
+  int dht_read_status = DHT11_read(&dht11);
+}
 /* USER CODE END 0 */
 
 /**
@@ -104,34 +129,23 @@ int main(void)
   MX_SPI1_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
+  HAL_UART_Transmit(&huart1, (uint8_t *)"UART OK\r\n", 9, 100);
+  COM_CC1101_Init(&hspi1, &huart1);
+  Protocol_Init(&huart1);
+  Controller_Init(&controller, &huart1);
+  DHT11_init(&dht11, GPIOB, GPIO_PIN_0);
+  NFC_Init(&hspi1);
   /* USER CODE END 2 */
 
 /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+    APP_Process();
+    HAL_Delay(10);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-
-    if (Press_IsDoorOpen() == true) {
-        
-        // Porta ABERTA! 
-        // Vamos acender o LED da placa (No STM32, o PC13 geralmente acende com nível BAIXO / RESET)
-        HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
-        
-    } else {
-        
-        // Porta FECHADA!
-        // Apaga o LED
-        HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);
-        
-    }
-
-    // Dá uma pequena pausa de 100 milissegundos para não sobrecarregar o processador
-    HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
-    HAL_Delay(100);
-
   }
 }  
   /* USER CODE END 3 */
@@ -382,6 +396,9 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOA, NSS_NFC_Pin|NSS_TEMP_Pin|NSS_CC1101_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(DHT11_DATA_GPIO_Port, DHT11_DATA_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(NFC_RESET_GPIO_Port, NFC_RESET_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin : PC13 */
@@ -404,6 +421,13 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
+  /*Configure GPIO pin : DHT11_DATA_Pin */
+  GPIO_InitStruct.Pin = DHT11_DATA_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_OD;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+  HAL_GPIO_Init(DHT11_DATA_GPIO_Port, &GPIO_InitStruct);
+
   /*Configure GPIO pin : NFC_RESET_Pin */
   GPIO_InitStruct.Pin = NFC_RESET_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
@@ -425,10 +449,35 @@ static void MX_GPIO_Init(void)
   HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
 
   /* USER CODE BEGIN MX_GPIO_Init_2 */
+  HAL_NVIC_DisableIRQ(EXTI15_10_IRQn);
+  __HAL_GPIO_EXTI_CLEAR_IT(INT_CC1101_Pin);
+  NVIC_ClearPendingIRQ(EXTI15_10_IRQn);
   /* USER CODE END MX_GPIO_Init_2 */
 }
 
 /* USER CODE BEGIN 4 */
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+  switch (GPIO_Pin) {
+    case INT_CC1101_Pin:
+      COM_CC1101_HandleInterrupt(GPIO_Pin);
+      break;
+    case INT_NFC_Pin:
+      NFC_IRQ_Handler();
+      break;
+    default:
+      break;
+  }
+}
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+  if (huart->Instance == USART1) {
+    // TODO: Implementar apenas uma FSM para envio via UART
+    Protocol_UART_RxCallback();
+    Controller_UART_RxCallback(&controller);
+  }
+}
 /* USER CODE END 4 */
 
 /**

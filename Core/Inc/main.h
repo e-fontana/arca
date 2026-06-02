@@ -35,10 +35,11 @@ extern "C"
 
   /* USER CODE END Includes */
 
-  /* Exported types ------------------------------------------------------------*/
-  /* USER CODE BEGIN ET */
-
-  /* USER CODE END ET */
+/* Exported types ------------------------------------------------------------*/
+/* USER CODE BEGIN ET */
+#include "stm32f4xx_hal.h"
+extern RTC_HandleTypeDef hrtc;
+/* USER CODE END ET */
 
   /* Exported constants --------------------------------------------------------*/
   /* USER CODE BEGIN EC */
@@ -63,6 +64,8 @@ extern "C"
 #define INT_NFC_EXTI_IRQn EXTI1_IRQn
 #define NSS_NFC_Pin GPIO_PIN_3
 #define NSS_NFC_GPIO_Port GPIOA
+#define DHT11_DATA_Pin GPIO_PIN_0
+#define DHT11_DATA_GPIO_Port GPIOB
 #define NFC_RESET_Pin GPIO_PIN_2
 #define NFC_RESET_GPIO_Port GPIOB
 #define INT_CC1101_Pin GPIO_PIN_15
