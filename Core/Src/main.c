@@ -2,7 +2,7 @@
 /**
   ******************************************************************************
   * @file           : main.c
-  * @brief          : Main program body
+  * @brief          : Main program body (Dashboard Inteligente 3 Estados)
   ******************************************************************************
   * @attention
   *
@@ -21,79 +21,114 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "com.h"
-#include "dht11.h"
-#include "rtc_api.h"
-#include "uart_protocol.h"
-#include "events.h"
-#include <stdio.h>
-#include "stm32f411xe.h"
-#include "stm32f4xx_hal_def.h"
-#include "stm32f4xx_hal_gpio.h"
-#include "stm32f4xx_hal_uart.h"
-#include "system_types.h"
-#include <stdint.h>
-#include "fsm.h"
-#include "nfc.h"
 #include "lcd.h"
+#include "GUI.h"
+#include "icons.h"  // Nosso arquivo com as imagens convertidas
+#include <stdio.h>  // Para formatar os textos (sprintf)
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
+
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 
-/* Define a direção do módulo para controle de acesso
-Entrada = DIRECTION_ENTRY, Saída = DIRECTION_EXIT */
-#define MODULE_DIRECTION DIRECTION_ENTRY
-
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
+
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
-ADC_HandleTypeDef hadc1;
-
-RTC_HandleTypeDef hrtc;
-
 SPI_HandleTypeDef hspi1;
 
-UART_HandleTypeDef huart1;
-
 /* USER CODE BEGIN PV */
-Controller_Context controller;
-static DHT11_Dev dht11;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-static void MX_ADC1_Init(void);
-static void MX_RTC_Init(void);
 static void MX_SPI1_Init(void);
-static void MX_USART1_UART_Init(void);
 /* USER CODE BEGIN PFP */
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-static void APP_Process(void)
+
+// ==============================================================================
+// 1. MÁQUINA DE ESTADOS DA IHM
+// ==============================================================================
+
+// Estados para Temperatura, Pressão e CC1101 (3 Níveis)
+typedef enum {
+    ESTADO_PADRAO = 0,
+    ESTADO_BOM    = 1,
+    ESTADO_RUIM   = 2
+} EstadoSensor_t;
+
+// Estados para NFC (2 Níveis)
+typedef enum {
+    DESCONECTADO = 0,
+    CONECTADO    = 1
+} EstadoConexao_t;
+
+// Estrutura do Objeto Visual (Ícone)
+typedef struct {
+    uint16_t x;
+    uint16_t y;
+    uint16_t width;
+    uint16_t height;
+    uint8_t current_state;
+    uint8_t last_state;
+    const unsigned char **images;
+} UI_Icon_t;
+
+// ==============================================================================
+// 2. MAPEAMENTO DAS IMAGENS AOS ESTADOS
+// ==============================================================================
+// A ordem AQUI importa! O índice [0] é Padrão, [1] é Bom, [2] é Ruim.
+const unsigned char* umidade_imgs[] = {gImage_umidade, gImage_umidade, gImage_umidade};
+const unsigned char* nfc_imgs[]     = {gImage_nfc_desconectado, gImage_nfc_conectado};
+const unsigned char* cc1101_imgs[]  = {gImage_cc1101_padrao, gImage_cc1101_bom, gImage_cc1101_ruim};
+const unsigned char* temp_imgs[]    = {gImage_temperatura_padrao, gImage_temperatura_bom, gImage_temperatura_ruim};
+const unsigned char* pressao_imgs[] = {gImage_pressao_padrao, gImage_pressao_bom, gImage_pressao_ruim};
+
+// ==============================================================================
+// 3. INSTANCIANDO OS ÍCONES NA TELA (Posições X e Y)
+// ==============================================================================
+UI_Icon_t icon_temp  = {10, 50,  32, 32, ESTADO_PADRAO, 255, temp_imgs};
+UI_Icon_t icon_umid  = {10, 90,  32, 32, ESTADO_PADRAO, 255, umidade_imgs};
+UI_Icon_t icon_press = {10, 130, 32, 32, ESTADO_PADRAO, 255, pressao_imgs};
+UI_Icon_t icon_nfc   = {10, 180, 32, 32, DESCONECTADO,  255, nfc_imgs};
+UI_Icon_t icon_radio = {10, 230, 32, 32, ESTADO_PADRAO, 255, cc1101_imgs};
+
+// ==============================================================================
+// 4. MOTOR GRÁFICO (RENDERIZADOR)
+// ==============================================================================
+
+// Função Base de Desenho SPI (Agora recebe o Array de 8 bits gerado pelo LVGL)
+void Draw_Image(uint16_t x, uint16_t y, uint16_t width, uint16_t height, const unsigned char *image)
 {
-  COM_CC1101_RxEvent_t event;
-
-  RTC_API_Process();
-  Controller_Run(&controller);
-
-  if (COM_CC1101_Poll(&event) && event.is_valid) {
-    EVENT_Dispatch(&event.frame);
-  }
-
-  /*int dht_read_status = DHT11_read(&dht11); */
+    LCD_SetWindows(x, y, x + width - 1, y + height - 1);
+    LCD_CS_CLR;
+    LCD_RS_SET;
+    HAL_SPI_Transmit(&hspi1, (uint8_t *)image, width * height * 2, 1000);
+    LCD_CS_SET;
 }
+
+// Atualiza o ícone apenas se o estado mudar (Economiza muito processamento!)
+void UI_Render_Icon(UI_Icon_t *icon) {
+    if (icon->current_state != icon->last_state) {
+        Draw_Image(icon->x, icon->y, icon->width, icon->height, icon->images[icon->current_state]);
+        icon->last_state = icon->current_state; // Salva na memória o estado atual
+    }
+}
+
 /* USER CODE END 0 */
 
 /**
@@ -104,6 +139,7 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
+
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -112,55 +148,136 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
+
   /* USER CODE END Init */
 
   /* Configure the system clock */
   SystemClock_Config();
 
   /* USER CODE BEGIN SysInit */
+
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_ADC1_Init();
-  MX_RTC_Init();
   MX_SPI1_Init();
-  MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
-  HAL_UART_Transmit(&huart1, (uint8_t *)"UART OK\r\n", 9, 100);
-  COM_CC1101_Init(&hspi1, &huart1);
-  Protocol_Init(&huart1);
-  Controller_Init(&controller, &huart1);
-  DHT11_init(&dht11, GPIOB, GPIO_PIN_0);
-  NFC_Init(&hspi1);
-  /* USER CODE END 2 */
 
+  // Ligar o backlight do Display
+  HAL_GPIO_WritePin(IHM_LED_GPIO_Port, IHM_LED_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOA, IHM_RESET_Pin, GPIO_PIN_SET);
+  HAL_Delay(50);
+
+  // Inicializa a tela com fundo preto
   LCD_Init();
+  LCD_Clear(BLACK);
 
-  LCD_FillRectangle(0, 0, 320, 240, BLACK);
-  HAL_Delay(100);
+  // Interface Estática (Desenhada apenas 1 vez)
+  Show_Str(40, 10, YELLOW, BLACK, (uint8_t *)"DASHBOARD CENTRAL", 16, 0);
+  LCD_DrawLine(0, 30, 240, 30); // Linha divisória
 
-  LCD_FillRectangle(0, 0, 320, 45, RED);
+  // Variáveis simulando as leituras dos sensores
+  float temp_val = 22.0;
+  int umid_val = 60;
+  int pressao_val = 1013;
+  uint8_t nfc_detectado = 0;
+  uint8_t qualidade_sinal_radio = 0; // 0=Padrão, 1=Bom, 2=Ruim
 
-  // LCD_WriteString(100, 20, "SISTEMA DE ACESSO", Font_5x8, WHITE, RED);
-  // LCD_WriteString(120, 140, "ISSO EH A GANGUE!", Font_5x8, GREEN, BLACK);
-
-  // Fonte normal (Escala 1 - pequena, para rodapés ou detalhes)
-  LCD_WriteStringScaled(10, 200, "Iniciando sistema...", Font_5x8, WHITE, BLACK, 1);
-
-  LCD_WriteStringScaled(80, 15, "SISTEMA DE ACESSO", Font_5x8, WHITE, RED, 2);
-
-  LCD_WriteStringScaled(70, 110, "ISSO EH A GANGUE!", Font_5x8, GREEN, BLACK, 2);
+  char buffer_texto[40]; // Buffer para formatar os textos
+  /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    APP_Process();
-    HAL_Delay(10);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+
+    // =========================================================
+    // ETAPA A: LEITURA DOS SENSORES (Simulação)
+    // =========================================================
+    temp_val += 1.5; // Sobe a temperatura para testarmos
+    if(temp_val > 35.0) temp_val = 15.0; // Reseta
+
+    pressao_val -= 5;
+    if(pressao_val < 980) pressao_val = 1030;
+
+    nfc_detectado = !nfc_detectado; // Fica alternando 0 e 1
+
+    qualidade_sinal_radio++; // Alterna 0, 1, 2...
+    if(qualidade_sinal_radio > 2) qualidade_sinal_radio = 0;
+
+    // =========================================================
+    // ETAPA B: INTELIGÊNCIA DA MÁQUINA DE ESTADOS
+    // =========================================================
+
+    // Lógica da Temperatura (Exemplo: 20 a 28 é BOM. Abaixo de 20 é PADRÃO. Acima de 28 é RUIM)
+    if(temp_val >= 20.0 && temp_val <= 28.0) {
+        icon_temp.current_state = ESTADO_BOM;
+    } else if(temp_val > 28.0) {
+        icon_temp.current_state = ESTADO_RUIM;
+    } else {
+        icon_temp.current_state = ESTADO_PADRAO;
+    }
+
+    // Lógica da Pressão (Exemplo)
+    if(pressao_val < 1000) {
+        icon_press.current_state = ESTADO_RUIM;
+    } else if(pressao_val > 1020) {
+        icon_press.current_state = ESTADO_PADRAO;
+    } else {
+        icon_press.current_state = ESTADO_BOM;
+    }
+
+    // Conexões
+    icon_nfc.current_state = nfc_detectado ? CONECTADO : DESCONECTADO;
+    icon_radio.current_state = qualidade_sinal_radio; // Já recebe 0, 1 ou 2
+
+    // =========================================================
+    // ETAPA C: RENDERIZAÇÃO NA TELA
+    // =========================================================
+
+    // 1. Atualiza Ícones (só redesenha se o estado mudar)
+    UI_Render_Icon(&icon_temp);
+    UI_Render_Icon(&icon_umid);
+    UI_Render_Icon(&icon_press);
+    UI_Render_Icon(&icon_nfc);
+    UI_Render_Icon(&icon_radio);
+
+    // 2. Atualiza Textos (O espaço "   " no final apaga o rastro do número anterior)
+    sprintf(buffer_texto, "Temp: %4.1f C   ", temp_val);
+    Show_Str(50, 58, WHITE, BLACK, (uint8_t *)buffer_texto, 16, 0);
+
+    sprintf(buffer_texto, "Umid: %d %%     ", umid_val);
+    Show_Str(50, 98, WHITE, BLACK, (uint8_t *)buffer_texto, 16, 0);
+
+    sprintf(buffer_texto, "Press: %d hPa  ", pressao_val);
+    Show_Str(50, 138, WHITE, BLACK, (uint8_t *)buffer_texto, 16, 0);
+
+    // 3. Atualiza os Textos de Conexão com Cores
+    Show_Str(50, 188, WHITE, BLACK, (uint8_t *)"NFC: ", 16, 0);
+    if(icon_nfc.current_state == CONECTADO) {
+        Show_Str(90, 188, GREEN, BLACK, (uint8_t *)"CONECTADO  ", 16, 0);
+    } else {
+        Show_Str(90, 188, RED,   BLACK, (uint8_t *)"AGUARDANDO ", 16, 0);
+    }
+
+    Show_Str(50, 238, WHITE, BLACK, (uint8_t *)"CC1101: ", 16, 0);
+    if(icon_radio.current_state == ESTADO_BOM) {
+        Show_Str(110, 238, GREEN, BLACK, (uint8_t *)"SINAL BOM  ", 16, 0);
+    } else if(icon_radio.current_state == ESTADO_RUIM) {
+        Show_Str(110, 238, RED,   BLACK, (uint8_t *)"SINAL RUIM ", 16, 0);
+    } else {
+        Show_Str(110, 238, YELLOW,BLACK, (uint8_t *)"PADRAO     ", 16, 0);
+    }
+
+    // Pisca LED da placa
+    HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
+
+    // Delay de 1 segundo para conseguirmos ver as coisas mudando na tela
+    HAL_Delay(1000);
+
   }
   /* USER CODE END 3 */
 }
@@ -177,19 +294,17 @@ void SystemClock_Config(void)
   /** Configure the main internal regulator output voltage
   */
   __HAL_RCC_PWR_CLK_ENABLE();
-  __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+  __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE2);
 
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI|RCC_OSCILLATORTYPE_LSE;
-  RCC_OscInitStruct.LSEState = RCC_LSE_ON;
-  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
-  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+  RCC_OscInitStruct.HSEState = RCC_HSE_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
-  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
-  RCC_OscInitStruct.PLL.PLLM = 8;
-  RCC_OscInitStruct.PLL.PLLN = 84;
+  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
+  RCC_OscInitStruct.PLL.PLLM = 25;
+  RCC_OscInitStruct.PLL.PLLN = 168;
   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
   RCC_OscInitStruct.PLL.PLLQ = 4;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
@@ -202,122 +317,14 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
-  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV2;
+  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK)
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
   {
     Error_Handler();
   }
-}
-
-/**
-  * @brief ADC1 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_ADC1_Init(void)
-{
-
-  /* USER CODE BEGIN ADC1_Init 0 */
-  /* USER CODE END ADC1_Init 0 */
-
-  ADC_ChannelConfTypeDef sConfig = {0};
-
-  /* USER CODE BEGIN ADC1_Init 1 */
-  /* USER CODE END ADC1_Init 1 */
-
-  /** Configure the global features of the ADC (Clock, Resolution, Data Alignment and number of conversion)
-  */
-  hadc1.Instance = ADC1;
-  hadc1.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV2;
-  hadc1.Init.Resolution = ADC_RESOLUTION_12B;
-  hadc1.Init.ScanConvMode = DISABLE;
-  hadc1.Init.ContinuousConvMode = DISABLE;
-  hadc1.Init.DiscontinuousConvMode = DISABLE;
-  hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
-  hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
-  hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
-  hadc1.Init.NbrOfConversion = 1;
-  hadc1.Init.DMAContinuousRequests = DISABLE;
-  hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
-  if (HAL_ADC_Init(&hadc1) != HAL_OK)
-  {
-    Error_Handler();
-  }
-
-  /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
-  */
-  sConfig.Channel = ADC_CHANNEL_4;
-  sConfig.Rank = 1;
-  sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
-  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN ADC1_Init 2 */
-  /* USER CODE END ADC1_Init 2 */
-
-}
-
-/**
-  * @brief RTC Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_RTC_Init(void)
-{
-
-  /* USER CODE BEGIN RTC_Init 0 */
-  /* USER CODE END RTC_Init 0 */
-
-  RTC_TimeTypeDef sTime = {0};
-  RTC_DateTypeDef sDate = {0};
-
-  /* USER CODE BEGIN RTC_Init 1 */
-  /* USER CODE END RTC_Init 1 */
-
-  /** Initialize RTC Only
-  */
-  hrtc.Instance = RTC;
-  hrtc.Init.HourFormat = RTC_HOURFORMAT_24;
-  hrtc.Init.AsynchPrediv = 127;
-  hrtc.Init.SynchPrediv = 255;
-  hrtc.Init.OutPut = RTC_OUTPUT_DISABLE;
-  hrtc.Init.OutPutPolarity = RTC_OUTPUT_POLARITY_HIGH;
-  hrtc.Init.OutPutType = RTC_OUTPUT_TYPE_OPENDRAIN;
-  if (HAL_RTC_Init(&hrtc) != HAL_OK)
-  {
-    Error_Handler();
-  }
-
-  /* USER CODE BEGIN Check_RTC_BKUP */
-  /* USER CODE END Check_RTC_BKUP */
-
-  /** Initialize RTC and set the Time and Date
-  */
-  sTime.Hours = 0x0;
-  sTime.Minutes = 0x0;
-  sTime.Seconds = 0x0;
-  sTime.DayLightSaving = RTC_DAYLIGHTSAVING_NONE;
-  sTime.StoreOperation = RTC_STOREOPERATION_RESET;
-  if (HAL_RTC_SetTime(&hrtc, &sTime, RTC_FORMAT_BCD) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sDate.WeekDay = RTC_WEEKDAY_MONDAY;
-  sDate.Month = RTC_MONTH_JANUARY;
-  sDate.Date = 0x1;
-  sDate.Year = 0x0;
-
-  if (HAL_RTC_SetDate(&hrtc, &sDate, RTC_FORMAT_BCD) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN RTC_Init 2 */
-  /* USER CODE END RTC_Init 2 */
-
 }
 
 /**
@@ -329,9 +336,11 @@ static void MX_SPI1_Init(void)
 {
 
   /* USER CODE BEGIN SPI1_Init 0 */
+
   /* USER CODE END SPI1_Init 0 */
 
   /* USER CODE BEGIN SPI1_Init 1 */
+
   /* USER CODE END SPI1_Init 1 */
   /* SPI1 parameter configuration*/
   hspi1.Instance = SPI1;
@@ -341,7 +350,7 @@ static void MX_SPI1_Init(void)
   hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
   hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
   hspi1.Init.NSS = SPI_NSS_SOFT;
-  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_16;
+  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
@@ -351,40 +360,8 @@ static void MX_SPI1_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN SPI1_Init 2 */
+
   /* USER CODE END SPI1_Init 2 */
-
-}
-
-/**
-  * @brief USART1 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_USART1_UART_Init(void)
-{
-
-  /* USER CODE BEGIN USART1_Init 0 */
-
-  /* USER CODE END USART1_Init 0 */
-
-  /* USER CODE BEGIN USART1_Init 1 */
-
-  /* USER CODE END USART1_Init 1 */
-  huart1.Instance = USART1;
-  huart1.Init.BaudRate = 115200;
-  huart1.Init.WordLength = UART_WORDLENGTH_8B;
-  huart1.Init.StopBits = UART_STOPBITS_1;
-  huart1.Init.Parity = UART_PARITY_NONE;
-  huart1.Init.Mode = UART_MODE_TX_RX;
-  huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
-  huart1.Init.OverSampling = UART_OVERSAMPLING_16;
-  if (HAL_UART_Init(&huart1) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN USART1_Init 2 */
-
-  /* USER CODE END USART1_Init 2 */
 
 }
 
@@ -397,6 +374,7 @@ static void MX_GPIO_Init(void)
 {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
   /* USER CODE BEGIN MX_GPIO_Init_1 */
+
   /* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
@@ -406,99 +384,42 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, NSS_NFC_Pin|NSS_TEMP_Pin|NSS_CC1101_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(IHM_LED_GPIO_Port, IHM_LED_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, DHT11_DATA_Pin|IHM_LED_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, IHM_RESET_Pin|IHM_CS_Pin|IHM_DC_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(NFC_RESET_GPIO_Port, NFC_RESET_Pin, GPIO_PIN_SET);
-
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, IHM_RESET_Pin|NSS_IHM_Pin|IHM_DC_Pin, GPIO_PIN_RESET);
-
-  /*Configure GPIO pin : PC13 */
-  GPIO_InitStruct.Pin = GPIO_PIN_13;
+  /*Configure GPIO pin : LED_Pin */
+  GPIO_InitStruct.Pin = LED_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+  HAL_GPIO_Init(LED_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : INT_NFC_Pin */
-  GPIO_InitStruct.Pin = INT_NFC_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
-  GPIO_InitStruct.Pull = GPIO_PULLUP;
-  HAL_GPIO_Init(INT_NFC_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : NSS_NFC_Pin IHM_RESET_Pin NSS_TEMP_Pin NSS_CC1101_Pin
-                           NSS_IHM_Pin IHM_DC_Pin */
-  GPIO_InitStruct.Pin = NSS_NFC_Pin|IHM_RESET_Pin|NSS_TEMP_Pin|NSS_CC1101_Pin
-                          |NSS_IHM_Pin|IHM_DC_Pin;
+  /*Configure GPIO pin : IHM_LED_Pin */
+  GPIO_InitStruct.Pin = IHM_LED_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+  HAL_GPIO_Init(IHM_LED_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : DHT11_DATA_Pin */
-  GPIO_InitStruct.Pin = DHT11_DATA_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_OD;
+  /*Configure GPIO pins : IHM_RESET_Pin IHM_CS_Pin IHM_DC_Pin */
+  GPIO_InitStruct.Pin = IHM_RESET_Pin|IHM_CS_Pin|IHM_DC_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
-  HAL_GPIO_Init(DHT11_DATA_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : IHM_LED_Pin NFC_RESET_Pin */
-  GPIO_InitStruct.Pin = IHM_LED_Pin|NFC_RESET_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : INT_CC1101_Pin */
-  GPIO_InitStruct.Pin = INT_CC1101_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
-  GPIO_InitStruct.Pull = GPIO_PULLUP;
-  HAL_GPIO_Init(INT_CC1101_GPIO_Port, &GPIO_InitStruct);
-
-  /* EXTI interrupt init*/
-  HAL_NVIC_SetPriority(EXTI1_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(EXTI1_IRQn);
-
-  HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /* USER CODE BEGIN MX_GPIO_Init_2 */
-  HAL_NVIC_DisableIRQ(EXTI15_10_IRQn);
-  __HAL_GPIO_EXTI_CLEAR_IT(INT_CC1101_Pin);
-  NVIC_ClearPendingIRQ(EXTI15_10_IRQn);
+
   /* USER CODE END MX_GPIO_Init_2 */
 }
 
 /* USER CODE BEGIN 4 */
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
-{
-  switch (GPIO_Pin) {
-    case INT_CC1101_Pin:
-      COM_CC1101_HandleInterrupt(GPIO_Pin);
-      break;
-    case INT_NFC_Pin:
-      NFC_IRQ_Handler();
-      break;
-    default:
-      break;
-  }
-}
 
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
-{
-  if (huart->Instance == USART1) {
-    // TODO: Implementar apenas uma FSM para envio via UART
-    Protocol_UART_RxCallback();
-    Controller_UART_RxCallback(&controller);
-  }
-}
 /* USER CODE END 4 */
 
 /**
@@ -508,10 +429,14 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
+  /* User can add his own implementation to report the HAL error return state */
   __disable_irq();
-  while (1) {}
+  while (1)
+  {
+  }
   /* USER CODE END Error_Handler_Debug */
 }
+
 #ifdef USE_FULL_ASSERT
 /**
   * @brief  Reports the name of the source file and the source line number
@@ -523,6 +448,8 @@ void Error_Handler(void)
 void assert_failed(uint8_t *file, uint32_t line)
 {
   /* USER CODE BEGIN 6 */
+  /* User can add his own implementation to report the file name and line number,
+     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */

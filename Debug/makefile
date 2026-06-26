@@ -11,9 +11,6 @@ RM := rm -rf
 -include sources.mk
 -include Drivers/STM32F4xx_HAL_Driver/Src/subdir.mk
 -include Core/Startup/subdir.mk
--include Core/Src/Modules/RTC/subdir.mk
--include Core/Src/Modules/Communication/subdir.mk
--include Core/Src/Modules/subdir.mk
 -include Core/Src/subdir.mk
 -include objects.mk
 
@@ -37,34 +34,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := teste
+BUILD_ARTIFACT_NAME := blink_led
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-teste.elf \
+blink_led.elf \
 
 MAP_FILES += \
-teste.map \
+blink_led.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-teste.list \
+blink_led.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: teste.elf secondary-outputs
+main-build: blink_led.elf secondary-outputs
 
 # Tool invocations
-teste.elf teste.map: $(OBJS) $(USER_OBJS) /home/clara/arca/STM32F411CEUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "teste.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/home/clara/arca/STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="teste.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+blink_led.elf blink_led.map: $(OBJS) $(USER_OBJS) C:\Users\LLIMA72\Downloads\blink_led_abluble\blink_led\STM32F401CDUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "blink_led.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\LLIMA72\Downloads\blink_led_abluble\blink_led\STM32F401CDUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="blink_led.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -73,14 +70,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-teste.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "teste.list"
+blink_led.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "blink_led.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) default.size.stdout teste.elf teste.list teste.map
+	-$(RM) blink_led.elf blink_led.list blink_led.map default.size.stdout
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
