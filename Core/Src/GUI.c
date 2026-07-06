@@ -780,3 +780,127 @@ void Gui_Drawbmp16(u16 x,u16 y,const unsigned char *p) //��ʾ40*40 QQͼƬ
 	}	
 	LCD_SetWindows(0,0,lcddev.width-1,lcddev.height-1);//�ָ���ʾ����Ϊȫ��	
 }
+
+// ==============================================================================
+// DASHBOARD IOT - IMPLEMENTAÇÃO
+// ==============================================================================
+#include <stdio.h> // Necessário para usar a função sprintf()
+
+// Mapeamento de Cores (Padrão RGB565 usado pelo display TFT)
+#define C_BLACK   0x0000
+#define C_WHITE   0xFFFF
+#define C_YELLOW  0xFFE0
+#define C_RED     0xF800
+#define C_GREEN   0x07E0
+#define C_CYAN    0x07FF
+#define C_GREY    0x8410
+
+// ==============================================================================
+// INICIALIZAÇÃO DO DASHBOARD (Desenha a estrutura estática 1 única vez)
+// ==============================================================================
+void GUI_InitDashboard(void) {
+    // 1. Limpa a tela inteira de preto
+    LCD_Fill(0, 0, 240, 320, C_BLACK);
+
+    // 2. Bloco: ENVIRONMENTAL DATA (Top)
+    Gui_StrCenter(0, 2, C_YELLOW, C_BLACK, (u8*)"ENVIRONMENTAL DATA", 16, 0);
+    LCD_Fill(10, 20, 230, 21, C_GREY); // Linha separadora
+    
+    // Labels fixos
+    Show_Str(50, 32, C_WHITE, C_BLACK, (u8*)"Temp:", 16, 0);
+    Show_Str(50, 66, C_WHITE, C_BLACK, (u8*)"Humidity:", 16, 0);
+    Show_Str(50, 100, C_WHITE, C_BLACK, (u8*)"Pressure:", 16, 0);
+
+    // 3. Bloco: SYSTEM & EVENTS (Meio)
+    LCD_Fill(10, 128, 230, 129, C_GREY); // Linha separadora
+    Gui_StrCenter(0, 134, C_YELLOW, C_BLACK, (u8*)"SYSTEM & EVENTS", 16, 0);
+
+    // 4. Bloco: CONNECTIVITY LOG (Baixo)
+    LCD_Fill(10, 246, 230, 247, C_GREY); // Linha separadora
+    Gui_StrCenter(0, 252, C_YELLOW, C_BLACK, (u8*)"CONNECTIVITY LOG", 16, 0);
+    
+    // Labels fixos
+    Show_Str(46, 274, C_WHITE, C_BLACK, (u8*)"NFC:", 16, 0);
+    Show_Str(46, 302, C_WHITE, C_BLACK, (u8*)"CC1101:", 16, 0);
+}
+
+// ==============================================================================
+// ATUALIZAÇÃO DO DASHBOARD (Chamado no loop principal para atualizar dados dinâmicos)
+// ==============================================================================
+void GUI_UpdateDashboard(DashboardData_t *data) {
+    char buffer[30]; // Buffer temporário para a conversão de texto
+
+    // ---------------------------------------------------------
+    // 1. ENVIRONMENTAL DATA
+    // ---------------------------------------------------------
+    // Lógica da Temperatura
+    const unsigned char *pTemp;
+    if(data->temp_estado == TEMP_BOM) pTemp = gImage_temperatura_bom;
+    else if(data->temp_estado == TEMP_RUIM) pTemp = gImage_temperatura_ruim;
+    else pTemp = gImage_temperatura_padrao;
+    
+    Gui_Drawbmp16(10, 24, pTemp); // Desenha o ícone X, Y
+    sprintf(buffer, "%.1f C   ", data->temperatura_val); // Espaços limpam rastros da tela
+    Show_Str(130, 32, C_WHITE, C_BLACK, (u8*)buffer, 16, 0);
+
+    // Lógica da Umidade
+    Gui_Drawbmp16(10, 58, gImage_umidade);
+    sprintf(buffer, "%.1f %%   ", data->umidade_val);
+    Show_Str(130, 66, C_WHITE, C_BLACK, (u8*)buffer, 16, 0);
+
+    // Lógica da Pressão
+    const unsigned char *pPres;
+    if(data->pressao_estado == PRESSAO_BOM) pPres = gImage_pressao_bom;
+    else if(data->pressao_estado == PRESSAO_RUIM) pPres = gImage_pressao_ruim;
+    else pPres = gImage_pressao_padrao;
+    
+    Gui_Drawbmp16(10, 92, pPres);
+    sprintf(buffer, "%d hPa   ", data->pressao_val);
+    Show_Str(130, 100, C_WHITE, C_BLACK, (u8*)buffer, 16, 0);
+
+    // ---------------------------------------------------------
+    // 2. SYSTEM & EVENTS
+    // ---------------------------------------------------------
+    // Porta (104 é o centro horizontal da tela considerando o tamanho do ícone)
+    if(data->porta_estado == PORTA_TRANCADA) {
+        Gui_Drawbmp16(104, 154, gImage_door_closed);
+        Gui_StrCenter(0, 192, C_YELLOW, C_BLACK, (u8*)"LOCKED    ", 16, 0);
+    } else {
+        Gui_Drawbmp16(104, 154, gImage_door_open);
+        Gui_StrCenter(0, 192, C_GREEN, C_BLACK,  (u8*)"UNLOCKED  ", 16, 0);
+    }
+    
+    sprintf(buffer, "Room: %-10s", data->room_number);
+    Gui_StrCenter(0, 212, C_WHITE, C_BLACK, (u8*)buffer, 16, 0);
+    
+    sprintf(buffer, "ID: %-14s", data->nfc_id);
+    Gui_StrCenter(0, 228, C_WHITE, C_BLACK, (u8*)buffer, 16, 0);
+
+    // ---------------------------------------------------------
+    // 3. CONNECTIVITY LOG
+    // ---------------------------------------------------------
+    // Lógica do NFC
+    if(data->nfc_estado == NFC_CONECTADO) {
+        Gui_Drawbmp16(10, 266, gImage_nfc_conectado);
+        Show_Str(90, 274, C_GREEN, C_BLACK, (u8*)"READING... ", 16, 0);
+    } else {
+        Gui_Drawbmp16(10, 266, gImage_nfc_desconectado);
+        Show_Str(90, 274, C_RED, C_BLACK,   (u8*)"WAITING    ", 16, 0);
+    }
+
+    // Lógica do Rádio CC1101
+    const unsigned char *pCC;
+    if(data->cc1101_estado == CC1101_BOM) {
+        pCC = gImage_cc1101_bom;
+        Show_Str(114, 302, C_GREEN, C_BLACK, (u8*)"CONNECTED  ", 16, 0);
+    }
+    else if(data->cc1101_estado == CC1101_RUIM) {
+        pCC = gImage_cc1101_ruim;
+        Show_Str(114, 302, C_RED, C_BLACK,   (u8*)"OFFLINE    ", 16, 0);
+    }
+    else {
+        pCC = gImage_cc1101_padrao;
+        Show_Str(114, 302, C_YELLOW, C_BLACK, (u8*)"STANDBY    ", 16, 0);
+    }
+    Gui_Drawbmp16(10, 294, pCC);
+}

@@ -25,6 +25,7 @@
 #include "GUI.h"
 #include "icons.h"  // Nosso arquivo com as imagens convertidas
 #include <stdio.h>  // Para formatar os textos (sprintf)
+#include <string.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -46,7 +47,7 @@
 SPI_HandleTypeDef hspi1;
 
 /* USER CODE BEGIN PV */
-
+DashboardData_t meu_dashboard;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -163,27 +164,29 @@ int main(void)
   MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
 
-  // Ligar o backlight do Display
+  // Ligar o backlight do Display e Inicializar Hardware
   HAL_GPIO_WritePin(IHM_LED_GPIO_Port, IHM_LED_Pin, GPIO_PIN_SET);
   HAL_GPIO_WritePin(GPIOA, IHM_RESET_Pin, GPIO_PIN_SET);
   HAL_Delay(50);
-
-  // Inicializa a tela com fundo preto
   LCD_Init();
-  LCD_Clear(BLACK);
 
-  // Interface Estática (Desenhada apenas 1 vez)
-  Show_Str(40, 10, YELLOW, BLACK, (uint8_t *)"DASHBOARD CENTRAL", 16, 0);
-  LCD_DrawLine(0, 30, 240, 30); // Linha divisória
+  // Valores iniciais do sistema
+  meu_dashboard.temperatura_val = 24.5;
+  meu_dashboard.temp_estado = TEMP_PADRAO;
+  meu_dashboard.umidade_val = 60.0;
+  meu_dashboard.pressao_val = 1013;
+  meu_dashboard.pressao_estado = PRESSAO_PADRAO;
+  
+  meu_dashboard.porta_estado = PORTA_TRANCADA;
+  meu_dashboard.nfc_estado = NFC_DESCONECTADO;
+  meu_dashboard.cc1101_estado = CC1101_BOM; // Simulando online
+  
+  sprintf(meu_dashboard.room_number, "---");
+  sprintf(meu_dashboard.nfc_id, "---");
 
-  // Variáveis simulando as leituras dos sensores
-  float temp_val = 22.0;
-  int umid_val = 60;
-  int pressao_val = 1013;
-  uint8_t nfc_detectado = 0;
-  uint8_t qualidade_sinal_radio = 0; // 0=Padrão, 1=Bom, 2=Ruim
+  // Desenha a estrutura fixa da tela (uma vez só)
+  GUI_InitDashboard();
 
-  char buffer_texto[40]; // Buffer para formatar os textos
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -195,87 +198,47 @@ int main(void)
     /* USER CODE BEGIN 3 */
 
     // =========================================================
-    // ETAPA A: LEITURA DOS SENSORES (Simulação)
+    // ETAPA A: SIMULAÇÃO DOS SENSORES (Para teste)
     // =========================================================
-    temp_val += 1.5; // Sobe a temperatura para testarmos
-    if(temp_val > 35.0) temp_val = 15.0; // Reseta
+    meu_dashboard.temperatura_val += 1.5; 
+    if(meu_dashboard.temperatura_val > 35.0) meu_dashboard.temperatura_val = 15.0; 
 
-    pressao_val -= 5;
-    if(pressao_val < 980) pressao_val = 1030;
-
-    nfc_detectado = !nfc_detectado; // Fica alternando 0 e 1
-
-    qualidade_sinal_radio++; // Alterna 0, 1, 2...
-    if(qualidade_sinal_radio > 2) qualidade_sinal_radio = 0;
-
-    // =========================================================
-    // ETAPA B: INTELIGÊNCIA DA MÁQUINA DE ESTADOS
-    // =========================================================
-
-    // Lógica da Temperatura (Exemplo: 20 a 28 é BOM. Abaixo de 20 é PADRÃO. Acima de 28 é RUIM)
-    if(temp_val >= 20.0 && temp_val <= 28.0) {
-        icon_temp.current_state = ESTADO_BOM;
-    } else if(temp_val > 28.0) {
-        icon_temp.current_state = ESTADO_RUIM;
+    // Lógica da Temperatura
+    if(meu_dashboard.temperatura_val >= 20.0 && meu_dashboard.temperatura_val <= 28.0) {
+        meu_dashboard.temp_estado = TEMP_BOM;
+    } else if(meu_dashboard.temperatura_val > 28.0) {
+        meu_dashboard.temp_estado = TEMP_RUIM;
     } else {
-        icon_temp.current_state = ESTADO_PADRAO;
+        meu_dashboard.temp_estado = TEMP_PADRAO;
     }
 
-    // Lógica da Pressão (Exemplo)
-    if(pressao_val < 1000) {
-        icon_press.current_state = ESTADO_RUIM;
-    } else if(pressao_val > 1020) {
-        icon_press.current_state = ESTADO_PADRAO;
+    // Alterna a Porta a cada ciclo (Simulando aproximação do Cartão)
+    static int toggle = 0;
+    toggle = !toggle;
+    
+    if(toggle) {
+        meu_dashboard.porta_estado = PORTA_ABERTA;
+        meu_dashboard.nfc_estado = NFC_CONECTADO;
+        sprintf(meu_dashboard.room_number, "101");
+        sprintf(meu_dashboard.nfc_id, "AB-12-CD-34");
     } else {
-        icon_press.current_state = ESTADO_BOM;
+        meu_dashboard.porta_estado = PORTA_TRANCADA;
+        meu_dashboard.nfc_estado = NFC_DESCONECTADO;
+        sprintf(meu_dashboard.room_number, "---");
+        sprintf(meu_dashboard.nfc_id, "---");
     }
-
-    // Conexões
-    icon_nfc.current_state = nfc_detectado ? CONECTADO : DESCONECTADO;
-    icon_radio.current_state = qualidade_sinal_radio; // Já recebe 0, 1 ou 2
 
     // =========================================================
-    // ETAPA C: RENDERIZAÇÃO NA TELA
+    // ETAPA B: RENDERIZAÇÃO NA TELA
     // =========================================================
+    
+    // Manda o Dashboard atualizar apenas o que mudou na struct
+    GUI_UpdateDashboard(&meu_dashboard);
 
-    // 1. Atualiza Ícones (só redesenha se o estado mudar)
-    UI_Render_Icon(&icon_temp);
-    UI_Render_Icon(&icon_umid);
-    UI_Render_Icon(&icon_press);
-    UI_Render_Icon(&icon_nfc);
-    UI_Render_Icon(&icon_radio);
-
-    // 2. Atualiza Textos (O espaço "   " no final apaga o rastro do número anterior)
-    sprintf(buffer_texto, "Temp: %4.1f C   ", temp_val);
-    Show_Str(50, 58, WHITE, BLACK, (uint8_t *)buffer_texto, 16, 0);
-
-    sprintf(buffer_texto, "Umid: %d %%     ", umid_val);
-    Show_Str(50, 98, WHITE, BLACK, (uint8_t *)buffer_texto, 16, 0);
-
-    sprintf(buffer_texto, "Press: %d hPa  ", pressao_val);
-    Show_Str(50, 138, WHITE, BLACK, (uint8_t *)buffer_texto, 16, 0);
-
-    // 3. Atualiza os Textos de Conexão com Cores
-    Show_Str(50, 188, WHITE, BLACK, (uint8_t *)"NFC: ", 16, 0);
-    if(icon_nfc.current_state == CONECTADO) {
-        Show_Str(90, 188, GREEN, BLACK, (uint8_t *)"CONECTADO  ", 16, 0);
-    } else {
-        Show_Str(90, 188, RED,   BLACK, (uint8_t *)"AGUARDANDO ", 16, 0);
-    }
-
-    Show_Str(50, 238, WHITE, BLACK, (uint8_t *)"CC1101: ", 16, 0);
-    if(icon_radio.current_state == ESTADO_BOM) {
-        Show_Str(110, 238, GREEN, BLACK, (uint8_t *)"SINAL BOM  ", 16, 0);
-    } else if(icon_radio.current_state == ESTADO_RUIM) {
-        Show_Str(110, 238, RED,   BLACK, (uint8_t *)"SINAL RUIM ", 16, 0);
-    } else {
-        Show_Str(110, 238, YELLOW,BLACK, (uint8_t *)"PADRAO     ", 16, 0);
-    }
-
-    // Pisca LED da placa
+    // Pisca LED da placa (opcional)
     HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
 
-    // Delay de 1 segundo para conseguirmos ver as coisas mudando na tela
+    // Delay de 1 segundo para conseguirmos ver a animação na tela
     HAL_Delay(1000);
 
   }
